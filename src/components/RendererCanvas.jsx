@@ -20,7 +20,7 @@ export default function RendererCanvas() {
 
       {sceneContent.map((mesh) => {
         const ScenePiece = mesh.component
-        return <ScenePiece key={mesh.name} />
+        return <ScenePiece key={mesh.uuid} />
       })}
     </Canvas>
   )
