@@ -1,5 +1,9 @@
-function App() {
-  return <>This is where it starts</>
-}
+import Dashboard from './components/Dashboard.jsx'
 
-export default App
+export default function App() {
+  return (
+    <>
+      <Dashboard />
+    </>
+  )
+}
