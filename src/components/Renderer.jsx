@@ -1,3 +1,11 @@
+import RendererOverlay from './RendererOverlay.jsx'
+import RendererCanvas from './RendererCanvas.jsx'
+
 export default function Renderer() {
-  return <div className='bg-gray-500 w-3/4'></div>
+  return (
+    <div className='w-3/4'>
+      <RendererOverlay />
+      <RendererCanvas />
+    </div>
+  )
 }
