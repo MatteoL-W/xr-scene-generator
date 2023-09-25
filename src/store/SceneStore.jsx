@@ -16,6 +16,14 @@ const useSceneStore = createWithEqualityFn((set) => ({
       ),
     }))
   },
+
+  focusedScenePiece: null,
+  setFocusedPiece: (piece) => {
+    set(() => ({ focusedScenePiece: piece }))
+  },
+  unsetFocusedPiece: () => {
+    set(() => ({ focusedScenePiece: null }))
+  },
 }))
 
 export default useSceneStore

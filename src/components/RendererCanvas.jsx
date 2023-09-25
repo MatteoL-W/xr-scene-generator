@@ -1,5 +1,6 @@
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+
 import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
@@ -20,7 +21,7 @@ export default function RendererCanvas() {
 
       {sceneContent.map((mesh) => {
         const ScenePiece = mesh.component
-        return <ScenePiece key={mesh.uuid} />
+        return <ScenePiece key={mesh.uuid} {...mesh.args} />
       })}
     </Canvas>
   )
