@@ -3,7 +3,7 @@ import { DragControls } from 'three/addons/controls/DragControls.js'
 import { useThree } from '@react-three/fiber'
 import PropTypes from 'prop-types'
 
-export default function Draggable({ children, orbitControls }) {
+export default function Draggable({ children, orbitControls, meshArgs }) {
   const ref = useRef(null)
   const { camera, gl, scene } = useThree()
 
@@ -16,12 +16,13 @@ export default function Draggable({ children, orbitControls }) {
     controls.transformGroup = true
 
     controls.addEventListener('dragstart', () => {
-      orbitControls.current.enabled = false
+      orbitControls.enabled = false
     })
-    controls.addEventListener('dragend', () => {
-      orbitControls.current.enabled = true
+    controls.addEventListener('dragend', (event) => {
+      orbitControls.enabled = true
+      meshArgs.position = event.object.position
     })
-  }, [camera, gl.domElement, scene, orbitControls])
+  }, [camera, gl.domElement, scene, orbitControls, meshArgs])
 
   return <group ref={ref}>{children}</group>
 }
@@ -29,4 +30,5 @@ export default function Draggable({ children, orbitControls }) {
 Draggable.propTypes = {
   children: PropTypes.node.isRequired,
   orbitControls: PropTypes.object.isRequired,
+  meshArgs: PropTypes.object.isRequired,
 }

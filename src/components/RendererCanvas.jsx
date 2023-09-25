@@ -13,6 +13,7 @@ export default function RendererCanvas() {
   return (
     <Canvas>
       <OrbitControls enableDamping={false} ref={orbitControls} />
+      <axesHelper scale={3} />
 
       <ambientLight intensity={0.1} />
       <directionalLight color='red' position={[0, 0, 5]} />
@@ -20,7 +21,11 @@ export default function RendererCanvas() {
       {sceneContent.map((mesh) => {
         const ScenePiece = mesh.component
         return (
-          <Draggable key={mesh.uuid} orbitControls={orbitControls}>
+          <Draggable
+            key={mesh.uuid}
+            orbitControls={orbitControls.current}
+            meshArgs={mesh.args}
+          >
             <ScenePiece {...mesh.args} />
           </Draggable>
         )
