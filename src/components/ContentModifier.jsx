@@ -2,10 +2,8 @@ import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function ContentModifier() {
-  const { focusedScenePiece } = useSceneStore(
-    (state) => ({
-      focusedScenePiece: state.focusedScenePiece,
-    }),
+  const [focusedScenePiece] = useSceneStore(
+    (state) => [state.focusedScenePiece],
     shallow,
   )
 

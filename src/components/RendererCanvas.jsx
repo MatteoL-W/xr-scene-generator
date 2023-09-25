@@ -5,12 +5,7 @@ import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function RendererCanvas() {
-  const { sceneContent } = useSceneStore(
-    (state) => ({
-      sceneContent: state.sceneContent,
-    }),
-    shallow,
-  )
+  const [sceneContent] = useSceneStore((state) => [state.sceneContent], shallow)
 
   return (
     <Canvas>

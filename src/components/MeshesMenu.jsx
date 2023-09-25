@@ -3,10 +3,8 @@ import { shallow } from 'zustand/shallow'
 import useSceneStore from '../store/SceneStore.jsx'
 
 export default function MeshesMenu() {
-  const { addContentToScene } = useSceneStore(
-    (state) => ({
-      addContentToScene: state.addContentToScene,
-    }),
+  const [addContentToScene] = useSceneStore(
+    (state) => [state.addContentToScene],
     shallow,
   )
 

@@ -2,15 +2,19 @@ import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function ContentList() {
-  const { sceneContent, setFocusedPiece, removeContentFromScene } =
-    useSceneStore(
-      (state) => ({
-        sceneContent: state.sceneContent,
-        setFocusedPiece: state.setFocusedPiece,
-        removeContentFromScene: state.removeContentFromScene,
-      }),
-      shallow,
-    )
+  const [sceneContent, setFocusedPiece, removeContentFromScene] = useSceneStore(
+    (state) => [
+      state.sceneContent,
+      state.setFocusedPiece,
+      state.removeContentFromScene,
+    ],
+    shallow,
+  )
+
+  if (sceneContent.length === 0) {
+    return <p>Try adding components with A</p>
+  }
+
   return (
     <div>
       All your meshes :
