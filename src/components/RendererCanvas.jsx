@@ -3,8 +3,8 @@ import { Canvas } from '@react-three/fiber'
 
 import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
-import Draggable from './Draggable.jsx'
 import { useRef } from 'react'
+import Draggable from './Draggable.jsx'
 
 export default function RendererCanvas() {
   const [sceneContent] = useSceneStore((state) => [state.sceneContent], shallow)

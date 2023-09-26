@@ -2,14 +2,15 @@ import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function ContentList() {
-  const [sceneContent, setFocusedPiece, removeContentFromScene] = useSceneStore(
-    (state) => [
-      state.sceneContent,
-      state.setFocusedPiece,
-      state.removeContentFromScene,
-    ],
-    shallow,
-  )
+  const [sceneContent, toggleFocusedPiece, removeContentFromScene] =
+    useSceneStore(
+      (state) => [
+        state.sceneContent,
+        state.toggleFocusedPiece,
+        state.removeContentFromScene,
+      ],
+      shallow,
+    )
 
   if (sceneContent.length === 0) {
     return <p>Try adding components with A</p>
@@ -22,7 +23,7 @@ export default function ContentList() {
         {sceneContent.map((scenePiece) => {
           return (
             <li key={scenePiece.uuid}>
-              <span onClick={() => setFocusedPiece(scenePiece)}>
+              <span onClick={() => toggleFocusedPiece(scenePiece)}>
                 {scenePiece.name}
               </span>{' '}
               -
