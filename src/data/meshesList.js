@@ -6,8 +6,7 @@ const meshesList = [
     component: Box,
     args: {
       position: [0, 0, 0],
-      scaleX: 1,
-      scaleY: 1,
+      scale: [1, 1, 1.5],
       'material-color': '#000000',
     },
   },
@@ -16,7 +15,7 @@ const meshesList = [
     component: Sphere,
     args: {
       position: [0, 0, 0],
-      scale: 1,
+      scale: [1, 1, 1],
       'material-color': '#000000',
     },
   },
