@@ -4,32 +4,27 @@ import { Canvas } from '@react-three/fiber'
 import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 import { useRef } from 'react'
-import Draggable from './Draggable.jsx'
+import SceneObject from './SceneObject.jsx'
 
 export default function RendererCanvas() {
   const [sceneContent] = useSceneStore((state) => [state.sceneContent], shallow)
-  const orbitControls = useRef()
+  const orbitControlsRef = useRef()
 
   return (
     <Canvas>
-      <OrbitControls enableDamping={false} ref={orbitControls} />
+      <OrbitControls enableDamping={false} ref={orbitControlsRef} />
       <axesHelper scale={3} />
 
       <ambientLight intensity={0.1} />
       <directionalLight color='red' position={[0, 0, 5]} />
 
-      {sceneContent.map((mesh) => {
-        const ScenePiece = mesh.component
-        return (
-          <Draggable
-            key={mesh.uuid}
-            orbitControls={orbitControls.current}
-            meshArgs={mesh.args}
-          >
-            <ScenePiece {...mesh.args} />
-          </Draggable>
-        )
-      })}
+      {sceneContent.map((mesh) => (
+        <SceneObject
+          key={mesh.uuid}
+          orbitControls={orbitControlsRef?.current}
+          mesh={mesh}
+        />
+      ))}
     </Canvas>
   )
 }

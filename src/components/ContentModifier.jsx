@@ -1,19 +1,13 @@
-import useSceneStore from '../store/SceneStore.jsx'
-import { shallow } from 'zustand/shallow'
+import PropTypes from 'prop-types'
 
-export default function ContentModifier() {
-  const [focusedScenePiece] = useSceneStore(
-    (state) => [state.focusedScenePiece],
-    shallow,
-  )
-
-  if (!focusedScenePiece) return <></>
-
+export default function ContentModifier({ scenePiece }) {
   return (
     <div className='pt-2'>
-      Focused scene piece:{' '}
-      <span className='font-bold'>{focusedScenePiece.name}</span>
-      <span>{focusedScenePiece.args.position}</span>
+      Focused scene piece: <span>{scenePiece.args.position}</span>
     </div>
   )
+}
+
+ContentModifier.propTypes = {
+  scenePiece: PropTypes.object.isRequired,
 }

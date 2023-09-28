@@ -2,10 +2,16 @@ import { useEffect, useRef } from 'react'
 import { DragControls } from 'three/addons/controls/DragControls.js'
 import { useThree } from '@react-three/fiber'
 import PropTypes from 'prop-types'
+import useSceneStore from '../store/SceneStore.jsx'
+import { shallow } from 'zustand/shallow'
 
-export default function Draggable({ children, orbitControls, meshArgs }) {
+export default function Draggable({ children, orbitControls, mesh }) {
+  const [updateArgsContentFromScene] = useSceneStore(
+    (state) => [state.updateArgsContentFromScene],
+    shallow,
+  )
+  const { camera, gl } = useThree()
   const ref = useRef(null)
-  const { camera, gl, scene } = useThree()
 
   useEffect(() => {
     const controls = new DragControls(
@@ -13,16 +19,16 @@ export default function Draggable({ children, orbitControls, meshArgs }) {
       camera,
       gl.domElement,
     )
-    controls.transformGroup = true
 
+    controls.transformGroup = true
     controls.addEventListener('dragstart', () => {
       orbitControls.enabled = false
     })
     controls.addEventListener('dragend', (event) => {
       orbitControls.enabled = true
-      meshArgs.position = event.object.position
+      updateArgsContentFromScene(mesh, { position: [...event.object.position] })
     })
-  }, [camera, gl.domElement, scene, orbitControls, meshArgs])
+  }, [camera, gl.domElement, mesh, orbitControls, updateArgsContentFromScene])
 
   return <group ref={ref}>{children}</group>
 }
@@ -30,5 +36,5 @@ export default function Draggable({ children, orbitControls, meshArgs }) {
 Draggable.propTypes = {
   children: PropTypes.node.isRequired,
   orbitControls: PropTypes.object.isRequired,
-  meshArgs: PropTypes.object.isRequired,
+  mesh: PropTypes.object.isRequired,
 }

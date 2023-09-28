@@ -1,18 +1,13 @@
 import { v4 as uuidv4 } from 'uuid'
 import { createWithEqualityFn } from 'zustand/traditional'
-import { Vector3 } from 'three'
 
 const useSceneStore = createWithEqualityFn((set) => ({
   sceneContent: [],
   addContentToScene: (newContent) => {
     const uuid = uuidv4()
-    const position = new Vector3(0, 0, 0)
 
     set((state) => ({
-      sceneContent: [
-        ...state.sceneContent,
-        { ...newContent, uuid, args: { position } },
-      ],
+      sceneContent: [...state.sceneContent, { ...newContent, uuid }],
     }))
   },
   removeContentFromScene: (contentToRemove) => {
@@ -22,11 +17,11 @@ const useSceneStore = createWithEqualityFn((set) => ({
       ),
     }))
   },
-
-  focusedScenePiece: null,
-  toggleFocusedPiece: (piece) => {
+  updateArgsContentFromScene: (contentToUpdate, newArgs) => {
     set((state) => ({
-      focusedScenePiece: piece !== state.focusedScenePiece ? piece : null,
+      sceneContent: state.sceneContent.map((content) =>
+        content === contentToUpdate ? { ...content, args: newArgs } : content,
+      ),
     }))
   },
 }))
