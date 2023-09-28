@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { isHexColor, isVec } from '../utils/typesTest.jsx'
 import { hexColorValidator } from '../utils/typesValidator.jsx'
+import { argsInfo } from '../data/argsInfo.js'
 import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
@@ -79,10 +80,13 @@ function VectorInput({ label, value, scenePiece }) {
           <input
             type='number'
             value={component}
+            onChange={onChange}
+            data-input-id={key}
             key={`${label}_${key}`}
             name={`${label}_${key}`}
-            data-input-id={key}
-            onChange={onChange}
+            min={argsInfo?.[label]?.min ?? undefined}
+            max={argsInfo?.[label]?.max ?? undefined}
+            step={argsInfo?.[label]?.step ?? undefined}
           />
         )
       })}
@@ -112,7 +116,15 @@ function DefaultInput({ label, value, scenePiece }) {
   return (
     <>
       <label htmlFor={label}>{label}</label>
-      <input type='number' id={label} value={value} onChange={onChange} />
+      <input
+        type='number'
+        id={label}
+        value={value}
+        onChange={onChange}
+        min={argsInfo?.[label]?.min ?? undefined}
+        max={argsInfo?.[label]?.max ?? undefined}
+        step={argsInfo?.[label]?.step ?? undefined}
+      />
     </>
   )
 }
