@@ -7,6 +7,7 @@ const meshesList = [
     args: {
       position: [0, 0, 0],
       scale: [1, 1, 1.5],
+      rotation: [0, 0, 3.14],
       'material-color': '#000000',
     },
   },

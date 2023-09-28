@@ -19,6 +19,7 @@ export default function GenerateAutomaticInput({ label, value, scenePiece }) {
 
   if (isHexColor(value)) return <ColorPickerInput {...args} />
   else if (isVec(value)) return <VectorInput {...args} />
+  else return <DefaultInput {...args} />
 }
 
 ColorPickerInput.propTypes = {
@@ -43,7 +44,7 @@ function ColorPickerInput({ label, value, scenePiece }) {
   return (
     <>
       <label htmlFor={label}>{label}</label>
-      <input type='color' name={label} value={value} onChange={onChange} />
+      <input type='color' id={label} value={value} onChange={onChange} />
     </>
   )
 }
@@ -72,18 +73,46 @@ function VectorInput({ label, value, scenePiece }) {
 
   return (
     <>
-      <label htmlFor={label}>{label}</label>
+      <label>{label}</label>
       {value.map((component, key) => {
         return (
           <input
             type='number'
             value={component}
             key={`${label}_${key}`}
+            name={`${label}_${key}`}
             data-input-id={key}
             onChange={onChange}
           />
         )
       })}
+    </>
+  )
+}
+
+DefaultInput.propTypes = {
+  label: PropTypes.string.isRequired,
+  value: PropTypes.any,
+  scenePiece: PropTypes.object.isRequired,
+}
+
+function DefaultInput({ label, value, scenePiece }) {
+  const [updateArgsContentFromScene] = useSceneStore(
+    (state) => [state.updateArgsContentFromScene],
+    shallow,
+  )
+
+  function onChange(event) {
+    // Should we add a debouncer ?
+    updateArgsContentFromScene(scenePiece, {
+      [label]: event.target.value,
+    })
+  }
+
+  return (
+    <>
+      <label htmlFor={label}>{label}</label>
+      <input type='number' id={label} value={value} onChange={onChange} />
     </>
   )
 }
