@@ -1,11 +1,13 @@
 import { v4 as uuidv4 } from 'uuid'
 import { createWithEqualityFn } from 'zustand/traditional'
 
-const useSceneStore = createWithEqualityFn((set) => ({
+const initialState = {
   sceneContent: [],
+}
+
+const sceneContentActions = (set) => ({
   addContentToScene: (newContent) => {
     const uuid = uuidv4()
-
     set((state) => ({
       sceneContent: [...state.sceneContent, { ...newContent, uuid }],
     }))
@@ -20,10 +22,17 @@ const useSceneStore = createWithEqualityFn((set) => ({
   updateArgsContentFromScene: (contentToUpdate, newArgs) => {
     set((state) => ({
       sceneContent: state.sceneContent.map((content) =>
-        content === contentToUpdate ? { ...content, args: newArgs } : content,
+        content === contentToUpdate
+          ? { ...content, args: { ...content.args, ...newArgs } }
+          : content,
       ),
     }))
   },
+})
+
+const useSceneStore = createWithEqualityFn((set) => ({
+  ...initialState,
+  ...sceneContentActions(set),
 }))
 
 export default useSceneStore

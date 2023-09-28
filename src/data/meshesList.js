@@ -8,7 +8,7 @@ const meshesList = [
       position: [0, 0, 0],
       scaleX: 1,
       scaleY: 1,
-      'material-color': 'black',
+      'material-color': '#000000',
     },
   },
   {
