@@ -1,21 +1,27 @@
-import { v4 as uuidv4 } from 'uuid'
 import { createWithEqualityFn } from 'zustand/traditional'
 
 const initialState = {
   sceneContent: [],
+  selectedContent: '',
 }
 
-const sceneContentActions = (set) => ({
+const manageSceneContent = (set) => ({
   addContentToScene: (newContent) => {
-    const uuid = uuidv4()
     set((state) => ({
-      sceneContent: [...state.sceneContent, { ...newContent, uuid }],
+      sceneContent: [...state.sceneContent, { ...newContent }],
     }))
   },
   removeContentFromScene: (contentToRemove) => {
     set((state) => ({
       sceneContent: state.sceneContent.filter(
         (content) => content !== contentToRemove,
+      ),
+    }))
+  },
+  updateUuidContentOfPiece: (contentToUpdate, newUuid) => {
+    set((state) => ({
+      sceneContent: state.sceneContent.map((content) =>
+        content === contentToUpdate ? { ...content, uuid: newUuid } : content,
       ),
     }))
   },
@@ -30,9 +36,23 @@ const sceneContentActions = (set) => ({
   },
 })
 
+const manageSelectedContent = (set) => ({
+  modifySelectedContent: (newContentUUID) => {
+    set(() => ({
+      selectedContent: newContentUUID,
+    }))
+  },
+  resetSelectedContent: () => {
+    set(() => ({
+      selectedContent: '',
+    }))
+  },
+})
+
 const useSceneStore = createWithEqualityFn((set) => ({
   ...initialState,
-  ...sceneContentActions(set),
+  ...manageSceneContent(set),
+  ...manageSelectedContent(set),
 }))
 
 export default useSceneStore

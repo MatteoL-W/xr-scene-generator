@@ -1,9 +1,11 @@
 import ContentList from './ContentList.jsx'
+import ContentModifier from './ContentModifier.jsx'
 
 export default function ModifiersBar() {
   return (
     <div className='w-1/4 bg-gray-500'>
       <ContentList />
+      <ContentModifier />
     </div>
   )
 }

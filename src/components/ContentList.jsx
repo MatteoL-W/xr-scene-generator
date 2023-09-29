@@ -1,25 +1,22 @@
 import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
-import ContentModifier from './ContentModifier.jsx'
-import { useState } from 'react'
 
 export default function ContentList() {
   const [sceneContent, removeContentFromScene] = useSceneStore(
     (state) => [state.sceneContent, state.removeContentFromScene],
     shallow,
   )
-  const [openItems, setOpenItems] = useState([])
+  const [selectedContent, modifySelectedContent] = useSceneStore(
+    (state) => [state.selectedContent, state.modifySelectedContent],
+    shallow,
+  )
 
   if (sceneContent.length === 0) {
     return <p>Try adding components with A</p>
   }
 
   function toggleItem(uuid) {
-    setOpenItems(
-      openItems.includes(uuid)
-        ? openItems.filter((item) => item !== uuid)
-        : [...openItems, uuid],
-    )
+    modifySelectedContent(selectedContent === uuid ? '' : uuid)
   }
 
   return (
@@ -27,7 +24,7 @@ export default function ContentList() {
       All your meshes :
       <ul>
         {sceneContent.map((scenePiece) => {
-          const isOpen = openItems.includes(scenePiece.uuid)
+          if (!scenePiece.uuid) return
           return (
             <li key={scenePiece.uuid}>
               <span onClick={() => toggleItem(scenePiece.uuid)}>
@@ -38,7 +35,6 @@ export default function ContentList() {
                 {' '}
                 Remove
               </span>
-              {isOpen && <ContentModifier scenePiece={scenePiece} />}
             </li>
           )
         })}

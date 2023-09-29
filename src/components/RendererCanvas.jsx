@@ -18,9 +18,9 @@ export default function RendererCanvas() {
       <ambientLight intensity={0.1} />
       <directionalLight color='red' position={[0, 0, 5]} />
 
-      {sceneContent.map((mesh) => (
+      {sceneContent.map((mesh, index) => (
         <SceneObject
-          key={mesh.uuid}
+          key={mesh.name + index}
           orbitControls={orbitControlsRef?.current}
           mesh={mesh}
         />
