@@ -7,8 +7,8 @@ import { shallow } from 'zustand/shallow'
 export default function SceneObject({ mesh, orbitControls }) {
   const Component = mesh.component
   const componentRef = useRef(null)
-  const [updateUuidContentOfPiece] = useSceneStore(
-    (state) => [state.updateUuidContentOfPiece],
+  const [updateUuidContentOfPiece, modifySelectedContent] = useSceneStore(
+    (state) => [state.updateUuidContentOfPiece, state.modifySelectedContent],
     shallow,
   )
 
@@ -18,7 +18,13 @@ export default function SceneObject({ mesh, orbitControls }) {
 
   return (
     <Draggable orbitControls={orbitControls} mesh={mesh}>
-      <Component ref={componentRef} {...mesh.args} />
+      <Component
+        ref={componentRef}
+        {...mesh.args}
+        onClick={(e) => {
+          modifySelectedContent(e.object.uuid)
+        }}
+      />
     </Draggable>
   )
 }
