@@ -1,33 +1,33 @@
 import { createWithEqualityFn } from 'zustand/traditional'
 
 const initialState = {
-  sceneContent: [],
-  selectedContent: '',
+  sceneMeshes: [],
+  focusedMeshUUID: '',
 }
 
-const manageSceneContent = (set) => ({
-  addContentToScene: (newContent) => {
+const manageSceneMeshes = (set) => ({
+  addMeshToScene: (newContent) => {
     set((state) => ({
-      sceneContent: [...state.sceneContent, { ...newContent }],
+      sceneMeshes: [...state.sceneMeshes, { ...newContent }],
     }))
   },
-  removeContentFromScene: (contentToRemove) => {
+  removeMeshFromScene: (contentToRemove) => {
     set((state) => ({
-      sceneContent: state.sceneContent.filter(
+      sceneMeshes: state.sceneMeshes.filter(
         (content) => content !== contentToRemove,
       ),
     }))
   },
-  updateUuidContentOfPiece: (contentToUpdate, newUuid) => {
+  modifyMeshUuid: (contentToUpdate, newUuid) => {
     set((state) => ({
-      sceneContent: state.sceneContent.map((content) =>
+      sceneMeshes: state.sceneMeshes.map((content) =>
         content === contentToUpdate ? { ...content, uuid: newUuid } : content,
       ),
     }))
   },
-  updateArgsContentFromScene: (contentToUpdate, newArgs) => {
+  modifyMeshArguments: (contentToUpdate, newArgs) => {
     set((state) => ({
-      sceneContent: state.sceneContent.map((content) =>
+      sceneMeshes: state.sceneMeshes.map((content) =>
         content === contentToUpdate
           ? { ...content, args: { ...content.args, ...newArgs } }
           : content,
@@ -36,23 +36,23 @@ const manageSceneContent = (set) => ({
   },
 })
 
-const manageSelectedContent = (set) => ({
-  modifySelectedContent: (newContentUUID) => {
+const manageFocusedMesh = (set) => ({
+  changeFocusedMesh: (newContentUUID) => {
     set(() => ({
-      selectedContent: newContentUUID,
+      focusedMeshUUID: newContentUUID,
     }))
   },
-  resetSelectedContent: () => {
+  resetFocusedMesh: () => {
     set(() => ({
-      selectedContent: '',
+      focusedMeshUUID: '',
     }))
   },
 })
 
 const useSceneStore = createWithEqualityFn((set) => ({
   ...initialState,
-  ...manageSceneContent(set),
-  ...manageSelectedContent(set),
+  ...manageSceneMeshes(set),
+  ...manageFocusedMesh(set),
 }))
 
 export default useSceneStore

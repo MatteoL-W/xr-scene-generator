@@ -2,28 +2,35 @@ import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function ContentList() {
-  const [sceneContent, removeContentFromScene] = useSceneStore(
-    (state) => [state.sceneContent, state.removeContentFromScene],
+  // ToDo: Faire un hook pour faciliter la récupération ?
+  const [
+    sceneMeshes,
+    removeContentFromScene,
+    focusedMeshUUID,
+    changeFocusedMesh,
+  ] = useSceneStore(
+    (state) => [
+      state.sceneMeshes,
+      state.removeMeshFromScene,
+      state.focusedMeshUUID,
+      state.changeFocusedMesh,
+    ],
     shallow,
   )
-  const [selectedContent, modifySelectedContent] = useSceneStore(
-    (state) => [state.selectedContent, state.modifySelectedContent],
-    shallow,
-  )
-
-  if (sceneContent.length === 0) {
-    return <p>Try adding components with A</p>
-  }
 
   function toggleItem(uuid) {
-    modifySelectedContent(selectedContent === uuid ? '' : uuid)
+    changeFocusedMesh(focusedMeshUUID === uuid ? '' : uuid)
+  }
+
+  if (sceneMeshes.length === 0) {
+    return <p>Try adding components with A</p>
   }
 
   return (
     <div>
       All your meshes :
       <ul>
-        {sceneContent.map((scenePiece) => {
+        {sceneMeshes.map((scenePiece) => {
           if (!scenePiece.uuid) return
           return (
             <li key={scenePiece.uuid}>

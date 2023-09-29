@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types'
 import { isHexColor, isVec } from '../utils/typesTest.jsx'
 import { hexColorValidator } from '../utils/typesValidator.jsx'
-import { argsInfo } from '../data/argsInfo.js'
+import { argumentsDefaultParameters } from '../data/argumentsDefaultParameters.js'
 import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
+// ToDo: Split this file
 GenerateAutomaticInput.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.any.isRequired,
@@ -30,14 +31,14 @@ ColorPickerInput.propTypes = {
 }
 
 function ColorPickerInput({ label, value, scenePiece }) {
-  const [updateArgsContentFromScene] = useSceneStore(
-    (state) => [state.updateArgsContentFromScene],
+  const [modifyMeshArguments] = useSceneStore(
+    (state) => [state.modifyMeshArguments],
     shallow,
   )
 
   function onChange(event) {
     // Should we add a debouncer ?
-    updateArgsContentFromScene(scenePiece, {
+    modifyMeshArguments(scenePiece, {
       [label]: event.target.value,
     })
   }
@@ -57,8 +58,8 @@ VectorInput.propTypes = {
 }
 
 function VectorInput({ label, value, scenePiece }) {
-  const [updateArgsContentFromScene] = useSceneStore(
-    (state) => [state.updateArgsContentFromScene],
+  const [modifyMeshArguments] = useSceneStore(
+    (state) => [state.modifyMeshArguments],
     shallow,
   )
 
@@ -67,7 +68,7 @@ function VectorInput({ label, value, scenePiece }) {
     const updatedValue = [...value]
     updatedValue[formId] = parseFloat(event.target.value)
 
-    updateArgsContentFromScene(scenePiece, {
+    modifyMeshArguments(scenePiece, {
       [label]: updatedValue,
     })
   }
@@ -84,9 +85,9 @@ function VectorInput({ label, value, scenePiece }) {
             data-input-id={key}
             key={`${label}_${key}`}
             name={`${label}_${key}`}
-            min={argsInfo?.[label]?.min ?? undefined}
-            max={argsInfo?.[label]?.max ?? undefined}
-            step={argsInfo?.[label]?.step ?? undefined}
+            min={argumentsDefaultParameters?.[label]?.min ?? undefined}
+            max={argumentsDefaultParameters?.[label]?.max ?? undefined}
+            step={argumentsDefaultParameters?.[label]?.step ?? undefined}
           />
         )
       })}
@@ -101,14 +102,14 @@ DefaultInput.propTypes = {
 }
 
 function DefaultInput({ label, value, scenePiece }) {
-  const [updateArgsContentFromScene] = useSceneStore(
-    (state) => [state.updateArgsContentFromScene],
+  const [modifyMeshArguments] = useSceneStore(
+    (state) => [state.modifyMeshArguments],
     shallow,
   )
 
   function onChange(event) {
     // Should we add a debouncer ?
-    updateArgsContentFromScene(scenePiece, {
+    modifyMeshArguments(scenePiece, {
       [label]: event.target.value,
     })
   }
@@ -121,9 +122,9 @@ function DefaultInput({ label, value, scenePiece }) {
         id={label}
         value={value}
         onChange={onChange}
-        min={argsInfo?.[label]?.min ?? undefined}
-        max={argsInfo?.[label]?.max ?? undefined}
-        step={argsInfo?.[label]?.step ?? undefined}
+        min={argumentsDefaultParameters?.[label]?.min ?? undefined}
+        max={argumentsDefaultParameters?.[label]?.max ?? undefined}
+        step={argumentsDefaultParameters?.[label]?.step ?? undefined}
       />
     </>
   )

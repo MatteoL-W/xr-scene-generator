@@ -3,23 +3,23 @@ import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function ContentModifier() {
-  const [sceneContent, selectedContent, resetSelectedContent] = useSceneStore(
+  const [sceneMeshes, focusedMeshUUID, resetFocusedMesh] = useSceneStore(
     (state) => [
-      state.sceneContent,
-      state.selectedContent,
-      state.resetSelectedContent,
+      state.sceneMeshes,
+      state.focusedMeshUUID,
+      state.resetFocusedMesh,
     ],
     shallow,
   )
 
-  if (!sceneContent || !selectedContent) return <></>
+  if (!sceneMeshes || !focusedMeshUUID) return <></>
 
-  const selectedPiece = sceneContent.find(
-    (element) => element.uuid === selectedContent,
+  const selectedPiece = sceneMeshes.find(
+    (mesh) => mesh.uuid === focusedMeshUUID,
   )
 
   if (!selectedPiece) {
-    resetSelectedContent()
+    resetFocusedMesh()
     return <></>
   }
 
