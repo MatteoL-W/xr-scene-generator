@@ -3,6 +3,7 @@ import { createWithEqualityFn } from 'zustand/traditional'
 const initialState = {
   sceneMeshes: [],
   focusedMeshUUID: '',
+  orbitControlsRef: null,
 }
 
 const manageSceneMeshes = (set) => ({
@@ -49,10 +50,17 @@ const manageFocusedMesh = (set) => ({
   },
 })
 
+const manageOrbitControls = (set) => ({
+  setOrbitControls: (orbitControlsRef) => {
+    set(() => ({ orbitControlsRef }))
+  },
+})
+
 const useSceneStore = createWithEqualityFn((set) => ({
   ...initialState,
   ...manageSceneMeshes(set),
   ...manageFocusedMesh(set),
+  ...manageOrbitControls(set),
 }))
 
 export default useSceneStore

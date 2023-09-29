@@ -5,10 +5,9 @@ import PropTypes from 'prop-types'
 import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
-// ToDo: orbitControls in store
-export default function Draggable({ children, orbitControls, mesh }) {
-  const [modifyMeshArguments] = useSceneStore(
-    (state) => [state.modifyMeshArguments],
+export default function Draggable({ children, mesh }) {
+  const [modifyMeshArguments, orbitControlsRef] = useSceneStore(
+    (state) => [state.modifyMeshArguments, state.orbitControlsRef],
     shallow,
   )
   const { camera, gl } = useThree()
@@ -23,19 +22,18 @@ export default function Draggable({ children, orbitControls, mesh }) {
 
     controls.transformGroup = true
     controls.addEventListener('dragstart', () => {
-      orbitControls.enabled = false
+      orbitControlsRef.current.enabled = false
     })
     controls.addEventListener('dragend', (event) => {
-      orbitControls.enabled = true
+      orbitControlsRef.current.enabled = true
       modifyMeshArguments(mesh, { position: [...event.object.position] })
     })
-  }, [camera, gl.domElement, mesh, orbitControls, modifyMeshArguments])
+  }, [camera, gl.domElement, mesh, modifyMeshArguments, orbitControlsRef])
 
   return <group ref={groupRef}>{children}</group>
 }
 
 Draggable.propTypes = {
   children: PropTypes.node.isRequired,
-  orbitControls: PropTypes.object.isRequired,
   mesh: PropTypes.object.isRequired,
 }

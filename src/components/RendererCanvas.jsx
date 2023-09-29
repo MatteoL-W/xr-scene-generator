@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import DraggableMeshTemplate from './DraggableMeshTemplate.jsx'
@@ -7,8 +7,15 @@ import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function RendererCanvas() {
-  const [sceneMeshes] = useSceneStore((state) => [state.sceneMeshes], shallow)
+  const [sceneMeshes, setOrbitControls] = useSceneStore(
+    (state) => [state.sceneMeshes, state.setOrbitControls],
+    shallow,
+  )
   const orbitControlsRef = useRef()
+
+  useEffect(() => {
+    setOrbitControls(orbitControlsRef)
+  }, [setOrbitControls])
 
   return (
     <Canvas>
@@ -19,11 +26,7 @@ export default function RendererCanvas() {
       <directionalLight color='red' position={[0, 0, 5]} />
 
       {sceneMeshes.map((mesh, index) => (
-        <DraggableMeshTemplate
-          key={mesh.name + index}
-          orbitControls={orbitControlsRef?.current}
-          mesh={mesh}
-        />
+        <DraggableMeshTemplate key={mesh.name + index} mesh={mesh} />
       ))}
     </Canvas>
   )

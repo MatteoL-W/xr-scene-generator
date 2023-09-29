@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
-export default function DraggableMeshTemplate({ mesh, orbitControls }) {
+export default function DraggableMeshTemplate({ mesh }) {
   const [modifyMeshUuid, changeFocusedMesh] = useSceneStore(
     (state) => [state.modifyMeshUuid, state.changeFocusedMesh],
     shallow,
@@ -18,7 +18,7 @@ export default function DraggableMeshTemplate({ mesh, orbitControls }) {
   }, [meshComponentRef])
 
   return (
-    <Draggable orbitControls={orbitControls} mesh={mesh}>
+    <Draggable mesh={mesh}>
       <MeshComponent
         {...mesh.args}
         ref={meshComponentRef}
@@ -32,5 +32,4 @@ export default function DraggableMeshTemplate({ mesh, orbitControls }) {
 
 DraggableMeshTemplate.propTypes = {
   mesh: PropTypes.object.isRequired,
-  orbitControls: PropTypes.object.isRequired,
 }
