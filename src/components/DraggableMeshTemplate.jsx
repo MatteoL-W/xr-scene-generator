@@ -15,7 +15,7 @@ export default function DraggableMeshTemplate({ mesh }) {
   // Set the mesh uuid the same as R3F Object uuid (do not add more dependencies)
   useEffect(() => {
     modifyMeshUuid(mesh, meshComponentRef?.current?.uuid)
-  }, [meshComponentRef])
+  }, [])
 
   return (
     <Draggable mesh={mesh}>

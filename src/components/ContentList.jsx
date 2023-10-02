@@ -2,7 +2,6 @@ import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function ContentList() {
-  // ToDo: Faire un hook pour faciliter la récupération ?
   const [
     sceneMeshes,
     removeContentFromScene,
