@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react'
-import Draggable from './Draggable.jsx'
 import PropTypes from 'prop-types'
 import useSceneStore from '../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
-export default function DraggableMeshTemplate({ mesh }) {
+export default function MeshTemplate({ mesh }) {
   const [modifyMeshUuid, changeFocusedMesh] = useSceneStore(
     (state) => [state.modifyMeshUuid, state.changeFocusedMesh],
     shallow,
@@ -18,18 +17,16 @@ export default function DraggableMeshTemplate({ mesh }) {
   }, [])
 
   return (
-    <Draggable mesh={mesh}>
-      <MeshComponent
-        {...mesh.args}
-        ref={meshComponentRef}
-        onClick={(e) => {
-          changeFocusedMesh(e.object.uuid)
-        }}
-      />
-    </Draggable>
+    <MeshComponent
+      {...mesh.args}
+      ref={meshComponentRef}
+      onClick={(e) => {
+        changeFocusedMesh(e.object.uuid)
+      }}
+    />
   )
 }
 
-DraggableMeshTemplate.propTypes = {
+MeshTemplate.propTypes = {
   mesh: PropTypes.object.isRequired,
 }

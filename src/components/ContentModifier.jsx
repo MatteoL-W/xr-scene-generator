@@ -14,24 +14,17 @@ export default function ContentModifier() {
 
   if (!sceneMeshes || !focusedMeshUUID) return <></>
 
-  const selectedPiece = sceneMeshes.find(
-    (mesh) => mesh.uuid === focusedMeshUUID,
-  )
+  const focusedMesh = sceneMeshes.find((mesh) => mesh.uuid === focusedMeshUUID)
 
-  if (!selectedPiece) {
+  if (!focusedMesh) {
     resetFocusedMesh()
-    return <></>
+    return
   }
 
   return (
     <div className='pt-2'>
-      {Object.entries(selectedPiece.args).map(([key, value]) => (
-        <GenerateAutomaticInput
-          key={key}
-          label={key}
-          value={value}
-          scenePiece={selectedPiece}
-        />
+      {Object.entries(focusedMesh.args).map(([key, value]) => (
+        <GenerateAutomaticInput key={key} label={key} value={value} />
       ))}
     </div>
   )

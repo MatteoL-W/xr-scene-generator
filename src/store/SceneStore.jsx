@@ -7,31 +7,40 @@ const initialState = {
 }
 
 const manageSceneMeshes = (set) => ({
-  addMeshToScene: (newContent) => {
+  addMeshToScene: (newMesh) => {
     set((state) => ({
-      sceneMeshes: [...state.sceneMeshes, { ...newContent }],
+      sceneMeshes: [...state.sceneMeshes, { ...newMesh }],
     }))
   },
-  removeMeshFromScene: (contentToRemove) => {
+  removeMeshFromScene: (meshToRemove) => {
     set((state) => ({
       sceneMeshes: state.sceneMeshes.filter(
-        (content) => content !== contentToRemove,
+        (content) => content !== meshToRemove,
       ),
     }))
   },
-  modifyMeshUuid: (contentToUpdate, newUuid) => {
+  modifyMeshUuid: (meshToUpdate, newUuid) => {
     set((state) => ({
       sceneMeshes: state.sceneMeshes.map((content) =>
-        content === contentToUpdate ? { ...content, uuid: newUuid } : content,
+        content === meshToUpdate ? { ...content, uuid: newUuid } : content,
       ),
     }))
   },
-  modifyMeshArguments: (contentToUpdate, newArgs) => {
+  modifyMeshArguments: (meshUUIDToUpdate, newArgs) => {
     set((state) => ({
-      sceneMeshes: state.sceneMeshes.map((content) =>
-        content === contentToUpdate
-          ? { ...content, args: { ...content.args, ...newArgs } }
-          : content,
+      sceneMeshes: state.sceneMeshes.map((mesh) =>
+        mesh.uuid === meshUUIDToUpdate
+          ? { ...mesh, args: { ...mesh.args, ...newArgs } }
+          : mesh,
+      ),
+    }))
+  },
+  modifyFocusedMeshArguments: (newArgs) => {
+    set((state) => ({
+      sceneMeshes: state.sceneMeshes.map((mesh) =>
+        mesh.uuid === state.focusedMeshUUID
+          ? { ...mesh, args: { ...mesh.args, ...newArgs } }
+          : mesh,
       ),
     }))
   },
@@ -50,7 +59,7 @@ const manageFocusedMesh = (set) => ({
   },
 })
 
-const manageOrbitControls = (set) => ({
+const manageControls = (set) => ({
   setOrbitControls: (orbitControlsRef) => {
     set(() => ({ orbitControlsRef }))
   },
@@ -60,7 +69,7 @@ const useSceneStore = createWithEqualityFn((set) => ({
   ...initialState,
   ...manageSceneMeshes(set),
   ...manageFocusedMesh(set),
-  ...manageOrbitControls(set),
+  ...manageControls(set),
 }))
 
 export default useSceneStore
