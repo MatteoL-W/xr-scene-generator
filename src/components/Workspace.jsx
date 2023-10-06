@@ -1,17 +1,14 @@
 import RendererPreview from './RendererPreview.jsx'
-import ModifiersBar from './ModifiersBar.jsx'
 import { HotkeysProvider } from 'react-hotkeys-hook'
+import Header from './Header.jsx'
 
 export default function Workspace() {
   return (
-    <div className='flex flex-1'>
-      <div className='flex h-full w-full'>
-        <HotkeysProvider initiallyActiveScopes={['renderer']}>
-          <RendererPreview />
-        </HotkeysProvider>
-
-        <ModifiersBar />
+    <HotkeysProvider initiallyActiveScopes={['renderer']}>
+      <div className='flex flex-col h-full w-3/4'>
+        <Header />
+        <RendererPreview />
       </div>
-    </div>
+    </HotkeysProvider>
   )
 }

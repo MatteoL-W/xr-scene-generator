@@ -1,11 +1,11 @@
-import Header from './Header.jsx'
 import Workspace from './Workspace.jsx'
+import ModifiersBar from './ModifiersBar.jsx'
 
 export default function Dashboard() {
   return (
-    <div className='flex flex-col w-screen h-screen'>
-      <Header />
+    <div className='flex h-screen w-screen'>
       <Workspace />
+      <ModifiersBar />
     </div>
   )
 }

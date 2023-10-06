@@ -1,11 +1,11 @@
-import ContentList from './ContentList.jsx'
-import ContentModifier from './ContentModifier.jsx'
+import SceneCompositionList from './SceneCompositionList.jsx'
+import MeshModifier from './MeshModifier.jsx'
 
 export default function ModifiersBar() {
   return (
-    <div className='w-1/4 bg-gray-500'>
-      <ContentList />
-      <ContentModifier />
+    <div className='w-1/4 bg-jean text-white'>
+      <SceneCompositionList />
+      <MeshModifier />
     </div>
   )
 }

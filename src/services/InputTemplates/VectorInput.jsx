@@ -31,7 +31,7 @@ export function VectorInput({ label, value }) {
         return (
           <input
             type='number'
-            value={component}
+            value={component.toFixed(2)}
             onChange={onChange}
             data-input-id={key}
             key={`${label}_${key}`}
