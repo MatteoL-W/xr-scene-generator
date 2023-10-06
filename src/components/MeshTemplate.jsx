@@ -20,7 +20,7 @@ export default function MeshTemplate({ mesh }) {
   return (
     <Draggable mesh={mesh}>
       <MeshComponent
-        color={mesh.args['material-color']}
+        material-color={mesh.args['material-color']}
         ref={meshComponentRef}
         onClick={(e) => {
           changeFocusedMesh(e.object.uuid)
