@@ -11,7 +11,7 @@ export default function SceneCompositionList() {
   const [sceneMeshes] = useSceneStore((state) => [state.sceneMeshes], shallow)
 
   if (sceneMeshes.length === 0) {
-    return <p>Try adding components with A</p>
+    return <ModifiersTitle title='Try adding components with A' />
   }
 
   return (

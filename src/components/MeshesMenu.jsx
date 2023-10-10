@@ -9,7 +9,7 @@ export default function MeshesMenu() {
   )
 
   return (
-    <div className='w-20 absolute top-5 left-5 p-2 bg-black flex flex-col z-10'>
+    <div className='w-20 absolute top-5 left-5 p-2 flex flex-col z-10 bg-jean'>
       <ul className='text-white'>
         {meshesList.map((mesh) => (
           <li key={mesh.name} onClick={() => addContentToScene(mesh)}>
