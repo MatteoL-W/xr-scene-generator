@@ -18,9 +18,9 @@ export default function SceneCompositionList() {
     <div className='border-b border-b-white'>
       <ModifiersTitle title='Scene Composition' Icon={GiMeshBall} />
       <ul className='px-5 py-3 leading-8'>
-        {sceneMeshes.map((scenePiece) => {
-          if (!scenePiece.uuid) return
-          return <MeshInList key={scenePiece.uuid} mesh={scenePiece} />
+        {sceneMeshes.map((mesh) => {
+          if (!mesh.uuid) return
+          return <MeshInList key={mesh.uuid} mesh={mesh} />
         })}
       </ul>
     </div>

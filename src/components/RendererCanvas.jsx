@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, TransformControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 
 import useSceneStore from '../store/SceneStore.jsx'
@@ -7,19 +7,20 @@ import { shallow } from 'zustand/shallow'
 import Meshes from './Meshes.jsx'
 
 export default function RendererCanvas() {
-  const [setOrbitControls] = useSceneStore(
-    (state) => [state.setOrbitControls],
+  const [setTransformControls] = useSceneStore(
+    (state) => [state.setTransformControls],
     shallow,
   )
-  const orbitControlsRef = useRef()
+  const transformControlsRef = useRef()
 
   useEffect(() => {
-    setOrbitControls(orbitControlsRef)
-  }, [setOrbitControls])
+    setTransformControls(transformControlsRef)
+  }, [setTransformControls])
 
   return (
     <Canvas>
-      <OrbitControls enableDamping={false} ref={orbitControlsRef} />
+      <OrbitControls makeDefault enableDamping={false} />
+      <TransformControls ref={transformControlsRef} mode='translate' />
 
       <axesHelper scale={3} />
       <ambientLight intensity={0.1} />

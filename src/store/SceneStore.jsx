@@ -3,7 +3,7 @@ import { createWithEqualityFn } from 'zustand/traditional'
 const initialState = {
   sceneMeshes: [],
   focusedMeshUUID: '',
-  orbitControlsRef: null,
+  transformControlsRef: null,
 }
 
 const manageSceneMeshes = (set) => ({
@@ -60,8 +60,8 @@ const manageFocusedMesh = (set) => ({
 })
 
 const manageControls = (set) => ({
-  setOrbitControls: (orbitControlsRef) => {
-    set(() => ({ orbitControlsRef }))
+  setTransformControls: (transformControlsRef) => {
+    set(() => ({ transformControlsRef }))
   },
 })
 
