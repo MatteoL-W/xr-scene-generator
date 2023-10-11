@@ -6,10 +6,10 @@ export default function Meshes() {
   const [sceneMeshes] = useSceneStore((state) => [state.sceneMeshes], shallow)
 
   return (
-    <group>
-      {sceneMeshes.map((mesh, index) => {
-        return <MeshTemplate mesh={mesh} key={mesh.name + index} />
-      })}
+    <group name='MeshesComponent'>
+      {sceneMeshes.map((mesh, index) => (
+        <MeshTemplate mesh={mesh} key={mesh.name + index} />
+      ))}
     </group>
   )
 }

@@ -10,9 +10,9 @@ export default function Draggable({ children, mesh }) {
     shallow,
   )
 
-  if (focusedMeshUUID === mesh.uuid) {
+  // Change the target of transform controls
+  if (focusedMeshUUID === mesh.uuid)
     transformControlsRef.current.object = groupRef.current
-  }
 
   return (
     <group ref={groupRef} name='DraggableComponent'>
