@@ -1,7 +1,7 @@
-import GenerateAutomaticInput from '../services/GenerateAutomaticInput.jsx'
-import useSceneStore from '../store/SceneStore.jsx'
+import GenerateAutomaticInput from '../../../services/GenerateAutomaticInput.jsx'
+import useSceneStore from '../../../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
-import ModifiersTitle from './ModifiersTitle.jsx'
+import Title from '../Title.jsx'
 import { BsFillBoxFill } from 'react-icons/bs'
 
 export default function MeshModifier() {
@@ -16,7 +16,7 @@ export default function MeshModifier() {
       shallow,
     )
 
-  if (!sceneMeshes || !focusedMeshUUID || !transformControlsRef) return <></>
+  if (!sceneMeshes || !focusedMeshUUID || !transformControlsRef) return
 
   const focusedMesh = sceneMeshes.find((mesh) => mesh.uuid === focusedMeshUUID)
 
@@ -30,10 +30,7 @@ export default function MeshModifier() {
 
   return (
     <div className='border-b border-b-white'>
-      <ModifiersTitle
-        title={`"${focusedMesh.name}" Modifier`}
-        Icon={BsFillBoxFill}
-      />
+      <Title title={`"${focusedMesh.name}" Modifier`} Icon={BsFillBoxFill} />
 
       {Object.entries(focusedMeshTransformProperty).map(
         ([propertyLabel, propertyValue]) => (

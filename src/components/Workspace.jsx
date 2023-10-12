@@ -1,4 +1,4 @@
-import RendererPreview from './RendererPreview.jsx'
+import RendererPreview from './Renderer/index.jsx'
 import { HotkeysProvider } from 'react-hotkeys-hook'
 import Header from './Header.jsx'
 

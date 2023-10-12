@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import useSceneStore from '../store/SceneStore.jsx'
+import useSceneStore from '../../../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
-import ModifiersTitle from './ModifiersTitle.jsx'
+import Title from '../Title.jsx'
 import { GiMeshBall } from 'react-icons/gi'
 import { BsFillBoxFill } from 'react-icons/bs'
 import { AiFillDelete } from 'react-icons/ai'
@@ -11,12 +11,12 @@ export default function SceneCompositionList() {
   const [sceneMeshes] = useSceneStore((state) => [state.sceneMeshes], shallow)
 
   if (sceneMeshes.length === 0) {
-    return <ModifiersTitle title='Try adding components with A' />
+    return <Title title='Try adding components with A' />
   }
 
   return (
     <div className='border-b border-b-white'>
-      <ModifiersTitle title='Scene Composition' Icon={GiMeshBall} />
+      <Title title='Scene Composition' Icon={GiMeshBall} />
       <ul className='px-5 py-3 leading-8'>
         {sceneMeshes.map((mesh) => {
           if (!mesh.uuid) return

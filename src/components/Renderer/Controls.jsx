@@ -1,5 +1,5 @@
 import { OrbitControls, TransformControls } from '@react-three/drei'
-import useSceneStore from '../store/SceneStore.jsx'
+import useSceneStore from '../../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 import { useEffect, useRef } from 'react'
 
@@ -13,6 +13,7 @@ export default function Controls() {
       ],
       shallow,
     )
+
   const transformControlsRef = useRef()
   useEffect(() => {
     setTransformControls(transformControlsRef)

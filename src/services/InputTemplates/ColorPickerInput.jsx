@@ -14,7 +14,7 @@ export function ColorPickerInput({ label, value }) {
     shallow,
   )
 
-  function onChange(event) {
+  function handleOnChange(event) {
     // Should we add a debouncer ?
     modifyFocusedMeshArguments({
       [label]: event.target.value,
@@ -24,7 +24,7 @@ export function ColorPickerInput({ label, value }) {
   return (
     <>
       <label htmlFor={label}>{label}</label>
-      <input type='color' id={label} value={value} onChange={onChange} />
+      <input type='color' id={label} value={value} onChange={handleOnChange} />
     </>
   )
 }

@@ -1,10 +1,10 @@
-import { Canvas } from '@react-three/fiber'
-import Meshes from './Meshes.jsx'
+import { Canvas as R3FCanvas } from '@react-three/fiber'
+import Meshes from './Meshes/index.jsx'
 import Controls from './Controls.jsx'
 
-export default function RendererCanvas() {
+export default function Canvas() {
   return (
-    <Canvas>
+    <R3FCanvas>
       <Controls />
 
       <axesHelper scale={3} />
@@ -12,6 +12,6 @@ export default function RendererCanvas() {
       <directionalLight color='red' position={[0, 0, 5]} />
 
       <Meshes />
-    </Canvas>
+    </R3FCanvas>
   )
 }

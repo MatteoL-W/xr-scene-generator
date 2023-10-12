@@ -1,5 +1,5 @@
-import SceneCompositionList from './SceneCompositionList.jsx'
-import MeshModifier from './MeshModifier.jsx'
+import SceneCompositionList from './List/index.jsx'
+import MeshModifier from './Modifier/index.jsx'
 
 export default function ModifiersBar() {
   return (

@@ -1,5 +1,5 @@
 import Workspace from './Workspace.jsx'
-import ModifiersBar from './ModifiersBar.jsx'
+import ModifiersBar from './RightBar/index.jsx'
 
 export default function Dashboard() {
   return (

@@ -14,11 +14,16 @@ export function DefaultInput({ label, value }) {
     shallow,
   )
 
-  function onChange(event) {
-    // Should we add a debouncer ?
+  function handleOnChange(event) {
     modifyFocusedMeshArguments({
       [label]: event.target.value,
     })
+  }
+
+  const defaultArguments = {
+    min: argumentsDefaultParameters?.[label]?.min ?? undefined,
+    max: argumentsDefaultParameters?.[label]?.max ?? undefined,
+    step: argumentsDefaultParameters?.[label]?.step ?? undefined,
   }
 
   return (
@@ -28,10 +33,8 @@ export function DefaultInput({ label, value }) {
         type='number'
         id={label}
         value={value}
-        onChange={onChange}
-        min={argumentsDefaultParameters?.[label]?.min ?? undefined}
-        max={argumentsDefaultParameters?.[label]?.max ?? undefined}
-        step={argumentsDefaultParameters?.[label]?.step ?? undefined}
+        onChange={handleOnChange}
+        {...defaultArguments}
       />
     </>
   )

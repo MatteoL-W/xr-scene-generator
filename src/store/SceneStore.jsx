@@ -19,10 +19,10 @@ const manageSceneMeshes = (set) => ({
       ),
     }))
   },
-  modifyMeshUuid: (meshToUpdate, newUuid) => {
+  modifyMeshUUID: (meshToUpdate, newUUID) => {
     set((state) => ({
       sceneMeshes: state.sceneMeshes.map((content) =>
-        content === meshToUpdate ? { ...content, uuid: newUuid } : content,
+        content === meshToUpdate ? { ...content, uuid: newUUID } : content,
       ),
     }))
   },

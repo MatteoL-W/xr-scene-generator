@@ -1,5 +1,5 @@
 import MeshTemplate from './MeshTemplate.jsx'
-import useSceneStore from '../store/SceneStore.jsx'
+import useSceneStore from '../../../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function Meshes() {
