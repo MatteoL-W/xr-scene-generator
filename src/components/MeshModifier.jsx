@@ -5,16 +5,18 @@ import ModifiersTitle from './ModifiersTitle.jsx'
 import { BsFillBoxFill } from 'react-icons/bs'
 
 export default function MeshModifier() {
-  const [sceneMeshes, focusedMeshUUID, resetFocusedMesh] = useSceneStore(
-    (state) => [
-      state.sceneMeshes,
-      state.focusedMeshUUID,
-      state.resetFocusedMesh,
-    ],
-    shallow,
-  )
+  const [sceneMeshes, focusedMeshUUID, resetFocusedMesh, transformControlsRef] =
+    useSceneStore(
+      (state) => [
+        state.sceneMeshes,
+        state.focusedMeshUUID,
+        state.resetFocusedMesh,
+        state.transformControlsRef,
+      ],
+      shallow,
+    )
 
-  if (!sceneMeshes || !focusedMeshUUID) return <></>
+  if (!sceneMeshes || !focusedMeshUUID || !transformControlsRef) return <></>
 
   const focusedMesh = sceneMeshes.find((mesh) => mesh.uuid === focusedMeshUUID)
 
@@ -23,15 +25,25 @@ export default function MeshModifier() {
     return
   }
 
+  const { position, rotation, scale } = transformControlsRef.current.object
+  const focusedMeshTransformProperty = { position, rotation, scale }
+
   return (
     <div className='border-b border-b-white'>
       <ModifiersTitle
         title={`"${focusedMesh.name}" Modifier`}
         Icon={BsFillBoxFill}
       />
-      {Object.entries(focusedMesh.args).map(([key, value]) => (
-        <GenerateAutomaticInput key={key} label={key} value={value} />
-      ))}
+
+      {Object.entries(focusedMeshTransformProperty).map(
+        ([propertyLabel, propertyValue]) => (
+          <GenerateAutomaticInput
+            key={propertyLabel}
+            propertyLabel={propertyLabel}
+            propertyValue={propertyValue}
+          />
+        ),
+      )}
     </div>
   )
 }

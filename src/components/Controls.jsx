@@ -18,8 +18,17 @@ export default function Controls() {
     setTransformControls(transformControlsRef)
   }, [setTransformControls])
 
-  function handleObjectChange(e) {
-    modifyFocusedMeshArguments({ position: [...e.target.worldPosition] })
+  function handleDragEnd(e) {
+    if (!e.target) return
+
+    const { position, rotation, scale } = e.target.object
+    const focusedMeshTransformProperty = {
+      position: [...position],
+      rotation: [rotation.x, rotation.y, rotation.z],
+      scale: [...scale],
+    }
+
+    modifyFocusedMeshArguments(focusedMeshTransformProperty)
   }
 
   const hasFocusedMesh = focusedMeshUUID !== ''
@@ -36,7 +45,7 @@ export default function Controls() {
       <TransformControls
         mode='translate'
         ref={transformControlsRef}
-        onChange={handleObjectChange}
+        onMouseUp={handleDragEnd}
         {...focusedMeshProps}
       />
     </>

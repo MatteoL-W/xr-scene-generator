@@ -3,8 +3,6 @@ export const argumentsDefaultParameters = {
     step: 0.25,
   },
   rotation: {
-    min: -Math.PI,
-    max: Math.PI,
     step: 0.1,
   },
 }
