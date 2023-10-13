@@ -1,12 +1,14 @@
-import { useState } from 'react'
-import { useHotkeys } from 'react-hotkeys-hook'
 import MeshesMenu from './MeshesMenu.jsx'
+import useStore from '../../../store/index.jsx'
+import { shallow } from 'zustand/shallow'
+import Shortcut from './Shortcut.jsx'
 
 export default function RendererOverlay() {
-  const [isMeshListOpen, setMeshListState] = useState(false)
-  useHotkeys('a', () => setMeshListState(!isMeshListOpen), {
-    scopes: ['renderer'],
-  })
+  const [isMeshListOpen] = useStore((state) => [state.isMeshListOpen], shallow)
 
-  return <div className='relative'>{isMeshListOpen && <MeshesMenu />}</div>
+  return (
+    <Shortcut>
+      <div className='relative'>{isMeshListOpen && <MeshesMenu />}</div>
+    </Shortcut>
+  )
 }
