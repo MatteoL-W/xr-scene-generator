@@ -4,12 +4,28 @@ import { shallow } from 'zustand/shallow'
 import PropTypes from 'prop-types'
 
 export default function Shortcut({ children }) {
-  const [isMeshListOpen, setMeshListState] = useStore(
-    (state) => [state.isMeshListOpen, state.setMeshListState],
+  const [isMeshListOpen, setMeshListState, setTransformControlsMode] = useStore(
+    (state) => [
+      state.isMeshListOpen,
+      state.setMeshListState,
+      state.setTransformControlsMode,
+    ],
     shallow,
   )
 
+  // Overlay openings
   useHotkeys('a', () => setMeshListState(!isMeshListOpen), {
+    scopes: ['renderer'],
+  })
+
+  // TransformControlsMode
+  useHotkeys('r', () => setTransformControlsMode('rotate'), {
+    scopes: ['renderer'],
+  })
+  useHotkeys('s', () => setTransformControlsMode('scale'), {
+    scopes: ['renderer'],
+  })
+  useHotkeys('g', () => setTransformControlsMode('translate'), {
     scopes: ['renderer'],
   })
 
