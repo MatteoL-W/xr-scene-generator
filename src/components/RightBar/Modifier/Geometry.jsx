@@ -5,22 +5,33 @@ import { shallow } from 'zustand/shallow'
 import { useEffect, useState } from 'react'
 
 export default function Geometry() {
-  const [transformControlsRef] = useSceneStore(
-    (state) => [state.transformControlsRef],
+  const [meshTransformProperties, setMeshTransformProperties] = useState({})
+  const [transformControlsRef, focusedMeshUUID] = useSceneStore(
+    (state) => [state.transformControlsRef, state.focusedMeshUUID],
     shallow,
   )
 
-  if (!transformControlsRef) return
+  useEffect(() => {
+    if (transformControlsRef.current) {
+      const { position, rotation, scale } = transformControlsRef.current.object
+      setMeshTransformProperties({ position, rotation, scale })
+    }
+  }, [
+    focusedMeshUUID,
+    transformControlsRef,
+    transformControlsRef.current.object.position,
+    transformControlsRef.current.object.rotation,
+    transformControlsRef.current.object.scale,
+  ])
 
-  const { position, rotation, scale } = transformControlsRef.current.object
-  const focusedMeshTransformProperty = { position, rotation, scale }
+  if (!transformControlsRef) return
 
   return (
     <>
       <Subtitle title='Geometry' />
 
-      <div className='px-3 flex flex-col'>
-        {Object.entries(focusedMeshTransformProperty).map(
+      <div className='p-3 pt-0 flex flex-col'>
+        {Object.entries(meshTransformProperties).map(
           ([propertyLabel, propertyValue]) => (
             <div className='flex' key={propertyLabel}>
               <GenerateAutomaticInput
