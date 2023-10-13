@@ -26,15 +26,6 @@ const manageSceneMeshes = (set) => ({
       ),
     }))
   },
-  modifyMeshArguments: (meshUUIDToUpdate, newArgs) => {
-    set((state) => ({
-      sceneMeshes: state.sceneMeshes.map((mesh) =>
-        mesh.uuid === meshUUIDToUpdate
-          ? { ...mesh, args: { ...mesh.args, ...newArgs } }
-          : mesh,
-      ),
-    }))
-  },
   modifyFocusedMeshArguments: (newArgs) => {
     set((state) => ({
       sceneMeshes: state.sceneMeshes.map((mesh) =>
@@ -47,7 +38,7 @@ const manageSceneMeshes = (set) => ({
 })
 
 const manageFocusedMesh = (set) => ({
-  changeFocusedMesh: (newContentUUID) => {
+  changeFocusedMeshUUID: (newContentUUID) => {
     set(() => ({
       focusedMeshUUID: newContentUUID,
     }))

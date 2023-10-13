@@ -32,18 +32,18 @@ MeshInList.propTypes = {
 }
 
 function MeshInList({ mesh }) {
-  const [removeContentFromScene, focusedMeshUUID, changeFocusedMesh] =
+  const [removeContentFromScene, focusedMeshUUID, changeFocusedMeshUUID] =
     useSceneStore(
       (state) => [
         state.removeMeshFromScene,
         state.focusedMeshUUID,
-        state.changeFocusedMesh,
+        state.changeFocusedMeshUUID,
       ],
       shallow,
     )
 
   function toggleItem(uuid) {
-    changeFocusedMesh(focusedMeshUUID === uuid ? '' : uuid)
+    changeFocusedMeshUUID(focusedMeshUUID === uuid ? '' : uuid)
   }
 
   return (

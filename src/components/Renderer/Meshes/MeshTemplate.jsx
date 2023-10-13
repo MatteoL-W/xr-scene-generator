@@ -2,11 +2,10 @@ import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import useSceneStore from '../../../store/SceneStore.jsx'
 import { shallow } from 'zustand/shallow'
-import Draggable from './Draggable.jsx'
 
 export default function MeshTemplate({ mesh }) {
-  const [modifyMeshUUID, changeFocusedMesh] = useSceneStore(
-    (state) => [state.modifyMeshUUID, state.changeFocusedMesh],
+  const [modifyMeshUUID, changeFocusedMeshUUID] = useSceneStore(
+    (state) => [state.modifyMeshUUID, state.changeFocusedMeshUUID],
     shallow,
   )
   const MeshComponent = mesh.component
@@ -18,15 +17,13 @@ export default function MeshTemplate({ mesh }) {
   }, [])
 
   return (
-    <Draggable mesh={mesh}>
-      <MeshComponent
-        ref={meshComponentRef}
-        material-color={mesh.args['material-color']}
-        onClick={(e) => {
-          changeFocusedMesh(e.object.uuid)
-        }}
-      />
-    </Draggable>
+    <MeshComponent
+      ref={meshComponentRef}
+      material-color={mesh.args['material-color']}
+      onClick={(e) => {
+        changeFocusedMeshUUID(e.object.uuid)
+      }}
+    />
   )
 }
 
