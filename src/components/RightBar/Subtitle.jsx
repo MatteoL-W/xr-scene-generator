@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 export default function Subtitle({ title }) {
-  return <h3 className='p-3 text-md'>{title}</h3>
+  return <h3 className='px-3 pt-3 pb-2 text-md'>{title}</h3>
 }
 
 Subtitle.propTypes = {

@@ -30,10 +30,17 @@ export default function Geometry() {
     <>
       <Subtitle title='Geometry' />
 
-      <div className='p-3 pt-0 flex flex-col'>
+      <div className='p-3 pt-0 flex flex-col gap-y-2'>
+        <div className='grid grid-cols-4 w-[95%] text-xs'>
+          <div></div>
+          <div className='text-center'>X</div>
+          <div className='text-center'>Y</div>
+          <div className='text-center'>Z</div>
+        </div>
+
         {Object.entries(meshTransformProperties).map(
           ([propertyLabel, propertyValue]) => (
-            <div className='flex' key={propertyLabel}>
+            <div className='grid grid-cols-4 gap-3 w-[95%]' key={propertyLabel}>
               <GenerateAutomaticInput
                 propertyLabel={propertyLabel}
                 propertyValue={propertyValue}

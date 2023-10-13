@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import useStore from '../../store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import { argumentsDefaultParameters } from '../../data/argumentsDefaultParameters.js'
+import { BsLink45Deg } from 'react-icons/bs'
 
 VectorAndEulerInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,
@@ -36,7 +37,11 @@ export function VectorAndEulerInput({ propertyLabel, propertyValue }) {
 
   return (
     <>
-      <label>{propertyLabel}</label>
+      <div className='flex items-center w-20 justify-between'>
+        <label className='capitalize'>{propertyLabel}</label>
+        <BsLink45Deg className='h-full' />
+      </div>
+
       {Object.keys(normalizedObject).map((axisName, axisNumber) => {
         const defaultParameters = {
           min: argumentsDefaultParameters?.[propertyLabel]?.min,
@@ -55,6 +60,7 @@ export function VectorAndEulerInput({ propertyLabel, propertyValue }) {
             key={inputCodeName}
             name={inputCodeName}
             {...defaultParameters}
+            className='w-full px-2 py-1 rounded'
           />
         )
       })}
