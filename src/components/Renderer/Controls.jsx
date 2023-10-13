@@ -1,19 +1,24 @@
 import { OrbitControls, TransformControls } from '@react-three/drei'
-import useSceneStore from '../../store/SceneStore.jsx'
+import useStore from '../../store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import { useEffect, useRef } from 'react'
 import useThreeObject from '../../hooks/useThreeObject.jsx'
 
 export default function Controls() {
-  const [setTransformControls, focusedMeshUUID, modifyFocusedMeshArguments] =
-    useSceneStore(
-      (state) => [
-        state.setTransformControls,
-        state.focusedMeshUUID,
-        state.modifyFocusedMeshArguments,
-      ],
-      shallow,
-    )
+  const [
+    setTransformControls,
+    transformControlsMode,
+    focusedMeshUUID,
+    modifyFocusedMeshArguments,
+  ] = useStore(
+    (state) => [
+      state.setTransformControls,
+      state.transformControlsMode,
+      state.focusedMeshUUID,
+      state.modifyFocusedMeshArguments,
+    ],
+    shallow,
+  )
 
   const focusedMeshObject = useThreeObject(focusedMeshUUID)
   const transformControlsRef = useRef()
@@ -46,7 +51,7 @@ export default function Controls() {
     <>
       <OrbitControls makeDefault enableDamping={false} />
       <TransformControls
-        mode='translate'
+        mode={transformControlsMode}
         ref={transformControlsRef}
         onMouseUp={handleDragEnd}
         object={focusedMeshObject}

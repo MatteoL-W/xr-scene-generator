@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import useSceneStore from '../../../store/SceneStore.jsx'
+import useStore from '../../../store/index.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function MeshTemplate({ mesh }) {
-  const [modifyMeshUUID, changeFocusedMeshUUID] = useSceneStore(
+  const [modifyMeshUUID, changeFocusedMeshUUID] = useStore(
     (state) => [state.modifyMeshUUID, state.changeFocusedMeshUUID],
     shallow,
   )

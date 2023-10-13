@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import useSceneStore from '../../store/SceneStore.jsx'
+import useStore from '../../store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import { argumentsDefaultParameters } from '../../data/argumentsDefaultParameters.js'
 
@@ -9,7 +9,7 @@ DefaultInput.propTypes = {
 }
 
 export function DefaultInput({ label, value }) {
-  const [modifyFocusedMeshArguments] = useSceneStore(
+  const [modifyFocusedMeshArguments] = useStore(
     (state) => [state.modifyFocusedMeshArguments],
     shallow,
   )

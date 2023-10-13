@@ -1,4 +1,4 @@
-import useSceneStore from '../../store/SceneStore.jsx'
+import useStore from '../../store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import PropTypes from 'prop-types'
 import { hexColorValidator } from '../../utils/typesValidator.jsx'
@@ -9,7 +9,7 @@ ColorPickerInput.propTypes = {
 }
 
 export function ColorPickerInput({ label, value }) {
-  const [modifyFocusedMeshArguments] = useSceneStore(
+  const [modifyFocusedMeshArguments] = useStore(
     (state) => [state.modifyFocusedMeshArguments],
     shallow,
   )

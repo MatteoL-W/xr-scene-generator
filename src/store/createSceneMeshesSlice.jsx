@@ -1,12 +1,6 @@
-import { createWithEqualityFn } from 'zustand/traditional'
-
-const initialState = {
+export const manageSceneMeshes = (set) => ({
   sceneMeshes: [],
-  focusedMeshUUID: '',
-  transformControlsRef: null,
-}
 
-const manageSceneMeshes = (set) => ({
   addMeshToScene: (newMesh) => {
     set((state) => ({
       sceneMeshes: [...state.sceneMeshes, { ...newMesh }],
@@ -36,31 +30,3 @@ const manageSceneMeshes = (set) => ({
     }))
   },
 })
-
-const manageFocusedMesh = (set) => ({
-  changeFocusedMeshUUID: (newContentUUID) => {
-    set(() => ({
-      focusedMeshUUID: newContentUUID,
-    }))
-  },
-  resetFocusedMesh: () => {
-    set(() => ({
-      focusedMeshUUID: '',
-    }))
-  },
-})
-
-const manageControls = (set) => ({
-  setTransformControls: (transformControlsRef) => {
-    set(() => ({ transformControlsRef }))
-  },
-})
-
-const useSceneStore = createWithEqualityFn((set) => ({
-  ...initialState,
-  ...manageSceneMeshes(set),
-  ...manageFocusedMesh(set),
-  ...manageControls(set),
-}))
-
-export default useSceneStore

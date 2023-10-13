@@ -1,9 +1,9 @@
 import meshesList from '../../../data/meshesList.js'
 import { shallow } from 'zustand/shallow'
-import useSceneStore from '../../../store/SceneStore.jsx'
+import useStore from '../../../store/index.jsx'
 
 export default function MeshesMenu() {
-  const [addContentToScene] = useSceneStore(
+  const [addContentToScene] = useStore(
     (state) => [state.addMeshToScene],
     shallow,
   )

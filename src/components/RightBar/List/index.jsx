@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import useSceneStore from '../../../store/SceneStore.jsx'
+import useStore from '../../../store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import Title from '../Title.jsx'
 import { GiMeshBall } from 'react-icons/gi'
@@ -8,7 +8,7 @@ import { AiFillDelete } from 'react-icons/ai'
 import { MdOutlineDriveFileRenameOutline } from 'react-icons/md'
 
 export default function SceneCompositionList() {
-  const [sceneMeshes] = useSceneStore((state) => [state.sceneMeshes], shallow)
+  const [sceneMeshes] = useStore((state) => [state.sceneMeshes], shallow)
 
   if (sceneMeshes.length === 0) {
     return <Title title='Try adding components with A' />
@@ -33,7 +33,7 @@ MeshInList.propTypes = {
 
 function MeshInList({ mesh }) {
   const [removeContentFromScene, focusedMeshUUID, changeFocusedMeshUUID] =
-    useSceneStore(
+    useStore(
       (state) => [
         state.removeMeshFromScene,
         state.focusedMeshUUID,

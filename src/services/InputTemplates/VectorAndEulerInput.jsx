@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import useSceneStore from '../../store/SceneStore.jsx'
+import useStore from '../../store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import { argumentsDefaultParameters } from '../../data/argumentsDefaultParameters.js'
 
@@ -9,7 +9,7 @@ VectorAndEulerInput.propTypes = {
 }
 
 export function VectorAndEulerInput({ propertyLabel, propertyValue }) {
-  const [modifyFocusedMeshArguments, transformControlsRef] = useSceneStore(
+  const [modifyFocusedMeshArguments, transformControlsRef] = useStore(
     (state) => [state.modifyFocusedMeshArguments, state.transformControlsRef],
     shallow,
   )
