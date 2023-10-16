@@ -4,11 +4,11 @@ import { shallow } from 'zustand/shallow'
 import { argumentsDefaultParameters } from '../../data/argumentsDefaultParameters.js'
 
 DefaultInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: PropTypes.any,
+  propertyLabel: PropTypes.string.isRequired,
+  propertyValue: PropTypes.any,
 }
 
-export function DefaultInput({ label, value }) {
+export function DefaultInput({ propertyLabel, propertyValue }) {
   const [modifyFocusedMeshArguments] = useStore(
     (state) => [state.modifyFocusedMeshArguments],
     shallow,
@@ -16,23 +16,23 @@ export function DefaultInput({ label, value }) {
 
   function handleOnChange(event) {
     modifyFocusedMeshArguments({
-      [label]: event.target.value,
+      [propertyLabel]: event.target.value,
     })
   }
 
   const defaultArguments = {
-    min: argumentsDefaultParameters?.[label]?.min ?? undefined,
-    max: argumentsDefaultParameters?.[label]?.max ?? undefined,
-    step: argumentsDefaultParameters?.[label]?.step ?? undefined,
+    min: argumentsDefaultParameters?.[propertyLabel]?.min ?? undefined,
+    max: argumentsDefaultParameters?.[propertyLabel]?.max ?? undefined,
+    step: argumentsDefaultParameters?.[propertyLabel]?.step ?? undefined,
   }
 
   return (
     <>
-      <label htmlFor={label}>{label}</label>
+      <label htmlFor={propertyLabel}>{propertyLabel}</label>
       <input
         type='number'
-        id={label}
-        value={value}
+        id={propertyLabel}
+        value={propertyValue}
         onChange={handleOnChange}
         {...defaultArguments}
       />

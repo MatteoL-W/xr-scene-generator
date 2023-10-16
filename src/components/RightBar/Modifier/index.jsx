@@ -3,6 +3,7 @@ import { shallow } from 'zustand/shallow'
 import Title from '../Title.jsx'
 import { BsFillBoxFill } from 'react-icons/bs'
 import Geometry from './Geometry.jsx'
+import Material from './Material.jsx'
 
 export default function MeshModifier() {
   const [sceneMeshes, focusedMeshUUID, resetFocusedMesh] = useStore(
@@ -27,6 +28,7 @@ export default function MeshModifier() {
       <Title title={`"${focusedMesh.name}" Modifier`} Icon={BsFillBoxFill} />
 
       <Geometry />
+      <Material material={focusedMesh.material} />
     </div>
   )
 }

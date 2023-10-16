@@ -4,27 +4,33 @@ import PropTypes from 'prop-types'
 import { hexColorValidator } from '../../utils/typesValidator.jsx'
 
 ColorPickerInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: hexColorValidator,
+  propertyLabel: PropTypes.string.isRequired,
+  propertyValue: hexColorValidator,
 }
 
-export function ColorPickerInput({ label, value }) {
-  const [modifyFocusedMeshArguments] = useStore(
-    (state) => [state.modifyFocusedMeshArguments],
+export function ColorPickerInput({ propertyLabel, propertyValue }) {
+  const [modifyFocusedMeshMaterial] = useStore(
+    (state) => [state.modifyFocusedMeshMaterial],
     shallow,
   )
 
   function handleOnChange(event) {
-    // Should we add a debouncer ?
-    modifyFocusedMeshArguments({
-      [label]: event.target.value,
+    modifyFocusedMeshMaterial({
+      [propertyLabel]: event.target.value,
     })
   }
 
   return (
     <>
-      <label htmlFor={label}>{label}</label>
-      <input type='color' id={label} value={value} onChange={handleOnChange} />
+      <label htmlFor={propertyLabel} className='capitalize'>
+        {propertyLabel === 'material-color' ? 'Color' : propertyLabel}
+      </label>
+      <input
+        type='color'
+        id={propertyLabel}
+        value={propertyValue}
+        onChange={handleOnChange}
+      />
     </>
   )
 }

@@ -1,11 +1,8 @@
-import PropTypes from 'prop-types'
 import useStore from '../../../store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import Title from '../Title.jsx'
 import { GiMeshBall } from 'react-icons/gi'
-import { BsFillBoxFill } from 'react-icons/bs'
-import { AiFillDelete } from 'react-icons/ai'
-import { MdOutlineDriveFileRenameOutline } from 'react-icons/md'
+import MeshInList from './MeshInList.jsx'
 
 export default function SceneCompositionList() {
   const [sceneMeshes] = useStore((state) => [state.sceneMeshes], shallow)
@@ -24,39 +21,5 @@ export default function SceneCompositionList() {
         })}
       </ul>
     </div>
-  )
-}
-
-MeshInList.propTypes = {
-  mesh: PropTypes.object.isRequired,
-}
-
-function MeshInList({ mesh }) {
-  const [removeContentFromScene, focusedMeshUUID, changeFocusedMeshUUID] =
-    useStore(
-      (state) => [
-        state.removeMeshFromScene,
-        state.focusedMeshUUID,
-        state.changeFocusedMeshUUID,
-      ],
-      shallow,
-    )
-
-  function toggleItem(uuid) {
-    changeFocusedMeshUUID(focusedMeshUUID === uuid ? '' : uuid)
-  }
-
-  return (
-    <li className='flex items-center gap-3'>
-      <BsFillBoxFill className='text-lg' />
-      <span onClick={() => toggleItem(mesh.uuid)}>{mesh.name}</span>
-      <div className='flex items-center'>
-        <MdOutlineDriveFileRenameOutline />
-        <AiFillDelete
-          className='cursor-pointer'
-          onClick={() => removeContentFromScene(mesh)}
-        />
-      </div>
-    </li>
   )
 }

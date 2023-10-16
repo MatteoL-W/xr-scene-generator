@@ -19,7 +19,7 @@ export default function MeshTemplate({ mesh }) {
   return (
     <MeshComponent
       ref={meshComponentRef}
-      material-color={mesh.args['material-color']}
+      material-color={mesh.material['material-color']}
       onClick={(e) => {
         changeFocusedMeshUUID(e.object.uuid)
       }}
