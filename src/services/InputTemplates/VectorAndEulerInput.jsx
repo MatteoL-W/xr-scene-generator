@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { useState } from 'react'
 import useStore from '../../store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import { argumentsDefaultParameters } from '../../data/argumentsDefaultParameters.js'
@@ -14,11 +15,27 @@ export function VectorAndEulerInput({ propertyLabel, propertyValue }) {
     (state) => [state.modifyFocusedMeshArguments, state.transformControlsRef],
     shallow,
   )
+  const [hasSyncProperties, setHasSyncPropertiesState] = useState(false)
+
+  function toggleSyncParameters() {
+    setHasSyncPropertiesState(!hasSyncProperties)
+  }
 
   function handleOnChange(event) {
     const changedAxisNumber = event.target.attributes['data-axis-number'].value
-    const updatedPropertyValue = [...propertyValue]
-    updatedPropertyValue[changedAxisNumber] = parseFloat(event.target.value)
+    let updatedPropertyValue = [...propertyValue]
+
+    if (!hasSyncProperties) {
+      updatedPropertyValue[changedAxisNumber] = parseFloat(event.target.value)
+    } else {
+      if (updatedPropertyValue[changedAxisNumber] === 0) return
+
+      const newPropertyValue = parseFloat(event.target.value)
+      const factor = newPropertyValue / updatedPropertyValue[changedAxisNumber]
+      updatedPropertyValue = updatedPropertyValue.map((property) => {
+        return property === 'XYZ' ? 'XYZ' : property * factor // 'XYZ' is for rotation exception
+      })
+    }
 
     modifyFocusedMeshArguments({ [propertyLabel]: updatedPropertyValue })
     transformControlsRef.current.object[propertyLabel].set(
@@ -39,7 +56,12 @@ export function VectorAndEulerInput({ propertyLabel, propertyValue }) {
     <>
       <div className='flex items-center w-20 justify-between'>
         <label className='capitalize'>{propertyLabel}</label>
-        <BsLink45Deg className='h-full' />
+        <BsLink45Deg
+          className={`h-full rounded ${
+            hasSyncProperties ? 'bg-white text-jean' : ''
+          }`}
+          onClick={toggleSyncParameters}
+        />
       </div>
 
       {Object.keys(normalizedObject).map((axisName, axisNumber) => {
