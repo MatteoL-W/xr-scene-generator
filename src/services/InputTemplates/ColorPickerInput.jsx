@@ -30,6 +30,7 @@ export function ColorPickerInput({ propertyLabel, propertyValue }) {
         id={propertyLabel}
         value={propertyValue}
         onChange={handleOnChange}
+        className='w-full px-2 py-1 rounded'
       />
     </>
   )
