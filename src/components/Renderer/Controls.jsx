@@ -9,13 +9,13 @@ export default function Controls() {
     setTransformControls,
     transformControlsMode,
     focusedMeshUUID,
-    modifyFocusedMeshArguments,
+    modifyFocusedMeshTransformations,
   ] = useStore(
     (state) => [
       state.setTransformControls,
       state.transformControlsMode,
       state.focusedMeshUUID,
-      state.modifyFocusedMeshArguments,
+      state.modifyFocusedMeshTransformations,
     ],
     shallow,
   )
@@ -36,7 +36,7 @@ export default function Controls() {
       scale: [...scale],
     }
 
-    modifyFocusedMeshArguments(focusedMeshTransformProperty)
+    modifyFocusedMeshTransformations(focusedMeshTransformProperty)
   }
 
   const hasFocusedMesh = focusedMeshUUID !== ''

@@ -4,7 +4,7 @@ const meshesList = [
   {
     name: 'Box',
     component: Box,
-    args: {
+    transformations: {
       position: [0, 0, 0],
       rotation: [0, 0, 0],
       scale: [1, 1, 1.5],
@@ -16,7 +16,7 @@ const meshesList = [
   {
     name: 'Sphere',
     component: Sphere,
-    args: {
+    transformations: {
       position: [0, 0, 0],
       rotation: [0, 0, 0],
       scale: [1, 1, 1],

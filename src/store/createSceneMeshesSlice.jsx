@@ -20,11 +20,14 @@ export const manageSceneMeshes = (set) => ({
       ),
     }))
   },
-  modifyFocusedMeshArguments: (newArgs) => {
+  modifyFocusedMeshTransformations: (newArgs) => {
     set((state) => ({
       sceneMeshes: state.sceneMeshes.map((mesh) =>
         mesh.uuid === state.focusedMeshUUID
-          ? { ...mesh, args: { ...mesh.args, ...newArgs } }
+          ? {
+              ...mesh,
+              transformations: { ...mesh.transformations, ...newArgs },
+            }
           : mesh,
       ),
     }))

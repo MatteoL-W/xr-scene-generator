@@ -9,13 +9,13 @@ DefaultInput.propTypes = {
 }
 
 export function DefaultInput({ propertyLabel, propertyValue }) {
-  const [modifyFocusedMeshArguments] = useStore(
-    (state) => [state.modifyFocusedMeshArguments],
+  const [modifyFocusedMeshTransformations] = useStore(
+    (state) => [state.modifyFocusedMeshTransformations],
     shallow,
   )
 
   function handleOnChange(event) {
-    modifyFocusedMeshArguments({
+    modifyFocusedMeshTransformations({
       [propertyLabel]: event.target.value,
     })
   }
