@@ -3,6 +3,7 @@ import { Box, Sphere } from '@react-three/drei'
 const meshesList = [
   {
     name: 'Box',
+    userSetName: 'Box',
     component: Box,
     transformations: {
       position: [0, 0, 0],
@@ -18,6 +19,7 @@ const meshesList = [
   },
   {
     name: 'Sphere',
+    userSetName: 'Sphere',
     component: Sphere,
     transformations: {
       position: [0, 0, 0],

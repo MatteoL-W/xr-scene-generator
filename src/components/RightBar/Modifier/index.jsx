@@ -25,7 +25,10 @@ export default function MeshModifier() {
 
   return (
     <div className='border-b border-b-white'>
-      <Title title={`"${focusedMesh.name}" Modifier`} Icon={BsFillBoxFill} />
+      <Title
+        title={`"${focusedMesh.userSetName}" Modifier`}
+        Icon={BsFillBoxFill}
+      />
 
       <Geometry />
       <Material material={focusedMesh.material} />

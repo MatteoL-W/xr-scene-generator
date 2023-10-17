@@ -1,3 +1,5 @@
+import NameDisplay from './NameDisplay.jsx'
+import { useState } from 'react'
 import useStore from '../../../store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import { BsFillBoxFill } from 'react-icons/bs'
@@ -24,12 +26,8 @@ export default function MeshInList({ mesh }) {
     ],
     shallow,
   )
+  const [isRenaming, setIsRenaming] = useState(false)
   const meshIsVisible = mesh.args.visible
-
-  function toggleItem(uuid) {
-    if (meshIsVisible)
-      changeFocusedMeshUUID(focusedMeshUUID === uuid ? '' : uuid)
-  }
 
   function toggleMeshVisibility() {
     // Reset focused mesh when it's set on invisible
@@ -41,6 +39,10 @@ export default function MeshInList({ mesh }) {
     })
   }
 
+  function activateRenaming() {
+    setIsRenaming(true)
+  }
+
   return (
     <li className='flex items-center gap-3'>
       <BsFillBoxFill
@@ -49,9 +51,16 @@ export default function MeshInList({ mesh }) {
         }`}
         onClick={toggleMeshVisibility}
       />
-      <span onClick={() => toggleItem(mesh.uuid)}>{mesh.name}</span>
+
+      <NameDisplay
+        mesh={mesh}
+        editing={isRenaming}
+        resetEditingState={() => setIsRenaming(false)}
+      />
+
       <div className='flex items-center text-xl gap-x-2'>
-        <MdOutlineDriveFileRenameOutline />
+        <MdOutlineDriveFileRenameOutline onClick={activateRenaming} />
+
         <AiFillDelete
           className='cursor-pointer'
           onClick={() => removeContentFromScene(mesh)}

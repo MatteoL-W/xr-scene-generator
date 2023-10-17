@@ -29,4 +29,11 @@ export const manageSceneMeshes = (set) => ({
       ),
     }))
   },
+  modifyMeshName: (meshUUID, newName) => {
+    set((state) => ({
+      sceneMeshes: state.sceneMeshes.map((mesh) =>
+        mesh.uuid === meshUUID ? { ...mesh, userSetName: newName } : mesh,
+      ),
+    }))
+  },
 })
