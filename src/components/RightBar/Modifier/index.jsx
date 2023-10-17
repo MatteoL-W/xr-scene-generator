@@ -4,6 +4,7 @@ import Title from '../Title.jsx'
 import { BsFillBoxFill } from 'react-icons/bs'
 import Geometry from './Geometry.jsx'
 import Material from './Material.jsx'
+import Shadows from './Shadows.jsx'
 
 export default function MeshModifier() {
   const [sceneMeshes, focusedMeshUUID, resetFocusedMesh] = useStore(
@@ -32,6 +33,7 @@ export default function MeshModifier() {
 
       <Geometry />
       <Material material={focusedMesh.material} />
+      <Shadows args={focusedMesh.args} />
     </div>
   )
 }

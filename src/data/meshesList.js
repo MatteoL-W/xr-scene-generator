@@ -15,6 +15,8 @@ const meshesList = [
     },
     args: {
       visible: true,
+      receiveShadow: false,
+      castShadow: false,
     },
   },
   {
@@ -31,6 +33,8 @@ const meshesList = [
     },
     args: {
       visible: true,
+      receiveShadow: false,
+      castShadow: false,
     },
   },
 ]

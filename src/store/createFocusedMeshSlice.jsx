@@ -32,4 +32,13 @@ export const manageFocusedMesh = (set) => ({
       ),
     }))
   },
+  modifyFocusedMeshArgs: (newArgs) => {
+    set((state) => ({
+      sceneMeshes: state.sceneMeshes.map((mesh) =>
+        mesh.uuid === state.focusedMeshUUID
+          ? { ...mesh, args: { ...mesh.args, ...newArgs } }
+          : mesh,
+      ),
+    }))
+  },
 })
