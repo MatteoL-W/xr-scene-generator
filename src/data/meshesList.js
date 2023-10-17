@@ -12,6 +12,9 @@ const meshesList = [
     material: {
       'material-color': '#000000',
     },
+    args: {
+      visible: true,
+    },
   },
   {
     name: 'Sphere',
@@ -23,6 +26,9 @@ const meshesList = [
     },
     material: {
       'material-color': '#000000',
+    },
+    args: {
+      visible: true,
     },
   },
 ]

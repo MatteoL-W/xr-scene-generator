@@ -18,6 +18,7 @@ export default function MeshTemplate({ mesh }) {
 
   return (
     <MeshComponent
+      {...mesh.args}
       ref={meshComponentRef}
       material-color={mesh.material['material-color']}
       onClick={(e) => {
