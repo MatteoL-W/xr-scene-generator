@@ -17,7 +17,5 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    // https://github.com/jsx-eslint/eslint-plugin-react/issues/3423
-    'react/no-unknown-property': ['error', { ignore: ['args'] }],
   },
 }

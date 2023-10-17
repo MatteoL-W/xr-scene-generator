@@ -3,17 +3,16 @@ import Meshes from './Meshes/index.jsx'
 import Controls from './Controls.jsx'
 import Debug from './Debug.jsx'
 import Misc from './Misc.jsx'
+import Lights from './Lights.jsx'
 
 export default function Canvas() {
   return (
-    <R3FCanvas>
+    <R3FCanvas shadows='basic'>
       <Debug />
       <Controls />
       <Misc />
 
-      <ambientLight intensity={0.1} />
-      <directionalLight color='red' position={[0, 0, 5]} />
-
+      <Lights />
       <Meshes />
     </R3FCanvas>
   )

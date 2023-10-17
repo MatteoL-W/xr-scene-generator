@@ -1,10 +1,11 @@
-import { Box, Sphere } from '@react-three/drei'
+import { Sphere } from '@react-three/drei'
+import { BoxPhong } from './components.jsx'
 
 const meshesList = [
   {
     name: 'Box',
     userSetName: 'Box',
-    component: Box,
+    component: BoxPhong,
     transformations: {
       position: [0, 0, 0],
       rotation: [0, 0, 0],
