@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import useStore from '../../store/index.jsx'
+import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
-import { argumentsDefaultParameters } from '../../data/argumentsDefaultParameters.js'
+import { argumentsDefaultParameters } from '@/data/argumentsDefaultParameters.js'
 
 DefaultInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,

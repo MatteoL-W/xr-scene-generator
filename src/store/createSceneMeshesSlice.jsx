@@ -13,6 +13,14 @@ export const manageSceneMeshes = (set) => ({
       ),
     }))
   },
+  removeFocusedMeshFromScene: () => {
+    set((state) => ({
+      sceneMeshes: state.sceneMeshes.filter(
+        (content) => content.uuid !== state.focusedMeshUUID,
+      ),
+      focusedMeshUUID: '',
+    }))
+  },
   modifyMeshUUID: (meshToUpdate, newUUID) => {
     set((state) => ({
       sceneMeshes: state.sceneMeshes.map((content) =>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import useStore from '../../../store/index.jsx'
+import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
 
 export default function MeshTemplate({ mesh }) {

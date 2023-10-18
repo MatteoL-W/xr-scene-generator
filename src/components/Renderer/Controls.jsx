@@ -4,10 +4,10 @@ import {
   OrbitControls,
   TransformControls,
 } from '@react-three/drei'
-import useStore from '../../store/index.jsx'
+import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import { useEffect, useRef } from 'react'
-import useThreeObject from '../../hooks/useThreeObject.jsx'
+import useThreeObject from '@/hooks/useThreeObject.jsx'
 
 export default function Controls() {
   const [

@@ -1,7 +1,7 @@
-import useStore from '../../store/index.jsx'
+import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import PropTypes from 'prop-types'
-import { hexColorValidator } from '../../utils/typesValidator.jsx'
+import { hexColorValidator } from '@/utils/typesValidator.jsx'
 
 ColorPickerInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,

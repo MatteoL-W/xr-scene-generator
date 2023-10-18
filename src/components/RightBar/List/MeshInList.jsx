@@ -1,6 +1,6 @@
 import NameDisplay from './NameDisplay.jsx'
 import { useState } from 'react'
-import useStore from '../../../store/index.jsx'
+import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import { BsFillBoxFill } from 'react-icons/bs'
 import { MdOutlineDriveFileRenameOutline } from 'react-icons/md'

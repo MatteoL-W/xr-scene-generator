@@ -1,10 +1,10 @@
-import useStore from '../../../store/index.jsx'
+import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import { TbRotate360 } from 'react-icons/tb'
 import { LuScaling } from 'react-icons/lu'
 import { LiaArrowsAltSolid } from 'react-icons/lia'
 
-export default function QuickControlsOptions() {
+export default function ControlsOpt() {
   const [setTransformControlsMode] = useStore(
     (state) => [state.setTransformControlsMode],
     shallow,

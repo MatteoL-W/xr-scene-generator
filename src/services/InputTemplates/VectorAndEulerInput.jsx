@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-import useStore from '../../store/index.jsx'
+import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
-import { argumentsDefaultParameters } from '../../data/argumentsDefaultParameters.js'
+import { argumentsDefaultParameters } from '@/data/argumentsDefaultParameters.js'
 import { BsLink45Deg } from 'react-icons/bs'
 
 VectorAndEulerInput.propTypes = {

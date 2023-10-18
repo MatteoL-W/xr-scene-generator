@@ -1,6 +1,6 @@
 import Subtitle from '../Subtitle.jsx'
-import GenerateAutomaticInput from '../../../services/GenerateAutomaticInput.jsx'
-import useStore from '../../../store/index.jsx'
+import GenerateAutomaticInput from '@/services/GenerateAutomaticInput.jsx'
+import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import { useEffect, useState } from 'react'
 

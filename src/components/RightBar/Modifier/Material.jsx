@@ -1,6 +1,6 @@
 import Subtitle from '../Subtitle.jsx'
 import PropTypes from 'prop-types'
-import GenerateAutomaticInput from '../../../services/GenerateAutomaticInput.jsx'
+import GenerateAutomaticInput from '@/services/GenerateAutomaticInput.jsx'
 
 Material.propTypes = {
   material: PropTypes.object.isRequired,

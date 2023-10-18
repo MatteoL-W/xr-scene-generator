@@ -1,4 +1,4 @@
-import useStore from '../../../store/index.jsx'
+import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import Title from '../Title.jsx'
 import { GiMeshBall } from 'react-icons/gi'

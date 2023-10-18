@@ -1,14 +1,20 @@
 import { useHotkeys } from 'react-hotkeys-hook'
-import useStore from '../../../store/index.jsx'
+import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
 import PropTypes from 'prop-types'
 
 export default function Shortcut({ children }) {
-  const [isMeshListOpen, setMeshListState, setTransformControlsMode] = useStore(
+  const [
+    isMeshListOpen,
+    setMeshListState,
+    setTransformControlsMode,
+    removeFocusedMeshFromScene,
+  ] = useStore(
     (state) => [
       state.isMeshListOpen,
       state.setMeshListState,
       state.setTransformControlsMode,
+      state.removeFocusedMeshFromScene,
     ],
     shallow,
   )
@@ -26,6 +32,11 @@ export default function Shortcut({ children }) {
     scopes: ['renderer'],
   })
   useHotkeys('g', () => setTransformControlsMode('translate'), {
+    scopes: ['renderer'],
+  })
+
+  // delete remove focused mesh
+  useHotkeys('delete,backspace', removeFocusedMeshFromScene, {
     scopes: ['renderer'],
   })
 
