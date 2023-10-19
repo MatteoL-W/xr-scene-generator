@@ -1,28 +1,13 @@
-import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
 import Title from '../Title.jsx'
-import { BsFillBoxFill } from 'react-icons/bs'
 import Geometry from './Geometry.jsx'
 import Material from './Material.jsx'
 import Shadows from './Shadows.jsx'
+import { useFocusedMeshData } from '@/hooks/useFocusedMeshData.jsx'
+import { BsFillBoxFill } from 'react-icons/bs'
 
 export default function MeshModifier() {
-  const [sceneMeshes, focusedMeshUUID, resetFocusedMesh] = useStore(
-    (state) => [
-      state.sceneMeshes,
-      state.focusedMeshUUID,
-      state.resetFocusedMesh,
-    ],
-    shallow,
-  )
-
-  if (!sceneMeshes || !focusedMeshUUID) return
-
-  const focusedMesh = sceneMeshes.find((mesh) => mesh.uuid === focusedMeshUUID)
-  if (!focusedMesh) {
-    resetFocusedMesh()
-    return
-  }
+  const focusedMesh = useFocusedMeshData()
+  if (!focusedMesh) return
 
   return (
     <div className='border-b border-b-white'>
