@@ -4,7 +4,7 @@ import { forwardRef } from 'react'
 export const BoxPhong = forwardRef((props, ref) => {
   return (
     <Box ref={ref} {...props}>
-      <meshStandardMaterial color='hotpink' />
+      <meshStandardMaterial color='#000000' />
     </Box>
   )
 })

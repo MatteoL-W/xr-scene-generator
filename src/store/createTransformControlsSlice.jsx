@@ -1,3 +1,5 @@
+import { Vector3 } from 'three'
+
 export const manageControls = (set) => ({
   transformControlsRef: null,
   setTransformControls: (transformControlsRef) => {
@@ -7,5 +9,10 @@ export const manageControls = (set) => ({
   transformControlsMode: 'translate',
   setTransformControlsMode: (transformControlsMode) => {
     set(() => ({ transformControlsMode }))
+  },
+
+  cameraDirectionInstruction: new Vector3(0, 0, 0),
+  setNewCameraDirectionInstruction: (vector3) => {
+    set(() => ({ cameraDirectionInstruction: vector3 }))
   },
 })

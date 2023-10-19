@@ -1,15 +1,10 @@
-import {
-  GizmoHelper,
-  GizmoViewport,
-  OrbitControls,
-  TransformControls,
-} from '@react-three/drei'
+import useThreeObject from '@/hooks/useThreeObject.jsx'
+import { useEffect, useRef } from 'react'
 import useStore from '@/store/index.jsx'
 import { shallow } from 'zustand/shallow'
-import { useEffect, useRef } from 'react'
-import useThreeObject from '@/hooks/useThreeObject.jsx'
+import { TransformControls } from '@react-three/drei'
 
-export default function Controls() {
+export default function Transform() {
   const [
     setTransformControls,
     transformControlsMode,
@@ -53,23 +48,12 @@ export default function Controls() {
   }
 
   return (
-    <>
-      <OrbitControls makeDefault enableDamping={false} />
-
-      <TransformControls
-        mode={transformControlsMode}
-        ref={transformControlsRef}
-        onMouseUp={handleDragEnd}
-        object={focusedMeshObject}
-        {...focusedMeshProps}
-      />
-
-      <GizmoHelper alignment='bottom-right' margin={[65, 65]}>
-        <GizmoViewport
-          axisColors={['#9d4b4b', '#2f7f4f', '#3b5b9d']}
-          labelColor='white'
-        />
-      </GizmoHelper>
-    </>
+    <TransformControls
+      mode={transformControlsMode}
+      ref={transformControlsRef}
+      onMouseUp={handleDragEnd}
+      object={focusedMeshObject}
+      {...focusedMeshProps}
+    />
   )
 }
