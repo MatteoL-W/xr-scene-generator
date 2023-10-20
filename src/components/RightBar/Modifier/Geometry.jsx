@@ -1,14 +1,13 @@
 import Subtitle from '../Subtitle.jsx'
 import GenerateAutomaticInput from '@/services/GenerateAutomaticInput.jsx'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 import { useEffect, useState } from 'react'
 
 export default function Geometry() {
   const [meshTransformProperties, setMeshTransformProperties] = useState({})
   const [transformControlsRef, focusedMeshUUID] = useStore(
-    (state) => [state.transformControlsRef, state.focusedMeshUUID],
-    shallow,
+    useShallow((state) => [state.transformControlsRef, state.focusedMeshUUID]),
   )
 
   useEffect(() => {

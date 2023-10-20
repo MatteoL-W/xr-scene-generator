@@ -1,10 +1,9 @@
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 
 export default function Header() {
   const [isDebuggerUIOpen, setDebuggerUIState] = useStore(
-    (state) => [state.isDebuggerUIOpen, state.setDebuggerUIState],
-    shallow,
+    useShallow((state) => [state.isDebuggerUIOpen, state.setDebuggerUIState]),
   )
 
   return (

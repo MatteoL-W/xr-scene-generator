@@ -1,5 +1,5 @@
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 import { TbFocusCentered, TbRotate360 } from 'react-icons/tb'
 import { LuScaling } from 'react-icons/lu'
 import { LiaArrowsAltSolid } from 'react-icons/lia'
@@ -7,11 +7,10 @@ import { useFocusedMeshPosition } from '@/hooks/useFocusedMeshData.jsx'
 
 export default function ControlsOpt() {
   const [setTransformControlsMode, setNewCameraDirectionInstruction] = useStore(
-    (state) => [
+    useShallow((state) => [
       state.setTransformControlsMode,
       state.setNewCameraDirectionInstruction,
-    ],
-    shallow,
+    ]),
   )
 
   // ToDo: Opti ?

@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
+import getMeshComponent from '@/utils/getMeshComponents.js'
 
 export default function MeshTemplate({ mesh }) {
   const [modifyMeshUUID, changeFocusedMeshUUID] = useStore(
-    (state) => [state.modifyMeshUUID, state.changeFocusedMeshUUID],
-    shallow,
+    useShallow((state) => [state.modifyMeshUUID, state.changeFocusedMeshUUID]),
   )
-  const MeshComponent = mesh.component
+  const MeshComponent = getMeshComponent(mesh.component)
   const meshComponentRef = useRef(null)
 
   // Set the mesh uuid the same as R3F Object uuid (do not add more dependencies)
@@ -19,8 +19,9 @@ export default function MeshTemplate({ mesh }) {
   return (
     <MeshComponent
       {...mesh.args}
+      {...mesh.material}
+      {...mesh.transformations}
       ref={meshComponentRef}
-      material-color={mesh.material['material-color']}
       onClick={(e) => {
         changeFocusedMeshUUID(e.object.uuid)
       }}

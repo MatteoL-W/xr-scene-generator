@@ -1,11 +1,10 @@
 import { Grid } from '@react-three/drei'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 
 export default function Misc() {
   const [isGridOpen, isAxesHelperOpen] = useStore(
-    (state) => [state.isGridOpen, state.isAxesHelperOpen],
-    shallow,
+    useShallow((state) => [state.isGridOpen, state.isAxesHelperOpen]),
   )
 
   return (

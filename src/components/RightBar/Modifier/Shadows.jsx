@@ -1,7 +1,7 @@
 import Subtitle from '../Subtitle.jsx'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
 import PropTypes from 'prop-types'
+import { useShallow } from 'zustand/react/shallow'
 
 Shadows.propTypes = {
   args: PropTypes.object.isRequired,
@@ -9,8 +9,7 @@ Shadows.propTypes = {
 
 export default function Shadows({ args }) {
   const [modifyFocusedMeshArgs] = useStore(
-    (state) => [state.modifyFocusedMeshArgs],
-    shallow,
+    useShallow((state) => [state.modifyFocusedMeshArgs]),
   )
 
   return (

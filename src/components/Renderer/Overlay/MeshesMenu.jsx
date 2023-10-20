@@ -1,11 +1,10 @@
 import meshesList from '@/data/meshesList.js'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 import useStore from '@/store/index.jsx'
 
 export default function MeshesMenu() {
   const [addContentToScene] = useStore(
-    (state) => [state.addMeshToScene],
-    shallow,
+    useShallow((state) => [state.addMeshToScene]),
   )
 
   return (

@@ -1,16 +1,15 @@
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 import { Vector3 } from 'three'
 
 // ToDo: Optimize ?
 export function useFocusedMeshData() {
   const [sceneMeshes, focusedMeshUUID, resetFocusedMesh] = useStore(
-    (state) => [
+    useShallow((state) => [
       state.sceneMeshes,
       state.focusedMeshUUID,
       state.resetFocusedMesh,
-    ],
-    shallow,
+    ]),
   )
 
   if (!sceneMeshes || !focusedMeshUUID) return
@@ -23,5 +22,5 @@ export function useFocusedMeshData() {
 
 export function useFocusedMeshPosition() {
   const focusedMesh = useFocusedMeshData()
-  return new Vector3(...focusedMesh.transformations.position)
+  if (focusedMesh) return new Vector3(...focusedMesh.transformations.position)
 }

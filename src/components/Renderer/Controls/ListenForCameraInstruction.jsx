@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 
 ListenForCameraInstruction.propTypes = {
   children: PropTypes.node.isRequired,
@@ -12,8 +12,7 @@ export default function ListenForCameraInstruction({
   orbitControlsRef,
 }) {
   const [cameraDirectionInstruction] = useStore(
-    (state) => [state.cameraDirectionInstruction],
-    shallow,
+    useShallow((state) => [state.cameraDirectionInstruction]),
   )
 
   if (orbitControlsRef?.current) {

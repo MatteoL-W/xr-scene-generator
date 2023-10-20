@@ -1,11 +1,10 @@
 import { StatsGl } from '@react-three/drei'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 
 export default function Debug() {
   const [isDebuggerUIOpen] = useStore(
-    (state) => [state.isDebuggerUIOpen],
-    shallow,
+    useShallow((state) => [state.isDebuggerUIOpen]),
   )
 
   if (isDebuggerUIOpen)

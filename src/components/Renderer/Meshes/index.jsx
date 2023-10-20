@@ -1,9 +1,9 @@
 import MeshTemplate from './MeshTemplate.jsx'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 
 export default function Meshes() {
-  const [sceneMeshes] = useStore((state) => [state.sceneMeshes], shallow)
+  const [sceneMeshes] = useStore(useShallow((state) => [state.sceneMeshes]))
 
   return (
     <group name='MeshesComponent'>

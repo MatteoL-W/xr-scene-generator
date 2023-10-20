@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 import { argumentsDefaultParameters } from '@/data/argumentsDefaultParameters.js'
 import { BsLink45Deg } from 'react-icons/bs'
 
@@ -12,11 +12,10 @@ VectorAndEulerInput.propTypes = {
 
 export function VectorAndEulerInput({ propertyLabel, propertyValue }) {
   const [modifyFocusedMeshTransformations, transformControlsRef] = useStore(
-    (state) => [
+    useShallow((state) => [
       state.modifyFocusedMeshTransformations,
       state.transformControlsRef,
-    ],
-    shallow,
+    ]),
   )
   const [hasSyncProperties, setHasSyncPropertiesState] = useState(false)
 

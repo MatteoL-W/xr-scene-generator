@@ -1,11 +1,11 @@
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 import Title from '../Title.jsx'
 import { GiMeshBall } from 'react-icons/gi'
 import MeshInList from './MeshInList.jsx'
 
 export default function SceneCompositionList() {
-  const [sceneMeshes] = useStore((state) => [state.sceneMeshes], shallow)
+  const [sceneMeshes] = useStore(useShallow((state) => [state.sceneMeshes]))
 
   if (sceneMeshes.length === 0) {
     return <Title title='Try adding components with A' />

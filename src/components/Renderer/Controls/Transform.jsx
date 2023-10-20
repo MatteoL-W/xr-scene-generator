@@ -1,8 +1,8 @@
 import useThreeObject from '@/hooks/useThreeObject.jsx'
 import { useEffect, useRef } from 'react'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
 import { TransformControls } from '@react-three/drei'
+import { useShallow } from 'zustand/react/shallow'
 
 export default function Transform() {
   const [
@@ -11,13 +11,12 @@ export default function Transform() {
     focusedMeshUUID,
     modifyFocusedMeshTransformations,
   ] = useStore(
-    (state) => [
+    useShallow((state) => [
       state.setTransformControls,
       state.transformControlsMode,
       state.focusedMeshUUID,
       state.modifyFocusedMeshTransformations,
-    ],
-    shallow,
+    ]),
   )
 
   const focusedMeshObject = useThreeObject(focusedMeshUUID)

@@ -1,12 +1,11 @@
 import SceneOpt from './SceneOpt.jsx'
 import ControlsOpt from './ControlsOpt.jsx'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
+import { useShallow } from 'zustand/react/shallow'
 
 export default function QuickOptions() {
   const [focusedMeshUUID] = useStore(
-    (state) => [state.focusedMeshUUID],
-    shallow,
+    useShallow((state) => [state.focusedMeshUUID]),
   )
 
   return (

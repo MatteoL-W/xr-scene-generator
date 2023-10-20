@@ -1,8 +1,8 @@
 import { TbFocusCentered, TbGizmo } from 'react-icons/tb'
 import { BiGrid } from 'react-icons/bi'
 import useStore from '@/store/index.jsx'
-import { shallow } from 'zustand/shallow'
 import { Vector3 } from 'three'
+import { useShallow } from 'zustand/react/shallow'
 
 export default function SceneOpt() {
   const [
@@ -12,14 +12,13 @@ export default function SceneOpt() {
     setAxisHelperState,
     setNewCameraDirectionInstruction,
   ] = useStore(
-    (state) => [
+    useShallow((state) => [
       state.isGridOpen,
       state.setGridState,
       state.isAxesHelperOpen,
       state.setAxisHelperState,
       state.setNewCameraDirectionInstruction,
-    ],
-    shallow,
+    ]),
   )
 
   return (
