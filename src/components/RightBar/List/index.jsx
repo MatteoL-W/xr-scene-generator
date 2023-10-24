@@ -6,9 +6,14 @@ import MeshInList from './MeshInList.jsx'
 
 export default function SceneCompositionList() {
   const [sceneMeshes] = useStore(useShallow((state) => [state.sceneMeshes]))
+  const [setMeshListState] = useStore((state) => [state.setMeshListState])
 
   if (sceneMeshes.length === 0) {
-    return <Title title='Try adding components with A' />
+    return (
+      <div onClick={() => setMeshListState(true)}>
+        <Title title='Add meshes with A or by clicking here' />
+      </div>
+    )
   }
 
   return (
