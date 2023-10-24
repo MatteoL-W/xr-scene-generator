@@ -12,10 +12,11 @@ export default function Canvas() {
     <>
       <VRButton />
       <R3FCanvas shadows='basic'>
+        <Debug />
+        <Controls />
+
         <XR>
-          <Debug />
           <Environment />
-          <Controls />
           <Misc />
 
           <Lights />
