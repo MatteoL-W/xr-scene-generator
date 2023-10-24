@@ -5,6 +5,7 @@ import Controls from './Controls/index.jsx'
 import Debug from './Debug.jsx'
 import Misc from './Misc.jsx'
 import Lights from './Lights.jsx'
+import Environment from '@/components/Renderer/Environment.jsx'
 
 export default function Canvas() {
   return (
@@ -13,6 +14,7 @@ export default function Canvas() {
       <R3FCanvas shadows='basic'>
         <XR>
           <Debug />
+          <Environment />
           <Controls />
           <Misc />
 

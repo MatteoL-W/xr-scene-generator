@@ -1,6 +1,11 @@
 import { GizmoHelper, GizmoViewport } from '@react-three/drei'
+import { useXR } from '@react-three/xr'
 
 export default function AppliedGizmoHelper() {
+  const { isPresenting } = useXR()
+
+  if (isPresenting) return <></>
+
   return (
     <GizmoHelper alignment='bottom-right' margin={[65, 65]}>
       <GizmoViewport

@@ -6,7 +6,7 @@
 
 @layer base {
     * {
-        box-sizing: border-box;
+        @apply box-border select-none;
     }
 
     html {
