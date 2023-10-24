@@ -1,10 +1,10 @@
 import useStore from '@/store/index.jsx'
-import { useShallow } from 'zustand/react/shallow'
 
 export default function Header() {
-  const [isDebuggerUIOpen, setDebuggerUIState] = useStore(
-    useShallow((state) => [state.isDebuggerUIOpen, state.setDebuggerUIState]),
-  )
+  const [isDebuggerUIOpen, setDebuggerUIState] = useStore((state) => [
+    state.isDebuggerUIOpen,
+    state.setDebuggerUIState,
+  ])
 
   return (
     <div className='h-12 bg-jean flex items-center gap-10 px-5 text-white border-r border-r-white'>

@@ -6,9 +6,10 @@ import { useEffect, useState } from 'react'
 
 export default function Geometry() {
   const [meshTransformProperties, setMeshTransformProperties] = useState({})
-  const [transformControlsRef, focusedMeshUUID] = useStore(
-    useShallow((state) => [state.transformControlsRef, state.focusedMeshUUID]),
+  const [transformControlsRef] = useStore(
+    useShallow((state) => [state.transformControlsRef]),
   )
+  const [focusedMeshUUID] = useStore((state) => [state.focusedMeshUUID])
 
   useEffect(() => {
     if (transformControlsRef.current) {

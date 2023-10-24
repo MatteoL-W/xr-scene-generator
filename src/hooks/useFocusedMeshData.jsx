@@ -4,13 +4,11 @@ import { Vector3 } from 'three'
 
 // ToDo: Optimize ?
 export function useFocusedMeshData() {
-  const [sceneMeshes, focusedMeshUUID, resetFocusedMesh] = useStore(
-    useShallow((state) => [
-      state.sceneMeshes,
-      state.focusedMeshUUID,
-      state.resetFocusedMesh,
-    ]),
-  )
+  const [sceneMeshes] = useStore(useShallow((state) => [state.sceneMeshes]))
+  const [focusedMeshUUID, resetFocusedMesh] = useStore((state) => [
+    state.focusedMeshUUID,
+    state.resetFocusedMesh,
+  ])
 
   if (!sceneMeshes || !focusedMeshUUID) return
 

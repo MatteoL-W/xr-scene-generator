@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
 import { useRef } from 'react'
-import { useShallow } from 'zustand/react/shallow'
 
 NameDisplay.propTypes = {
   mesh: PropTypes.object.isRequired,
@@ -11,11 +10,11 @@ NameDisplay.propTypes = {
 
 export default function NameDisplay({ mesh, editing, resetEditingState }) {
   const [focusedMeshUUID, changeFocusedMeshUUID, modifyMeshName] = useStore(
-    useShallow((state) => [
+    (state) => [
       state.focusedMeshUUID,
       state.changeFocusedMeshUUID,
       state.modifyMeshName,
-    ]),
+    ],
   )
   const newNameInput = useRef()
 
@@ -42,6 +41,7 @@ export default function NameDisplay({ mesh, editing, resetEditingState }) {
       <form onSubmit={saveName}>
         <input
           type='text'
+          name='editMeshName'
           defaultValue={mesh.userSetName}
           className={editing ? 'block' : 'hidden'}
           ref={newNameInput}

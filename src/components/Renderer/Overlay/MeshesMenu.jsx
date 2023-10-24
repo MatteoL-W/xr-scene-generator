@@ -1,11 +1,8 @@
 import meshesList from '@/data/meshesList.js'
-import { useShallow } from 'zustand/react/shallow'
 import useStore from '@/store/index.jsx'
 
 export default function MeshesMenu() {
-  const [addContentToScene] = useStore(
-    useShallow((state) => [state.addMeshToScene]),
-  )
+  const [addContentToScene] = useStore((state) => [state.addMeshToScene])
 
   return (
     <div className='w-20 absolute top-5 left-5 p-2 flex flex-col z-10 bg-jean'>

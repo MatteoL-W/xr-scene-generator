@@ -11,11 +11,11 @@ VectorAndEulerInput.propTypes = {
 }
 
 export function VectorAndEulerInput({ propertyLabel, propertyValue }) {
-  const [modifyFocusedMeshTransformations, transformControlsRef] = useStore(
-    useShallow((state) => [
-      state.modifyFocusedMeshTransformations,
-      state.transformControlsRef,
-    ]),
+  const [modifyFocusedMeshTransformations] = useStore((state) => [
+    state.modifyFocusedMeshTransformations,
+  ])
+  const [transformControlsRef] = useStore(
+    useShallow((state) => [state.transformControlsRef]),
   )
   const [hasSyncProperties, setHasSyncPropertiesState] = useState(false)
 

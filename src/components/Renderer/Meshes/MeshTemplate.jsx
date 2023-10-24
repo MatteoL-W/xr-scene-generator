@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
-import { useShallow } from 'zustand/react/shallow'
 import getMeshComponent from '@/utils/getMeshComponents.js'
 
 export default function MeshTemplate({ mesh }) {
-  const [modifyMeshUUID, changeFocusedMeshUUID] = useStore(
-    useShallow((state) => [state.modifyMeshUUID, state.changeFocusedMeshUUID]),
-  )
+  const [modifyMeshUUID, changeFocusedMeshUUID] = useStore((state) => [
+    state.modifyMeshUUID,
+    state.changeFocusedMeshUUID,
+  ])
   const MeshComponent = getMeshComponent(mesh.component)
   const meshComponentRef = useRef(null)
 

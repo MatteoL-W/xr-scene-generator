@@ -1,7 +1,6 @@
 import NameDisplay from './NameDisplay.jsx'
 import { useState } from 'react'
 import useStore from '@/store/index.jsx'
-import { useShallow } from 'zustand/react/shallow'
 import { BsFillBoxFill } from 'react-icons/bs'
 import { MdOutlineDriveFileRenameOutline } from 'react-icons/md'
 import { AiFillDelete } from 'react-icons/ai'
@@ -17,14 +16,12 @@ export default function MeshInList({ mesh }) {
     focusedMeshUUID,
     changeFocusedMeshUUID,
     modifyMeshArgs,
-  ] = useStore(
-    useShallow((state) => [
-      state.removeMeshFromScene,
-      state.focusedMeshUUID,
-      state.changeFocusedMeshUUID,
-      state.modifyMeshArgs,
-    ]),
-  )
+  ] = useStore((state) => [
+    state.removeMeshFromScene,
+    state.focusedMeshUUID,
+    state.changeFocusedMeshUUID,
+    state.modifyMeshArgs,
+  ])
   const [isRenaming, setIsRenaming] = useState(false)
   const meshIsVisible = mesh.args.visible
 

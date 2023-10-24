@@ -1,16 +1,15 @@
 import Subtitle from '../Subtitle.jsx'
 import useStore from '@/store/index.jsx'
 import PropTypes from 'prop-types'
-import { useShallow } from 'zustand/react/shallow'
 
 Shadows.propTypes = {
   args: PropTypes.object.isRequired,
 }
 
 export default function Shadows({ args }) {
-  const [modifyFocusedMeshArgs] = useStore(
-    useShallow((state) => [state.modifyFocusedMeshArgs]),
-  )
+  const [modifyFocusedMeshArgs] = useStore((state) => [
+    state.modifyFocusedMeshArgs,
+  ])
 
   return (
     <>
@@ -21,7 +20,7 @@ export default function Shadows({ args }) {
           <label htmlFor='castShadows'>Cast Shadows</label>
           <input
             type='checkbox'
-            name='castShadows'
+            id='castShadows'
             checked={args.castShadow}
             onChange={() => {
               modifyFocusedMeshArgs({
@@ -35,7 +34,7 @@ export default function Shadows({ args }) {
           <label htmlFor='receiveShadows'>Receive Shadows</label>
           <input
             type='checkbox'
-            name='receiveShadows'
+            id='receiveShadows'
             checked={args.receiveShadow}
             onChange={() => {
               modifyFocusedMeshArgs({

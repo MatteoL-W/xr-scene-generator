@@ -1,5 +1,4 @@
 import useStore from '@/store/index.jsx'
-import { useShallow } from 'zustand/react/shallow'
 import PropTypes from 'prop-types'
 import { hexColorValidator } from '@/utils/typesValidator.jsx'
 
@@ -9,9 +8,9 @@ ColorPickerInput.propTypes = {
 }
 
 export function ColorPickerInput({ propertyLabel, propertyValue }) {
-  const [modifyFocusedMeshMaterial] = useStore(
-    useShallow((state) => [state.modifyFocusedMeshMaterial]),
-  )
+  const [modifyFocusedMeshMaterial] = useStore((state) => [
+    state.modifyFocusedMeshMaterial,
+  ])
 
   function handleOnChange(event) {
     modifyFocusedMeshMaterial({

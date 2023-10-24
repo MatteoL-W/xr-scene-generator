@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
-import { useShallow } from 'zustand/react/shallow'
 import { argumentsDefaultParameters } from '@/data/argumentsDefaultParameters.js'
 
 DefaultInput.propTypes = {
@@ -9,9 +8,9 @@ DefaultInput.propTypes = {
 }
 
 export function DefaultInput({ propertyLabel, propertyValue }) {
-  const [modifyFocusedMeshTransformations] = useStore(
-    useShallow((state) => [state.modifyFocusedMeshTransformations]),
-  )
+  const [modifyFocusedMeshTransformations] = useStore((state) => [
+    state.modifyFocusedMeshTransformations,
+  ])
 
   function handleOnChange(event) {
     modifyFocusedMeshTransformations({

@@ -1,6 +1,5 @@
 import { useHotkeys } from 'react-hotkeys-hook'
 import useStore from '@/store/index.jsx'
-import { useShallow } from 'zustand/react/shallow'
 import PropTypes from 'prop-types'
 
 export default function Shortcut({ children }) {
@@ -9,14 +8,12 @@ export default function Shortcut({ children }) {
     setMeshListState,
     setTransformControlsMode,
     removeFocusedMeshFromScene,
-  ] = useStore(
-    useShallow((state) => [
-      state.isMeshListOpen,
-      state.setMeshListState,
-      state.setTransformControlsMode,
-      state.removeFocusedMeshFromScene,
-    ]),
-  )
+  ] = useStore((state) => [
+    state.isMeshListOpen,
+    state.setMeshListState,
+    state.setTransformControlsMode,
+    state.removeFocusedMeshFromScene,
+  ])
 
   // Overlay openings
   useHotkeys('a', () => setMeshListState(!isMeshListOpen), {
