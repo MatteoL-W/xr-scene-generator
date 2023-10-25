@@ -6,6 +6,7 @@ import Debug from './Debug.jsx'
 import Misc from './Misc.jsx'
 import Lights from './Lights.jsx'
 import Environment from '@/components/Renderer/Environment.jsx'
+import XRSpecificControls from '@/components/Renderer/XR/index.jsx'
 
 export default function Canvas() {
   return (
@@ -16,6 +17,8 @@ export default function Canvas() {
         <Controls />
 
         <XR>
+          <XRSpecificControls />
+
           <Environment />
           <Misc />
 
