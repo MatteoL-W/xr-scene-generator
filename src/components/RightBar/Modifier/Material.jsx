@@ -12,7 +12,7 @@ export default function Material({ material }) {
       <Subtitle title='Material' />
 
       <div className='p-3 pt-0 flex flex-col gap-y-2'>
-        <div className='grid grid-cols-4 w-[95%]'>
+        <div className='grid grid-cols-4 w-[95%] items-center'>
           {Object.entries(material).map(([propertyLabel, propertyValue]) => {
             return (
               <GenerateAutomaticInput
