@@ -2,6 +2,7 @@ import useThreeObject from '@/hooks/useThreeObject.jsx'
 import { useEffect, useRef } from 'react'
 import useStore from '@/store/index.jsx'
 import { TransformControls } from '@react-three/drei'
+import { useXR } from '@react-three/xr'
 
 export default function Transform() {
   const [
@@ -35,7 +36,9 @@ export default function Transform() {
     modifyFocusedMeshTransformations(focusedMeshTransformProperty)
   }
 
-  const hasFocusedMesh = focusedMeshUUID !== ''
+  const { isPresenting } = useXR()
+
+  const hasFocusedMesh = focusedMeshUUID !== '' || !isPresenting
   const focusedMeshProps = {
     enabled: hasFocusedMesh,
     showX: hasFocusedMesh,

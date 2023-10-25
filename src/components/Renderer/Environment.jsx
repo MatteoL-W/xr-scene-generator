@@ -4,7 +4,7 @@ export default function Environment() {
   return (
     <EnvironmentR3F
       preset='park'
-      background='only'
+      background={true}
       ground={{
         height: 15, // Height of the camera that was used to create the env map (Default: 15)
         radius: 60, // Radius of the world. (Default 60)

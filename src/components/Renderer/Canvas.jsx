@@ -14,11 +14,11 @@ export default function Canvas() {
       <VRButton />
       <R3FCanvas shadows='basic'>
         <Debug />
-        <Controls />
 
         <XR>
           <XRSpecificControls />
 
+          <Controls />
           <Environment />
           <Misc />
 
