@@ -38,7 +38,7 @@ export default function Transform() {
 
   const { isPresenting } = useXR()
 
-  const hasFocusedMesh = focusedMeshUUID !== '' || !isPresenting
+  const hasFocusedMesh = focusedMeshUUID !== '' && !isPresenting
   const focusedMeshProps = {
     enabled: hasFocusedMesh,
     showX: hasFocusedMesh,
