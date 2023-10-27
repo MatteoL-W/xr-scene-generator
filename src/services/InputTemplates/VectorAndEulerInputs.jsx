@@ -1,21 +1,20 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import useStore from '@/store/index.jsx'
-import { useShallow } from 'zustand/react/shallow'
 import { argumentsDefaultParameters } from '@/data/argumentsDefaultParameters.js'
 import { BsLink45Deg } from 'react-icons/bs'
 
-VectorAndEulerInput.propTypes = {
+VectorAndEulerInputs.propTypes = {
   propertyLabel: PropTypes.string.isRequired,
   propertyValue: PropTypes.object.isRequired,
 }
 
-export function VectorAndEulerInput({ propertyLabel, propertyValue }) {
-  const [modifyFocusedMeshTransformations] = useStore((state) => [
-    state.modifyFocusedMeshTransformations,
-  ])
-  const [transformControlsRef] = useStore(
-    useShallow((state) => [state.transformControlsRef]),
+export function VectorAndEulerInputs({ propertyLabel, propertyValue }) {
+  const [modifyFocusedMeshTransformations, transformControlsRef] = useStore(
+    (state) => [
+      state.modifyFocusedMeshTransformations,
+      state.transformControlsRef,
+    ],
   )
   const [hasSyncProperties, setHasSyncPropertiesState] = useState(false)
 
@@ -23,8 +22,7 @@ export function VectorAndEulerInput({ propertyLabel, propertyValue }) {
     setHasSyncPropertiesState(!hasSyncProperties)
   }
 
-  function handleOnChange(event) {
-    const changedAxisNumber = event.target.attributes['data-axis-number'].value
+  function handleOnChange(event, changedAxisNumber) {
     let updatedPropertyValue = [...propertyValue]
 
     if (!hasSyncProperties) {
@@ -79,8 +77,7 @@ export function VectorAndEulerInput({ propertyLabel, propertyValue }) {
           <input
             type='number'
             value={axisValue}
-            onChange={handleOnChange}
-            data-axis-number={axisNumber}
+            onChange={(e) => handleOnChange(e, axisNumber)}
             key={inputCodeName}
             name={inputCodeName}
             {...defaultParameters}

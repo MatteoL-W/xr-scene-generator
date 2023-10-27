@@ -4,6 +4,9 @@ import useStore from '@/store/index.jsx'
 import { useShallow } from 'zustand/react/shallow'
 import { useEffect, useState } from 'react'
 
+// Performance issue : we loop on position, rotation and scale so when 1 is updated,
+// the whole 3 are being rendered in the children components
+
 export default function Geometry() {
   const [meshTransformProperties, setMeshTransformProperties] = useState({})
   const [transformControlsRef] = useStore(

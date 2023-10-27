@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
 import getMeshComponent from '@/utils/getMeshComponents.js'
@@ -8,7 +8,10 @@ export default function MeshTemplate({ mesh }) {
     state.modifyMeshUUID,
     state.changeFocusedMeshUUID,
   ])
-  const MeshComponent = getMeshComponent(mesh.component)
+  const MeshComponent = useMemo(
+    () => getMeshComponent(mesh.component),
+    [mesh.component],
+  )
   const meshComponentRef = useRef(null)
 
   // Set the mesh uuid the same as R3F Object uuid (do not add more dependencies)
