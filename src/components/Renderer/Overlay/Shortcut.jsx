@@ -8,11 +8,15 @@ export default function Shortcut({ children }) {
     setMeshListState,
     setTransformControlsMode,
     removeFocusedMeshFromScene,
+    undo,
+    redo,
   ] = useStore((state) => [
     state.isMeshListOpen,
     state.setMeshListState,
     state.setTransformControlsMode,
     state.removeFocusedMeshFromScene,
+    state.undo,
+    state.redo,
   ])
 
   // Overlay openings
@@ -35,6 +39,10 @@ export default function Shortcut({ children }) {
   useHotkeys('delete,backspace', removeFocusedMeshFromScene, {
     scopes: ['renderer'],
   })
+
+  // undo, redo
+  useHotkeys('ctrl+z', undo, { scopes: ['renderer'] })
+  useHotkeys('ctrl+shift+z', redo, { scopes: ['renderer'] })
 
   return <>{children}</>
 }
