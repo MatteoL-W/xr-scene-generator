@@ -37,7 +37,7 @@ export const manageSceneMeshes = (set) => ({
       ),
     }))
   },
-  modifyMeshTransformations: (newArgs, uuid) => {
+  modifyMesh: (newArgs, uuid) => {
     set((state) => ({
       sceneMeshes: state.sceneMeshes.map((mesh) =>
         mesh.uuid === uuid

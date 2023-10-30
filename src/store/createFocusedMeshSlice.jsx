@@ -14,10 +14,7 @@ export const manageFocusedMesh = (set) => ({
   modifyFocusedMeshTransformations: (newArgs) => {
     set((state) => {
       state.addNewActions(() => {
-        state.modifyMeshTransformations(
-          { transformations: newArgs },
-          state.focusedMeshUUID,
-        )
+        state.modifyMesh({ transformations: newArgs }, state.focusedMeshUUID)
       })
 
       return {
