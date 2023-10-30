@@ -18,7 +18,11 @@ export default function SceneCompositionList() {
 
   return (
     <div className='border-b border-b-white'>
-      <Title title='Scene Composition' Icon={GiMeshBall} />
+      <Title
+        title='Scene Composition'
+        Icon={GiMeshBall}
+        onClick={() => setMeshListState(true)}
+      />
       <ul className='px-5 py-3 leading-8 max-h-32 overflow-y-scroll'>
         {sceneMeshes.map((mesh) => {
           if (!mesh.uuid) return

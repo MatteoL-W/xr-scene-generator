@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
-import getMeshComponent from '@/utils/getMeshComponents.js'
+import { getMeshComponent } from '@/utils/getComponents.js'
 
 export default function MeshTemplate({ mesh }) {
   const [modifyMeshUUID, changeFocusedMeshUUID] = useStore((state) => [
