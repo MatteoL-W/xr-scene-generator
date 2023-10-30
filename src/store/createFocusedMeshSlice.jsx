@@ -12,16 +12,25 @@ export const manageFocusedMesh = (set) => ({
     }))
   },
   modifyFocusedMeshTransformations: (newArgs) => {
-    set((state) => ({
-      sceneMeshes: state.sceneMeshes.map((mesh) =>
-        mesh.uuid === state.focusedMeshUUID
-          ? {
-              ...mesh,
-              transformations: { ...mesh.transformations, ...newArgs },
-            }
-          : mesh,
-      ),
-    }))
+    set((state) => {
+      state.addNewActions(() => {
+        state.modifyMeshTransformations(
+          { transformations: newArgs },
+          state.focusedMeshUUID,
+        )
+      })
+
+      return {
+        sceneMeshes: state.sceneMeshes.map((mesh) =>
+          mesh.uuid === state.focusedMeshUUID
+            ? {
+                ...mesh,
+                transformations: { ...mesh.transformations, ...newArgs },
+              }
+            : mesh,
+        ),
+      }
+    })
   },
   modifyFocusedMeshMaterial: (newArgs) => {
     set((state) => ({

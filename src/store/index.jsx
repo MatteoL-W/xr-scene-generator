@@ -1,3 +1,4 @@
+import { manageHistory } from '@/store/createHistorySlice.jsx'
 import { manageSceneMeshes } from './createSceneMeshesSlice.jsx'
 import { manageFocusedMesh } from './createFocusedMeshSlice.jsx'
 import { manageControls } from './createTransformControlsSlice.jsx'
@@ -10,6 +11,7 @@ import { persist } from 'zustand/middleware'
 const useStore = create(
   persist(
     (...a) => ({
+      ...manageHistory(...a),
       ...manageSceneMeshes(...a),
       ...manageFocusedMesh(...a),
       ...manageControls(...a),
