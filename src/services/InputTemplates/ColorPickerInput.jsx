@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useStore from '@/store/index.jsx'
 import useOutsideClick from '@/hooks/useOutsideClick.jsx'
 import Colorful from '@uiw/react-color-colorful'
 import PropTypes from 'prop-types'
 import { hexColorValidator } from '@/utils/typesValidator.jsx'
+import useDebounce from '@/hooks/useDebounce.jsx'
 
 ColorPickerInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,
@@ -14,14 +15,28 @@ export function ColorPickerInput({ propertyLabel, propertyValue }) {
   const [modifyFocusedMeshMaterial] = useStore((state) => [
     state.modifyFocusedMeshMaterial,
   ])
+  const [color, setColor] = useState()
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false)
   const colorPickerRef = useOutsideClick(() => setIsColorPickerOpen(false))
+  const debouncedColor = useDebounce(color, 0)
 
   function handleOnChange(event) {
-    modifyFocusedMeshMaterial({
-      [propertyLabel]: event.hex,
-    })
+    setColor(event.hex)
   }
+
+  useEffect(() => {
+    const updateMaterial = async () => {
+      if (!debouncedColor) setColor(propertyValue)
+
+      if (debouncedColor) {
+        modifyFocusedMeshMaterial({
+          [propertyLabel]: debouncedColor,
+        })
+      }
+    }
+
+    updateMaterial()
+  }, [debouncedColor])
 
   return (
     <>
