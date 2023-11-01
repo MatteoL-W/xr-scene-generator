@@ -4,7 +4,7 @@ import Meshes from './Meshes/index.jsx'
 import Controls from './Controls/index.jsx'
 import Debug from './Debug.jsx'
 import Misc from './Misc.jsx'
-import Lights from './Lights.jsx'
+import Lights from './Lights/index.jsx'
 import Environment from '@/components/Renderer/Environment.jsx'
 import XRSpecificControls from '@/components/Renderer/XR/index.jsx'
 

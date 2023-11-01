@@ -12,7 +12,7 @@ MeshInList.propTypes = {
 
 export default function MeshInList({ mesh }) {
   const [
-    removeContentFromScene,
+    removeMeshFromScene,
     focusedMeshUUID,
     changeFocusedMeshUUID,
     modifyMeshArgs,
@@ -59,7 +59,7 @@ export default function MeshInList({ mesh }) {
 
         <AiFillDelete
           className='cursor-pointer'
-          onClick={() => removeContentFromScene(mesh)}
+          onClick={() => removeMeshFromScene(mesh)}
         />
       </div>
     </li>

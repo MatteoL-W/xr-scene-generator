@@ -1,4 +1,4 @@
-import MeshesMenu from './MeshesMenu.jsx'
+import SceneMenu from './SceneMenu.jsx'
 import useStore from '@/store/index.jsx'
 import { useShallow } from 'zustand/react/shallow'
 import Shortcut from './Shortcut.jsx'
@@ -12,7 +12,7 @@ export default function RendererOverlay() {
   return (
     <Shortcut>
       <div className='relative'>
-        {isMeshListOpen && <MeshesMenu />}
+        {isMeshListOpen && <SceneMenu />}
 
         <QuickOptions />
       </div>

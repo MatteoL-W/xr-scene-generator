@@ -1,5 +1,6 @@
 import { manageHistory } from '@/store/createHistorySlice.jsx'
-import { manageSceneMeshes } from './createSceneMeshesSlice.jsx'
+import { manageSceneMeshes } from './createMeshesSlice.jsx'
+import { manageSceneLights } from '@/store/createLightsSlice.jsx'
 import { manageFocusedMesh } from './createFocusedMeshSlice.jsx'
 import { manageControls } from './createTransformControlsSlice.jsx'
 import { manageOverlay } from './createOverlaySlice.jsx'
@@ -13,6 +14,7 @@ const useStore = create(
     (...a) => ({
       ...manageHistory(...a),
       ...manageSceneMeshes(...a),
+      ...manageSceneLights(...a),
       ...manageFocusedMesh(...a),
       ...manageControls(...a),
       ...manageOverlay(...a),
@@ -20,7 +22,7 @@ const useStore = create(
       ...manageRendererMisc(...a),
     }),
     {
-      name: 'store',
+      name: 'scene',
       partialize: (state) => ({
         sceneMeshes: state.sceneMeshes,
       }),
