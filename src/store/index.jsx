@@ -1,6 +1,6 @@
-import { manageHistory } from '@/store/createHistorySlice.jsx'
+import { manageHistory } from './createHistorySlice.jsx'
 import { manageSceneObjects } from './createObjectsSlice.jsx'
-import { manageSceneLights } from '@/store/createLightsSlice.jsx'
+import { manageSceneLights } from './createLightsSlice.jsx'
 import { manageFocusedObject } from './createFocusedObjectSlice.jsx'
 import { manageControls } from './createTransformControlsSlice.jsx'
 import { manageOverlay } from './createOverlaySlice.jsx'

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { ColorPickerInput } from './InputTemplates/ColorPickerInput.jsx'
 import { DefaultInput } from './InputTemplates/DefaultInput.jsx'
 import { isHexColor } from '@/utils/typesTest.jsx'
-import { VectorAndEulerInputs } from '@/services/InputTemplates/VectorAndEulerInputs.jsx'
+import { VectorAndEulerInputs } from './InputTemplates/VectorAndEulerInputs.jsx'
 
 GenerateAutomaticInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,

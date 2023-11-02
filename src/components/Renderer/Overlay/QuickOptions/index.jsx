@@ -1,4 +1,4 @@
-import Actions from '@/components/Renderer/Overlay/QuickOptions/Actions.jsx'
+import Actions from './Actions.jsx'
 import SceneOpt from './SceneOpt.jsx'
 import ControlsOpt from './ControlsOpt.jsx'
 import useStore from '@/store/index.jsx'

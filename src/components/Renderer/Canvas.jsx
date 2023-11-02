@@ -3,9 +3,9 @@ import { VRButton, XR } from '@react-three/xr'
 import Controls from './Controls/index.jsx'
 import Debug from './Debug.jsx'
 import Misc from './Misc.jsx'
-import SceneObjects from '@/components/Renderer/SceneObjects/index.jsx'
-import Environment from '@/components/Renderer/Environment.jsx'
-import XRSpecificControls from '@/components/Renderer/XR/index.jsx'
+import SceneObjects from './SceneObjects/index.jsx'
+import Environment from './Environment.jsx'
+import XRSpecificControls from './XR/index.jsx'
 
 export default function Canvas() {
   return (

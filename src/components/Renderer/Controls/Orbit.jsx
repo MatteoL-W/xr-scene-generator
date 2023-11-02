@@ -1,4 +1,4 @@
-import ListenForCameraInstruction from '@/components/Renderer/Controls/ListenForCameraInstruction.jsx'
+import ListenForCameraInstruction from './ListenForCameraInstruction.jsx'
 import { OrbitControls } from '@react-three/drei'
 import { useRef } from 'react'
 
