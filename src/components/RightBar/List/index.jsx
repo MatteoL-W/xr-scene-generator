@@ -2,16 +2,16 @@ import useStore from '@/store/index.jsx'
 import { useShallow } from 'zustand/react/shallow'
 import Title from '../Title.jsx'
 import { GiMeshBall } from 'react-icons/gi'
-import MeshInList from './MeshInList.jsx'
+import ObjectRow from './ObjectRow.jsx'
 
 export default function SceneCompositionList() {
-  const [sceneMeshes] = useStore(useShallow((state) => [state.sceneMeshes]))
-  const [setMeshListState] = useStore((state) => [state.setMeshListState])
+  const [sceneObjects] = useStore(useShallow((state) => [state.sceneObjects]))
+  const [setMenuState] = useStore((state) => [state.setMenuState])
 
-  if (sceneMeshes.length === 0) {
+  if (sceneObjects.length === 0) {
     return (
-      <div onClick={() => setMeshListState(true)}>
-        <Title title='Add meshes with A or by clicking here' />
+      <div onClick={() => setMenuState(true)}>
+        <Title title='Add objects with A or by clicking here' />
       </div>
     )
   }
@@ -21,12 +21,13 @@ export default function SceneCompositionList() {
       <Title
         title='Scene Composition'
         Icon={GiMeshBall}
-        onClick={() => setMeshListState(true)}
+        onClick={() => setMenuState(true)}
       />
+
       <ul className='px-5 py-3 leading-8 max-h-32 overflow-y-scroll'>
-        {sceneMeshes.map((mesh) => {
-          if (!mesh.uuid) return
-          return <MeshInList key={mesh.uuid} mesh={mesh} />
+        {sceneObjects.map((object) => {
+          if (!object.uuid) return
+          return <ObjectRow key={object.uuid} object={object} />
         })}
       </ul>
     </div>

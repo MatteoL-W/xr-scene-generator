@@ -5,14 +5,12 @@ import Shortcut from './Shortcut.jsx'
 import QuickOptions from './QuickOptions/index.jsx'
 
 export default function RendererOverlay() {
-  const [isMeshListOpen] = useStore(
-    useShallow((state) => [state.isMeshListOpen]),
-  )
+  const [isMenuOpen] = useStore(useShallow((state) => [state.isMenuOpen]))
 
   return (
     <Shortcut>
       <div className='relative'>
-        {isMeshListOpen && <SceneMenu />}
+        {isMenuOpen && <SceneMenu />}
 
         <QuickOptions />
       </div>

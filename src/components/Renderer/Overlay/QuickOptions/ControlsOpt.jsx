@@ -2,7 +2,7 @@ import useStore from '@/store/index.jsx'
 import { TbFocusCentered, TbRotate360 } from 'react-icons/tb'
 import { LuScaling } from 'react-icons/lu'
 import { LiaArrowsAltSolid } from 'react-icons/lia'
-import { useFocusedMeshPosition } from '@/hooks/useFocusedMeshData.jsx'
+import { useFocusedObjectPosition } from '@/hooks/useFocusedObjectData.jsx'
 
 export default function ControlsOpt() {
   const [setTransformControlsMode, setNewCameraDirectionInstruction] = useStore(
@@ -13,7 +13,7 @@ export default function ControlsOpt() {
   )
 
   // ToDo: Opti ?
-  const focusedMeshPosition = useFocusedMeshPosition()
+  const focusedObjectPosition = useFocusedObjectPosition()
 
   return (
     <div className='bg-coalblue text-white flex flex-col p-2 gap-y-2 pointer-events-auto rounded'>
@@ -31,7 +31,7 @@ export default function ControlsOpt() {
       />
       <TbFocusCentered
         className='h-6 w-6 cursor-pointer'
-        onClick={() => setNewCameraDirectionInstruction(focusedMeshPosition)}
+        onClick={() => setNewCameraDirectionInstruction(focusedObjectPosition)}
       />
     </div>
   )

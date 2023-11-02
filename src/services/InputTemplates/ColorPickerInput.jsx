@@ -12,8 +12,8 @@ ColorPickerInput.propTypes = {
 }
 
 export function ColorPickerInput({ propertyLabel, propertyValue }) {
-  const [modifyFocusedMeshMaterial] = useStore((state) => [
-    state.modifyFocusedMeshMaterial,
+  const [modifyFocusedObjectMaterial] = useStore((state) => [
+    state.modifyFocusedObjectMaterial,
   ])
   const [color, setColor] = useState()
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false)
@@ -29,7 +29,7 @@ export function ColorPickerInput({ propertyLabel, propertyValue }) {
       if (!debouncedColor) setColor(propertyValue)
 
       if (debouncedColor) {
-        modifyFocusedMeshMaterial({
+        modifyFocusedObjectMaterial({
           [propertyLabel]: debouncedColor,
         })
       }

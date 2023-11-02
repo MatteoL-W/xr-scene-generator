@@ -1,7 +1,7 @@
 import { manageHistory } from '@/store/createHistorySlice.jsx'
-import { manageSceneMeshes } from './createMeshesSlice.jsx'
+import { manageSceneObjects } from './createObjectsSlice.jsx'
 import { manageSceneLights } from '@/store/createLightsSlice.jsx'
-import { manageFocusedMesh } from './createFocusedMeshSlice.jsx'
+import { manageFocusedObject } from './createFocusedObjectSlice.jsx'
 import { manageControls } from './createTransformControlsSlice.jsx'
 import { manageOverlay } from './createOverlaySlice.jsx'
 import { manageDebugger } from './createDebugSlice.jsx'
@@ -13,9 +13,9 @@ const useStore = create(
   persist(
     (...a) => ({
       ...manageHistory(...a),
-      ...manageSceneMeshes(...a),
+      ...manageSceneObjects(...a),
       ...manageSceneLights(...a),
-      ...manageFocusedMesh(...a),
+      ...manageFocusedObject(...a),
       ...manageControls(...a),
       ...manageOverlay(...a),
       ...manageDebugger(...a),
@@ -24,7 +24,7 @@ const useStore = create(
     {
       name: 'scene',
       partialize: (state) => ({
-        sceneMeshes: state.sceneMeshes,
+        sceneObjects: state.sceneObjects,
       }),
     },
   ),

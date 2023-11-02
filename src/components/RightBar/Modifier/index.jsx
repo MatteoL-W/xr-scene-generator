@@ -2,23 +2,23 @@ import Title from '../Title.jsx'
 import Geometry from './Geometry.jsx'
 import Material from './Material.jsx'
 import Shadows from './Shadows.jsx'
-import { useFocusedMeshData } from '@/hooks/useFocusedMeshData.jsx'
+import { useFocusedObjectData } from '@/hooks/useFocusedObjectData.jsx'
 import { BsFillBoxFill } from 'react-icons/bs'
 
-export default function MeshModifier() {
-  const focusedMesh = useFocusedMeshData()
-  if (!focusedMesh) return
+export default function ObjectModifier() {
+  const focusedObject = useFocusedObjectData()
+  if (!focusedObject) return
 
   return (
     <div className='border-b border-b-white'>
       <Title
-        title={`"${focusedMesh.userSetName}" Modifier`}
+        title={`"${focusedObject.userSetName}" Modifier`}
         Icon={BsFillBoxFill}
       />
 
       <Geometry />
-      <Material material={focusedMesh.material} />
-      <Shadows args={focusedMesh.args} />
+      <Material material={focusedObject.material} />
+      <Shadows args={focusedObject.args} />
     </div>
   )
 }

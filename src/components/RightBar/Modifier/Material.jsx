@@ -3,10 +3,12 @@ import PropTypes from 'prop-types'
 import GenerateAutomaticInput from '@/services/GenerateAutomaticInput.jsx'
 
 Material.propTypes = {
-  material: PropTypes.object.isRequired,
+  material: PropTypes.object,
 }
 
 export default function Material({ material }) {
+  if (!material) return
+
   return (
     <>
       <Subtitle title='Material' />

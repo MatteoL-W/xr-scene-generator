@@ -10,9 +10,9 @@ VectorAndEulerInputs.propTypes = {
 }
 
 export function VectorAndEulerInputs({ propertyLabel, propertyValue }) {
-  const [modifyFocusedMeshTransformations, transformControlsRef] = useStore(
+  const [modifyFocusedObjectTransformations, transformControlsRef] = useStore(
     (state) => [
-      state.modifyFocusedMeshTransformations,
+      state.modifyFocusedObjectTransformations,
       state.transformControlsRef,
     ],
   )
@@ -37,7 +37,9 @@ export function VectorAndEulerInputs({ propertyLabel, propertyValue }) {
       })
     }
 
-    modifyFocusedMeshTransformations({ [propertyLabel]: updatedPropertyValue })
+    modifyFocusedObjectTransformations({
+      [propertyLabel]: updatedPropertyValue,
+    })
     transformControlsRef.current.object[propertyLabel].set(
       ...updatedPropertyValue,
     )

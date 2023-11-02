@@ -7,8 +7,9 @@ import {
   SpotLight,
 } from '@/data/lightsComponent.jsx'
 
-export function getLightComponent(name) {
+export function getObjectComponent(name) {
   switch (name) {
+    // Lights
     case 'AmbientLight':
       return AmbientLight
     case 'DirectionalLight':
@@ -17,13 +18,8 @@ export function getLightComponent(name) {
       return PointLight
     case 'SpotLight':
       return SpotLight
-    default:
-      return Box
-  }
-}
 
-export function getMeshComponent(name) {
-  switch (name) {
+    // Meshes
     case 'BoxPhong':
       return BoxPhong
     case 'Sphere':

@@ -2,6 +2,7 @@ const meshesList = [
   {
     name: 'Box',
     userSetName: 'Box',
+    type: 'mesh',
     component: 'BoxPhong',
     transformations: {
       position: [0, 0, 0],
@@ -20,6 +21,7 @@ const meshesList = [
   {
     name: 'Sphere',
     userSetName: 'Sphere',
+    type: 'mesh',
     component: 'Sphere',
     transformations: {
       position: [0, 0, 0],

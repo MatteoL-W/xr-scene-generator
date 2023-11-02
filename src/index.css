@@ -5,15 +5,15 @@
 @tailwind utilities;
 
 @layer base {
-    * {
-        @apply box-border select-none;
-    }
+  * {
+    @apply box-border select-none;
+  }
 
-    html {
-        font-family: 'Gabarito', cursive;
-    }
+  html {
+    font-family: 'Gabarito', cursive;
+  }
 
-    input {
-        @apply bg-coalblue w-[60px];
-    }
+  input {
+    @apply bg-coalblue w-[60px];
+  }
 }

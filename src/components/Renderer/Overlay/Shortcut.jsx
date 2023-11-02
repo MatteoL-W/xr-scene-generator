@@ -4,23 +4,23 @@ import PropTypes from 'prop-types'
 
 export default function Shortcut({ children }) {
   const [
-    isMeshListOpen,
-    setMeshListState,
+    isMenuOpen,
+    setMenuState,
     setTransformControlsMode,
-    removeFocusedMeshFromScene,
+    removeFocusedObjectFromScene,
     undo,
     redo,
   ] = useStore((state) => [
-    state.isMeshListOpen,
-    state.setMeshListState,
+    state.isMenuOpen,
+    state.setMenuState,
     state.setTransformControlsMode,
-    state.removeFocusedMeshFromScene,
+    state.removeFocusedObjectFromScene,
     state.undo,
     state.redo,
   ])
 
   // Overlay openings
-  useHotkeys('a', () => setMeshListState(!isMeshListOpen), {
+  useHotkeys('a', () => setMenuState(!isMenuOpen), {
     scopes: ['renderer'],
   })
 
@@ -35,8 +35,8 @@ export default function Shortcut({ children }) {
     scopes: ['renderer'],
   })
 
-  // delete remove focused mesh
-  useHotkeys('delete,backspace', removeFocusedMeshFromScene, {
+  // remove the focused object
+  useHotkeys('delete,backspace', removeFocusedObjectFromScene, {
     scopes: ['renderer'],
   })
 

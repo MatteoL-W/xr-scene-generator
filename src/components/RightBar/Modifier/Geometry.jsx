@@ -8,19 +8,19 @@ import { useEffect, useState } from 'react'
 // the whole 3 are being rendered in the children components
 
 export default function Geometry() {
-  const [meshTransformProperties, setMeshTransformProperties] = useState({})
+  const [objectTransformProperties, setObjectTransformProperties] = useState({})
   const [transformControlsRef] = useStore(
     useShallow((state) => [state.transformControlsRef]),
   )
-  const [focusedMeshUUID] = useStore((state) => [state.focusedMeshUUID])
+  const [focusedObjectUUID] = useStore((state) => [state.focusedObjectUUID])
 
   useEffect(() => {
     if (transformControlsRef.current) {
       const { position, rotation, scale } = transformControlsRef.current.object
-      setMeshTransformProperties({ position, rotation, scale })
+      setObjectTransformProperties({ position, rotation, scale })
     }
   }, [
-    focusedMeshUUID,
+    focusedObjectUUID,
     transformControlsRef,
     transformControlsRef.current.object.position,
     transformControlsRef.current.object.rotation,
@@ -41,7 +41,7 @@ export default function Geometry() {
           <div className='text-center'>Z</div>
         </div>
 
-        {Object.entries(meshTransformProperties).map(
+        {Object.entries(objectTransformProperties).map(
           ([propertyLabel, propertyValue]) => (
             <div className='grid grid-cols-4 gap-3 w-[95%]' key={propertyLabel}>
               <GenerateAutomaticInput

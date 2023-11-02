@@ -8,16 +8,16 @@ export default function Transform() {
   const [
     setTransformControls,
     transformControlsMode,
-    focusedMeshUUID,
-    modifyFocusedMeshTransformations,
+    focusedObjectUUID,
+    modifyFocusedObjectTransformations,
   ] = useStore((state) => [
     state.setTransformControls,
     state.transformControlsMode,
-    state.focusedMeshUUID,
-    state.modifyFocusedMeshTransformations,
+    state.focusedObjectUUID,
+    state.modifyFocusedObjectTransformations,
   ])
 
-  const focusedMeshObject = useThreeObject(focusedMeshUUID)
+  const focusedThreeObject = useThreeObject(focusedObjectUUID)
   const transformControlsRef = useRef()
   useEffect(() => {
     setTransformControls(transformControlsRef)
@@ -27,23 +27,23 @@ export default function Transform() {
     if (!e.target) return
 
     const { position, rotation, scale } = e.target.object
-    const focusedMeshTransformProperty = {
+    const focusedObjectTransformProperty = {
       position: [...position],
       rotation: [rotation.x, rotation.y, rotation.z],
       scale: [...scale],
     }
 
-    modifyFocusedMeshTransformations(focusedMeshTransformProperty)
+    modifyFocusedObjectTransformations(focusedObjectTransformProperty)
   }
 
   const { isPresenting } = useXR()
 
-  const hasFocusedMesh = focusedMeshUUID !== '' && !isPresenting
-  const focusedMeshProps = {
-    enabled: hasFocusedMesh,
-    showX: hasFocusedMesh,
-    showY: hasFocusedMesh,
-    showZ: hasFocusedMesh,
+  const hasFocusedObject = focusedObjectUUID !== '' && !isPresenting
+  const focusedObjectProps = {
+    enabled: hasFocusedObject,
+    showX: hasFocusedObject,
+    showY: hasFocusedObject,
+    showZ: hasFocusedObject,
   }
 
   return (
@@ -51,8 +51,8 @@ export default function Transform() {
       mode={transformControlsMode}
       ref={transformControlsRef}
       onMouseUp={handleDragEnd}
-      object={focusedMeshObject}
-      {...focusedMeshProps}
+      object={focusedThreeObject}
+      {...focusedObjectProps}
     />
   )
 }
