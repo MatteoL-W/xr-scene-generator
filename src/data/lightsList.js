@@ -7,9 +7,12 @@ const lightsList = [
     transformations: {
       position: [0, 0, 0],
     },
+    material: {
+      color: '#000000',
+      intensity: 1,
+    },
     args: {
       visible: true,
-      castShadow: false,
     },
   },
   {
@@ -37,6 +40,12 @@ const lightsList = [
     transformations: {
       position: [0, 0, 0],
     },
+    material: {
+      color: '#000000',
+      intensity: 1,
+      distance: 1,
+      decay: 2,
+    },
     args: {
       visible: true,
       castShadow: false,
@@ -50,6 +59,14 @@ const lightsList = [
     transformations: {
       position: [0, 0, 0],
       direction: [0, 0, 0],
+    },
+    material: {
+      color: '#000000',
+      intensity: 1,
+      distance: 1,
+      decay: 2,
+      penumbra: 0,
+      angle: Math.PI / 3,
     },
     args: {
       visible: true,

@@ -28,9 +28,12 @@ export function DefaultInput({ propertyLabel, propertyValue, repository }) {
 
   return (
     <>
-      <label htmlFor={propertyLabel}>{propertyLabel}</label>
+      <label htmlFor={propertyLabel} className='capitalize'>
+        {propertyLabel}
+      </label>
       <input
         type='number'
+        className='w-full px-2 py-1 rounded'
         id={propertyLabel}
         value={propertyValue}
         onChange={handleOnChange}

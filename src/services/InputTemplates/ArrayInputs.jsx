@@ -21,6 +21,7 @@ export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
     setHasSyncPropertiesState(!hasSyncProperties)
   }
 
+  // ToDo: Better onChange solution
   function handleOnChange(event, changedAxisNumber) {
     let updatedPropertyValue = [...propertyValue]
 
