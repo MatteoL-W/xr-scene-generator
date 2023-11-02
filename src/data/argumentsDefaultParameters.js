@@ -5,4 +5,9 @@ export const argumentsDefaultParameters = {
   rotation: {
     step: 0.1,
   },
+  intensity: {
+    min: 0,
+    step: 0.1,
+    max: 20,
+  },
 }

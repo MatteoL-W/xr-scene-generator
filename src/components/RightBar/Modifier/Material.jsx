@@ -19,6 +19,7 @@ export default function Material({ material }) {
             return (
               <GenerateAutomaticInput
                 key={propertyLabel}
+                repository='material'
                 propertyLabel={propertyLabel}
                 propertyValue={propertyValue}
               />

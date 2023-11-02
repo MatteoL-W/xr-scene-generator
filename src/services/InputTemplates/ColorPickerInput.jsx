@@ -9,12 +9,11 @@ import useDebounce from '@/hooks/useDebounce.jsx'
 ColorPickerInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,
   propertyValue: hexColorValidator,
+  repository: PropTypes.string.isRequired,
 }
 
-export function ColorPickerInput({ propertyLabel, propertyValue }) {
-  const [modifyFocusedObjectMaterial] = useStore((state) => [
-    state.modifyFocusedObjectMaterial,
-  ])
+export function ColorPickerInput({ propertyLabel, propertyValue, repository }) {
+  const [modifyFocusedObject] = useStore((state) => [state.modifyFocusedObject])
   const [color, setColor] = useState()
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false)
   const colorPickerRef = useOutsideClick(() => setIsColorPickerOpen(false))
@@ -29,9 +28,12 @@ export function ColorPickerInput({ propertyLabel, propertyValue }) {
       if (!debouncedColor) setColor(propertyValue)
 
       if (debouncedColor) {
-        modifyFocusedObjectMaterial({
-          [propertyLabel]: debouncedColor,
-        })
+        modifyFocusedObject(
+          {
+            [propertyLabel]: debouncedColor,
+          },
+          repository,
+        )
       }
     }
 

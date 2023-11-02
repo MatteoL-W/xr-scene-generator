@@ -26,6 +26,8 @@ export default function Geometry({ transformations }) {
           ([propertyLabel, propertyValue]) => (
             <div className='grid grid-cols-4 gap-3 w-[95%]' key={propertyLabel}>
               <GenerateAutomaticInput
+                key={propertyLabel}
+                repository='transformations'
                 propertyLabel={propertyLabel}
                 propertyValue={propertyValue}
               />

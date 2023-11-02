@@ -21,22 +21,30 @@ export const manageSceneObjects = (set) => ({
       focusedObjectUUID: '',
     }))
   },
+  modifyObject: (newArgs, uuid, repository) => {
+    set((state) => ({
+      sceneObjects: state.sceneObjects.map((object) => {
+        if (object.uuid !== uuid) return object
+
+        const updatedObject = { ...object }
+
+        if (repository) {
+          updatedObject[repository] = {
+            ...(object[repository] || {}),
+            ...newArgs,
+          }
+        } else {
+          Object.assign(updatedObject, newArgs)
+        }
+
+        return updatedObject
+      }),
+    }))
+  },
   modifyObjectUUID: (objectToUpdate, newUUID) => {
     set((state) => ({
       sceneObjects: state.sceneObjects.map((content) =>
         content === objectToUpdate ? { ...content, uuid: newUUID } : content,
-      ),
-    }))
-  },
-  modifyObject: (newArgs, uuid) => {
-    set((state) => ({
-      sceneObjects: state.sceneObjects.map((object) =>
-        object.uuid === uuid
-          ? {
-              ...object,
-              ...newArgs,
-            }
-          : object,
       ),
     }))
   },

@@ -1,4 +1,4 @@
-export const manageFocusedObject = (set) => ({
+export const manageFocusedObject = (set, get) => ({
   focusedObjectUUID: '',
 
   changeFocusedObjectUUID: (newContentUUID) => {
@@ -10,6 +10,16 @@ export const manageFocusedObject = (set) => ({
     set(() => ({
       focusedObjectUUID: '',
     }))
+  },
+  modifyFocusedObject: (newArgs, repository) => {
+    const state = get()
+    state.modifyObject(newArgs, state.focusedObjectUUID, repository)
+
+    if (repository === 'transformations') {
+      state.addNewActions(() => {
+        state.modifyObject(newArgs, state.focusedObjectUUID, repository)
+      })
+    }
   },
   modifyFocusedObjectTransformations: (newArgs) => {
     set((state) => {

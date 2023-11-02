@@ -7,6 +7,7 @@ import { ArrayInputs } from '@/services/InputTemplates/ArrayInputs.jsx'
 GenerateAutomaticInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,
   propertyValue: PropTypes.any.isRequired,
+  repository: PropTypes.string,
 }
 
 export default function GenerateAutomaticInput(props) {

@@ -5,17 +5,19 @@ import { argumentsDefaultParameters } from '@/data/argumentsDefaultParameters.js
 DefaultInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,
   propertyValue: PropTypes.any,
+  repository: PropTypes.string.isRequired,
 }
 
-export function DefaultInput({ propertyLabel, propertyValue }) {
-  const [modifyFocusedObjectTransformations] = useStore((state) => [
-    state.modifyFocusedObjectTransformations,
-  ])
+export function DefaultInput({ propertyLabel, propertyValue, repository }) {
+  const [modifyFocusedObject] = useStore((state) => [state.modifyFocusedObject])
 
   function handleOnChange(event) {
-    modifyFocusedObjectTransformations({
-      [propertyLabel]: event.target.value,
-    })
+    modifyFocusedObject(
+      {
+        [propertyLabel]: event.target.value,
+      },
+      repository,
+    )
   }
 
   const defaultArguments = {

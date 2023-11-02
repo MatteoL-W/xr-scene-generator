@@ -7,15 +7,14 @@ import { BsLink45Deg } from 'react-icons/bs'
 ArrayInputs.propTypes = {
   propertyLabel: PropTypes.string.isRequired,
   propertyValue: PropTypes.array.isRequired,
+  repository: PropTypes.string.isRequired,
 }
 
-export function ArrayInputs({ propertyLabel, propertyValue }) {
-  const [modifyFocusedObjectTransformations, transformControlsRef] = useStore(
-    (state) => [
-      state.modifyFocusedObjectTransformations,
-      state.transformControlsRef,
-    ],
-  )
+export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
+  const [modifyFocusedObject, transformControlsRef] = useStore((state) => [
+    state.modifyFocusedObject,
+    state.transformControlsRef,
+  ])
   const [hasSyncProperties, setHasSyncPropertiesState] = useState(false)
 
   function toggleSyncParameters() {
@@ -37,9 +36,12 @@ export function ArrayInputs({ propertyLabel, propertyValue }) {
       })
     }
 
-    modifyFocusedObjectTransformations({
-      [propertyLabel]: updatedPropertyValue,
-    })
+    modifyFocusedObject(
+      {
+        [propertyLabel]: updatedPropertyValue,
+      },
+      repository,
+    )
     transformControlsRef.current.object[propertyLabel].set(
       ...updatedPropertyValue,
     )
