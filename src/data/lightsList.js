@@ -19,7 +19,9 @@ const lightsList = [
     component: 'DirectionalLight',
     transformations: {
       position: [0, 0, 0],
-      direction: [0, 0, 0],
+    },
+    material: {
+      color: '#000000',
     },
     args: {
       visible: true,

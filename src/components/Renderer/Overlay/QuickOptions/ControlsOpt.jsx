@@ -12,7 +12,6 @@ export default function ControlsOpt() {
     ],
   )
 
-  // ToDo: Opti ?
   const focusedObjectPosition = useFocusedObjectPosition()
 
   return (

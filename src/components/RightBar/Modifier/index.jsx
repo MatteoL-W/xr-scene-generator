@@ -16,7 +16,7 @@ export default function ObjectModifier() {
         Icon={BsFillBoxFill}
       />
 
-      <Geometry />
+      <Geometry transformations={focusedObject.transformations} />
       <Material material={focusedObject.material} />
       <Shadows args={focusedObject.args} />
     </div>
