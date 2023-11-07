@@ -11,7 +11,7 @@ export default function Canvas() {
   return (
     <>
       <VRButton />
-      <R3FCanvas shadows='basic'>
+      <R3FCanvas shadows>
         <Debug />
 
         <XR>

@@ -14,7 +14,7 @@ export function DefaultInput({ propertyLabel, propertyValue, repository }) {
   function handleOnChange(event) {
     modifyFocusedObject(
       {
-        [propertyLabel]: event.target.value,
+        [propertyLabel]: parseFloat(event.target.value),
       },
       repository,
     )

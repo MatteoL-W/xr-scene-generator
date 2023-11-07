@@ -14,6 +14,7 @@ export default function ControlsOpt() {
 
   const focusedObjectPosition = useFocusedObjectPosition()
 
+  // ToDo: Block rotate and scale for lights
   return (
     <div className='bg-coalblue text-white flex flex-col p-2 gap-y-2 pointer-events-auto rounded'>
       <LiaArrowsAltSolid

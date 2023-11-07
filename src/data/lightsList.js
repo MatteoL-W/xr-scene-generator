@@ -57,8 +57,7 @@ const lightsList = [
     type: 'light',
     component: 'SpotLight',
     transformations: {
-      position: [0, 0, 0],
-      direction: [0, 0, 0],
+      position: [0, 0, 5],
     },
     material: {
       color: '#000000',

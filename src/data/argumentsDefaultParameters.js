@@ -23,4 +23,7 @@ export const argumentsDefaultParameters = {
     max: Math.PI / 2,
     step: 0.1,
   },
+  decay: {
+    min: 0,
+  },
 }
