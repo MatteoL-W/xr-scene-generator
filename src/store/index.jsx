@@ -1,6 +1,5 @@
 import { manageHistory } from './createHistorySlice.jsx'
 import { manageSceneObjects } from './createObjectsSlice.jsx'
-import { manageSceneLights } from './createLightsSlice.jsx'
 import { manageFocusedObject } from './createFocusedObjectSlice.jsx'
 import { manageControls } from './createTransformControlsSlice.jsx'
 import { manageOverlay } from './createOverlaySlice.jsx'
@@ -14,7 +13,6 @@ const useStore = create(
     (...a) => ({
       ...manageHistory(...a),
       ...manageSceneObjects(...a),
-      ...manageSceneLights(...a),
       ...manageFocusedObject(...a),
       ...manageControls(...a),
       ...manageOverlay(...a),
