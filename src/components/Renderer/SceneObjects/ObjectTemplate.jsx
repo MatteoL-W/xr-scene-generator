@@ -32,6 +32,7 @@ export default function ObjectTemplate({ object }) {
       <ObjectComponent
         {...object.args}
         {...object.material}
+        {...object.parameters}
         {...object.transformations}
         ref={objectComponentRef}
         onClick={(e) => {

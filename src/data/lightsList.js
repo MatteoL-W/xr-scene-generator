@@ -4,7 +4,7 @@ const lightsList = [
     userSetName: 'Ambient',
     type: 'light',
     component: 'AmbientLight',
-    material: {
+    parameters: {
       color: '#000000',
       intensity: 1,
     },
@@ -20,7 +20,8 @@ const lightsList = [
     transformations: {
       position: [0, 0, 0],
     },
-    material: {
+    parameters: {
+      direction: [5, 0, 0],
       color: '#000000',
       intensity: 1,
     },
@@ -37,7 +38,7 @@ const lightsList = [
     transformations: {
       position: [0, 0, 0],
     },
-    material: {
+    parameters: {
       color: '#000000',
       intensity: 1,
       distance: 1,
@@ -56,13 +57,14 @@ const lightsList = [
     transformations: {
       position: [0, 0, 5],
     },
-    material: {
+    parameters: {
+      direction: [0, 0, 0],
       color: '#000000',
       intensity: 1,
-      distance: 1,
-      decay: 2,
+      distance: 5,
+      decay: 0,
       penumbra: 0,
-      angle: Math.PI / 3,
+      angle: 0.3,
     },
     args: {
       visible: true,

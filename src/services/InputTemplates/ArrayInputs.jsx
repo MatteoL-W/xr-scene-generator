@@ -42,9 +42,11 @@ export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
       },
       repository,
     )
-    transformControlsRef.current.object[propertyLabel].set(
-      ...updatedPropertyValue,
-    )
+
+    if (repository === 'transformations')
+      transformControlsRef.current.object[propertyLabel].set(
+        ...updatedPropertyValue,
+      )
   }
 
   return (

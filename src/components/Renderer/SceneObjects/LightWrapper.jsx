@@ -20,5 +20,8 @@ export default function LightWrapper({ object, objectRef, children }) {
       AmbientLight: AmbientLightWrapper,
     }[object.component] || Fragment
 
+  if (object.parameters.direction)
+    objectRef?.current?.target?.position?.set(...object.parameters.direction)
+
   return <TypeLightWrapper lightRef={objectRef}>{children}</TypeLightWrapper>
 }
