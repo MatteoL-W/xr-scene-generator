@@ -1,6 +1,5 @@
 import useStore from '@/store/index.jsx'
 import { useShallow } from 'zustand/react/shallow'
-import { Vector3 } from 'three'
 
 // ToDo: Optimize ?
 export function useFocusedObjectData() {
@@ -20,8 +19,7 @@ export function useFocusedObjectData() {
   return focusedObject
 }
 
-export function useFocusedObjectPosition() {
+export function useFocusedObjectTransformationsData() {
   const focusedObject = useFocusedObjectData()
-  if (focusedObject)
-    return new Vector3(...focusedObject.transformations.position)
+  if (focusedObject?.transformations) return focusedObject.transformations
 }

@@ -1,9 +1,9 @@
 import useThreeObject from '@/hooks/useThreeObject.jsx'
-import { useFocusedObjectData } from '@/hooks/useFocusedObjectData.jsx'
 import { useEffect, useRef } from 'react'
 import useStore from '@/store/index.jsx'
 import { useXR } from '@react-three/xr'
 import { TransformControls } from '@react-three/drei'
+import { useFocusedObjectTransformationsData } from '@/hooks/useFocusedObjectData.jsx'
 
 export default function Transform() {
   const [
@@ -20,7 +20,7 @@ export default function Transform() {
 
   const focusedThreeObject = useThreeObject(focusedObjectUUID)
   const transformControlsRef = useRef()
-  const focusedObjectData = useFocusedObjectData()
+  const focusedObjectTransformations = useFocusedObjectTransformationsData()
 
   useEffect(() => {
     setTransformControls(transformControlsRef)
@@ -32,17 +32,20 @@ export default function Transform() {
     const { position, rotation, scale } = e.target.object
 
     let focusedObjectTransformProperty = {}
-    if ('position' in focusedObjectData.transformations)
+
+    if (!focusedObjectTransformations) return
+
+    if ('position' in focusedObjectTransformations)
       focusedObjectTransformProperty.position = [...position]
 
-    if ('rotation' in focusedObjectData.transformations)
+    if ('rotation' in focusedObjectTransformations)
       focusedObjectTransformProperty.rotation = [
         rotation.x,
         rotation.y,
         rotation.z,
       ]
 
-    if ('scale' in focusedObjectData.transformations)
+    if ('scale' in focusedObjectTransformations)
       focusedObjectTransformProperty.scale = [...scale]
 
     modifyFocusedObjectTransformations(focusedObjectTransformProperty)
@@ -50,7 +53,11 @@ export default function Transform() {
 
   const { isPresenting } = useXR()
 
-  const hasFocusedObject = focusedObjectUUID !== '' && !isPresenting
+  const hasFocusedObject =
+    focusedObjectUUID !== '' &&
+    !isPresenting &&
+    focusedObjectTransformations?.position
+
   const focusedObjectProps = {
     enabled: hasFocusedObject,
     showX: hasFocusedObject,

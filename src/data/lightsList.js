@@ -4,9 +4,6 @@ const lightsList = [
     userSetName: 'Ambient',
     type: 'light',
     component: 'AmbientLight',
-    transformations: {
-      position: [0, 0, 0],
-    },
     material: {
       color: '#000000',
       intensity: 1,

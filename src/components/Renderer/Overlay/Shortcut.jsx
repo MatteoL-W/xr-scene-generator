@@ -1,23 +1,18 @@
 import { useHotkeys } from 'react-hotkeys-hook'
 import useStore from '@/store/index.jsx'
 import PropTypes from 'prop-types'
+import useNewTransformControlsMode from '@/hooks/useTransformControlsHandler.jsx'
 
 export default function Shortcut({ children }) {
-  const [
-    isMenuOpen,
-    setMenuState,
-    setTransformControlsMode,
-    removeFocusedObjectFromScene,
-    undo,
-    redo,
-  ] = useStore((state) => [
-    state.isMenuOpen,
-    state.setMenuState,
-    state.setTransformControlsMode,
-    state.removeFocusedObjectFromScene,
-    state.undo,
-    state.redo,
-  ])
+  const [isMenuOpen, setMenuState, removeFocusedObjectFromScene, undo, redo] =
+    useStore((state) => [
+      state.isMenuOpen,
+      state.setMenuState,
+      state.removeFocusedObjectFromScene,
+      state.undo,
+      state.redo,
+    ])
+  const setTransformControlsMode = useNewTransformControlsMode()
 
   // Overlay openings
   useHotkeys('a', () => setMenuState(!isMenuOpen), {
@@ -25,13 +20,13 @@ export default function Shortcut({ children }) {
   })
 
   // TransformControlsMode
+  useHotkeys('g', () => setTransformControlsMode('translate'), {
+    scopes: ['renderer'],
+  })
   useHotkeys('r', () => setTransformControlsMode('rotate'), {
     scopes: ['renderer'],
   })
   useHotkeys('s', () => setTransformControlsMode('scale'), {
-    scopes: ['renderer'],
-  })
-  useHotkeys('g', () => setTransformControlsMode('translate'), {
     scopes: ['renderer'],
   })
 

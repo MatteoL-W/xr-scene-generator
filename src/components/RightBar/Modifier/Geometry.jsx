@@ -6,10 +6,11 @@ import GenerateAutomaticInput from '@/services/GenerateAutomaticInput.jsx'
 //  the whole 3 are being rendered in the children components
 
 Geometry.propTypes = {
-  transformations: PropTypes.object.isRequired,
+  transformations: PropTypes.object,
 }
 
 export default function Geometry({ transformations }) {
+  if (!transformations) return
   return (
     <>
       <Subtitle title='Geometry' />

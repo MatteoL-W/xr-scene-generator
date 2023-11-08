@@ -11,6 +11,8 @@ export default function Shadows({ args }) {
     state.modifyFocusedObjectArgs,
   ])
 
+  if (args.castShadow === undefined && args.receiveShadow === undefined) return
+
   return (
     <>
       <Subtitle title='Shadows' />
