@@ -12,7 +12,7 @@ export default function ControlsOpt() {
   ])
 
   const objectTransformations = useFocusedObjectTransformationsData()
-  const focusedObjectPosition = new Vector3(objectTransformations?.position)
+  const focusedObjectPosition = new Vector3(...objectTransformations.position)
   const setTransformControlsMode = useNewTransformControlsMode()
 
   if (!objectTransformations) return
