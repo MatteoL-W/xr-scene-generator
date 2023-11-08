@@ -27,26 +27,17 @@ export default function Transform() {
   }, [setTransformControls])
 
   function handleDragEnd(e) {
-    if (!e.target) return
+    if (!e.target || !focusedObjectTransformations) return
 
-    const { position, rotation, scale } = e.target.object
+    const focusedObjectTransformProperty = {}
 
-    let focusedObjectTransformProperty = {}
-
-    if (!focusedObjectTransformations) return
-
-    if ('position' in focusedObjectTransformations)
-      focusedObjectTransformProperty.position = [...position]
-
-    if ('rotation' in focusedObjectTransformations)
-      focusedObjectTransformProperty.rotation = [
-        rotation.x,
-        rotation.y,
-        rotation.z,
-      ]
-
-    if ('scale' in focusedObjectTransformations)
-      focusedObjectTransformProperty.scale = [...scale]
+    // position, rotation and scale
+    for (const property of Object.keys(focusedObjectTransformations)) {
+      focusedObjectTransformProperty[property] = ['x', 'y', 'z'].map((axis) => {
+        const propertyValues = e.target.object[property]
+        return parseFloat(propertyValues[axis].toFixed(2))
+      })
+    }
 
     modifyFocusedObjectTransformations(focusedObjectTransformProperty)
   }

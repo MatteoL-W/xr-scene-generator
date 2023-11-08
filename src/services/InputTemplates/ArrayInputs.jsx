@@ -21,7 +21,6 @@ export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
     setHasSyncPropertiesState(!hasSyncProperties)
   }
 
-  // ToDo: Better onChange solution
   function handleOnChange(event, changedAxisNumber) {
     let updatedPropertyValue = [...propertyValue]
 
@@ -66,13 +65,12 @@ export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
           max: argumentsDefaultParameters?.[propertyLabel]?.max,
           step: argumentsDefaultParameters?.[propertyLabel]?.step,
         }
-        const axisValue = value.toFixed(2)
         const inputCodeName = `${propertyLabel}_${index}`
 
         return (
           <input
             type='number'
-            value={axisValue}
+            value={value}
             onChange={(e) => handleOnChange(e, index)}
             key={inputCodeName}
             name={inputCodeName}
