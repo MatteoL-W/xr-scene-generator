@@ -1,4 +1,5 @@
 import useStore from '@/store/index.jsx'
+import { ARButton, VRButton } from '@react-three/xr'
 
 export default function Header() {
   const [isDebuggerUIOpen, setDebuggerUIState] = useStore((state) => [
@@ -12,9 +13,17 @@ export default function Header() {
         XR-SCENE-GENERATOR
       </a>
       <span>Settings</span>
-      <span>View on devices</span>
+
       <span onClick={() => setDebuggerUIState(!isDebuggerUIOpen)}>
         Debugger
+      </span>
+
+      <span>
+        VR : <VRButton style={{}} />
+      </span>
+
+      <span>
+        AR : <ARButton style={{}} />
       </span>
     </div>
   )

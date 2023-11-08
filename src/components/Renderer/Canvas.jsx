@@ -1,5 +1,5 @@
 import { Canvas as R3FCanvas } from '@react-three/fiber'
-import { VRButton, XR } from '@react-three/xr'
+import { XR } from '@react-three/xr'
 import Controls from './Controls/index.jsx'
 import Debug from './Debug.jsx'
 import Misc from './Misc.jsx'
@@ -10,7 +10,6 @@ import XRSpecificControls from './XR/index.jsx'
 export default function Canvas() {
   return (
     <>
-      <VRButton />
       <R3FCanvas shadows>
         <Debug />
 
