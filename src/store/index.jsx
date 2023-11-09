@@ -5,6 +5,7 @@ import { manageControls } from './createTransformControlsSlice.jsx'
 import { manageOverlay } from './createOverlaySlice.jsx'
 import { manageDebugger } from './createDebugSlice.jsx'
 import { manageRendererMisc } from './createRendererMiscSlice.jsx'
+import { manageImmersiveExperience } from '@/store/createImmersiveSlice.jsx'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -18,6 +19,7 @@ const useStore = create(
       ...manageOverlay(...a),
       ...manageDebugger(...a),
       ...manageRendererMisc(...a),
+      ...manageImmersiveExperience(...a),
     }),
     {
       name: 'scene',

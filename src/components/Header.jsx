@@ -2,10 +2,12 @@ import useStore from '@/store/index.jsx'
 import { ARButton, VRButton } from '@react-three/xr'
 
 export default function Header() {
-  const [isDebuggerUIOpen, setDebuggerUIState] = useStore((state) => [
-    state.isDebuggerUIOpen,
-    state.setDebuggerUIState,
-  ])
+  const [isDebuggerUIOpen, setDebuggerUIState, setImmersiveExperienceMode] =
+    useStore((state) => [
+      state.isDebuggerUIOpen,
+      state.setDebuggerUIState,
+      state.setImmersiveExperienceMode,
+    ])
 
   return (
     <div className='h-12 bg-jean flex items-center gap-10 px-5 text-white border-r border-r-white'>
@@ -19,11 +21,17 @@ export default function Header() {
       </span>
 
       <span>
-        VR : <VRButton style={{}} />
+        VR :{' '}
+        <span onClick={() => setImmersiveExperienceMode('vr')}>
+          <VRButton style={{}} />
+        </span>
       </span>
 
       <span>
-        AR : <ARButton style={{}} />
+        AR :{' '}
+        <span onClick={() => setImmersiveExperienceMode('ar')}>
+          <ARButton style={{}} />
+        </span>
       </span>
     </div>
   )
