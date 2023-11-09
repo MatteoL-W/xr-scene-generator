@@ -18,10 +18,10 @@ const lightsList = [
     type: 'light',
     component: 'DirectionalLight',
     transformations: {
-      position: [0, 0, 0],
+      position: [5, 0, 0],
     },
     parameters: {
-      direction: [5, 0, 0],
+      direction: [0, 0, 0],
       color: '#000000',
       intensity: 1,
     },
