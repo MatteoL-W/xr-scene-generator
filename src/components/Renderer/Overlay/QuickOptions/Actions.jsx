@@ -1,8 +1,8 @@
 import { CgRedo, CgUndo } from 'react-icons/cg'
-import useStore from '@/store/index.jsx'
+import { useHistoric } from '@/hooks/useHistoric.jsx'
 
 export default function Actions() {
-  const [undo, redo] = useStore((state) => [state.undo, state.redo])
+  const { undo, redo } = useHistoric()
 
   return (
     <div className='bg-coalblue text-white flex flex-col p-2 gap-y-2 pointer-events-auto rounded'>

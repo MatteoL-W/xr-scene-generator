@@ -1,12 +1,16 @@
-export const manageHistory = (set) => ({
+export const manageHistory = (set, get) => ({
   actions: [],
-  pointer: -1,
+  pointer: 0,
 
-  addNewActionsToHistoric: (newActions) => {
+  hasSynchronousHistoric: () => {
+    const state = get()
+    return state.actions.length === state.pointer
+  },
+  saveActionInHistoric: (newActions) => {
     set((state) => {
       const actions = state.actions
-      actions.splice(state.pointer + 1)
-      actions[state.pointer + 1] = newActions
+      actions.splice(state.pointer)
+      actions[state.pointer] = newActions
 
       return {
         actions: actions,

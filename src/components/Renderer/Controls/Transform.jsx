@@ -4,6 +4,7 @@ import useStore from '@/store/index.jsx'
 import { useXR } from '@react-three/xr'
 import { TransformControls } from '@react-three/drei'
 import { useFocusedObjectTransformationsData } from '@/hooks/useFocusedObjectData.jsx'
+import { useHistoric } from '@/hooks/useHistoric.jsx'
 
 export default function Transform() {
   const [
@@ -21,6 +22,7 @@ export default function Transform() {
   const focusedThreeObject = useThreeObject(focusedObjectUUID)
   const transformControlsRef = useRef()
   const focusedObjectTransformations = useFocusedObjectTransformationsData()
+  const { saveFocusedObjectTransformations } = useHistoric()
 
   useEffect(() => {
     setTransformControls(transformControlsRef)
@@ -39,6 +41,7 @@ export default function Transform() {
       })
     }
 
+    saveFocusedObjectTransformations()
     modifyFocusedObject(focusedObjectTransformProperty, 'transformations')
   }
 

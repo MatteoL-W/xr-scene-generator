@@ -1,18 +1,19 @@
 import { useHotkeys } from 'react-hotkeys-hook'
+import { useHistoric } from '@/hooks/useHistoric.jsx'
 import useStore from '@/store/index.jsx'
 import PropTypes from 'prop-types'
 import useNewTransformControlsMode from '@/hooks/useTransformControlsHandler.jsx'
 
 export default function Shortcut({ children }) {
-  const [isMenuOpen, setMenuState, removeFocusedObjectFromScene, undo, redo] =
-    useStore((state) => [
+  const [isMenuOpen, setMenuState, removeFocusedObjectFromScene] = useStore(
+    (state) => [
       state.isMenuOpen,
       state.setMenuState,
       state.removeFocusedObjectFromScene,
-      state.undo,
-      state.redo,
-    ])
+    ],
+  )
   const setTransformControlsMode = useNewTransformControlsMode()
+  const { undo, redo } = useHistoric()
 
   // Overlay openings
   useHotkeys('a', () => setMenuState(!isMenuOpen), {

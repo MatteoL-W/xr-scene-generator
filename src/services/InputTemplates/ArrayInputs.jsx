@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
+import { useHistoric } from '@/hooks/useHistoric.jsx'
 import useStore from '@/store/index.jsx'
 import { argumentsDefaultParameters } from '@/data/argumentsDefaultParameters.js'
 import { BsLink45Deg } from 'react-icons/bs'
@@ -16,6 +17,7 @@ export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
     state.transformControlsRef,
   ])
   const [hasSyncProperties, setHasSyncPropertiesState] = useState(false)
+  const { saveFocusedObjectTransformations } = useHistoric()
 
   function toggleSyncParameters() {
     setHasSyncPropertiesState(!hasSyncProperties)
@@ -36,17 +38,19 @@ export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
       })
     }
 
+    if (repository === 'transformations') {
+      saveFocusedObjectTransformations()
+      transformControlsRef.current.object[propertyLabel].set(
+        ...updatedPropertyValue,
+      )
+    }
+
     modifyFocusedObject(
       {
         [propertyLabel]: updatedPropertyValue,
       },
       repository,
     )
-
-    if (repository === 'transformations')
-      transformControlsRef.current.object[propertyLabel].set(
-        ...updatedPropertyValue,
-      )
   }
 
   return (
