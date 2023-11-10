@@ -1,4 +1,4 @@
-export const manageSceneObjects = (set) => ({
+export const manageSceneObjects = (set, get) => ({
   sceneObjects: [],
 
   addObjectToScene: (newObject) => {
@@ -49,13 +49,8 @@ export const manageSceneObjects = (set) => ({
     }))
   },
   modifyObjectArgs: (objectUUID, newArgs) => {
-    set((state) => ({
-      sceneObjects: state.sceneObjects.map((object) =>
-        object.uuid === objectUUID
-          ? { ...object, args: { ...object.args, ...newArgs } }
-          : object,
-      ),
-    }))
+    const state = get()
+    state.modifyObject(newArgs, objectUUID, 'args')
   },
   modifyObjectName: (objectUUID, newName) => {
     set((state) => ({

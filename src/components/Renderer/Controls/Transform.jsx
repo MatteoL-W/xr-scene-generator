@@ -10,12 +10,12 @@ export default function Transform() {
     setTransformControls,
     transformControlsMode,
     focusedObjectUUID,
-    modifyFocusedObjectTransformations,
+    modifyFocusedObject,
   ] = useStore((state) => [
     state.setTransformControls,
     state.transformControlsMode,
     state.focusedObjectUUID,
-    state.modifyFocusedObjectTransformations,
+    state.modifyFocusedObject,
   ])
 
   const focusedThreeObject = useThreeObject(focusedObjectUUID)
@@ -39,7 +39,7 @@ export default function Transform() {
       })
     }
 
-    modifyFocusedObjectTransformations(focusedObjectTransformProperty)
+    modifyFocusedObject(focusedObjectTransformProperty, 'transformations')
   }
 
   const { isPresenting } = useXR()

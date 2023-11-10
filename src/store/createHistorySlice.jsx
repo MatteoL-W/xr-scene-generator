@@ -2,7 +2,7 @@ export const manageHistory = (set) => ({
   actions: [],
   pointer: -1,
 
-  addNewActions: (newActions) => {
+  addNewActionsToHistoric: (newActions) => {
     set((state) => {
       const actions = state.actions
       actions.splice(state.pointer + 1)
