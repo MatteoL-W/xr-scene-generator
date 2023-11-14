@@ -5,7 +5,7 @@ export default function RendererPreview() {
   return (
     <div className='w-full h-full'>
       <Overlay />
-      <Canvas frameloop='demand' />
+      <Canvas />
     </div>
   )
 }

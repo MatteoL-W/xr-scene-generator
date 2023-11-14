@@ -10,7 +10,7 @@ import XRSpecificControls from './XR/index.jsx'
 export default function Canvas() {
   return (
     <>
-      <R3FCanvas shadows>
+      <R3FCanvas shadows frameloop='demand'>
         <Debug />
 
         <XR>
