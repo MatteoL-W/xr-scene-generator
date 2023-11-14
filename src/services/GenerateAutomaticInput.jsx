@@ -3,6 +3,7 @@ import { ColorPickerInput } from './InputTemplates/ColorPickerInput.jsx'
 import { DefaultInput } from './InputTemplates/DefaultInput.jsx'
 import { isHexColor } from '@/utils/typesTest.jsx'
 import { ArrayInputs } from '@/services/InputTemplates/ArrayInputs.jsx'
+import BooleanInput from '@/services/InputTemplates/BooleanInput.jsx'
 
 GenerateAutomaticInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,
@@ -15,5 +16,7 @@ export default function GenerateAutomaticInput(props) {
     return <ArrayInputs {...props} />
   } else if (isHexColor(props.propertyValue)) {
     return <ColorPickerInput {...props} />
-  } else return <DefaultInput {...props} />
+  } else if (typeof props.propertyValue === 'boolean')
+    return <BooleanInput {...props} />
+  else return <DefaultInput {...props} />
 }
