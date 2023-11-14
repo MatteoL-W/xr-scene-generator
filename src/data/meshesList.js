@@ -16,6 +16,7 @@ const meshesList = [
       visible: true,
       receiveShadow: false,
       castShadow: false,
+      hasPhysics: false,
     },
   },
   {
@@ -35,6 +36,7 @@ const meshesList = [
       visible: true,
       receiveShadow: false,
       castShadow: false,
+      hasPhysics: false,
     },
   },
 ]

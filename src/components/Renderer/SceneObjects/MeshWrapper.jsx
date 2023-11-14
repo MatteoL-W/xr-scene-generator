@@ -12,6 +12,7 @@ MeshWrapper.propTypes = {
 export default function MeshWrapper({ object, objectRef, children }) {
   const { isPresenting } = useXR()
 
-  if (isPresenting) return <RigidBody colliders='hull'>{children}</RigidBody>
+  if (isPresenting && object.args?.hasPhysics)
+    return <RigidBody colliders='hull'>{children}</RigidBody>
   else return <>{children}</>
 }

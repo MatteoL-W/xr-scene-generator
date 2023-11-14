@@ -1,10 +1,7 @@
 import Title from '../Title.jsx'
-import Geometry from './Geometry.jsx'
-import Material from './Material.jsx'
-import Parameters from '@/components/RightBar/Modifier/Parameters.jsx'
-import Shadows from './Shadows.jsx'
 import { useFocusedObjectData } from '@/hooks/useFocusedObjectData.jsx'
 import { BsFillBoxFill } from 'react-icons/bs'
+import ModifierTab from './ModifierTab.jsx'
 
 export default function ObjectModifier() {
   const focusedObject = useFocusedObjectData()
@@ -17,11 +14,34 @@ export default function ObjectModifier() {
         Icon={BsFillBoxFill}
       />
 
-      {/*ToDo: Optimize this list*/}
-      <Geometry transformations={focusedObject.transformations} />
-      <Material material={focusedObject.material} />
-      <Parameters parameters={focusedObject.parameters} />
-      <Shadows args={focusedObject.args} />
+      <ModifierTab
+        title='Geometry'
+        interactiveObjectInputs={{
+          transformations: focusedObject.transformations,
+        }}
+        showXYZ
+      />
+
+      <ModifierTab
+        title='Material'
+        interactiveObjectInputs={{
+          material: focusedObject.material,
+        }}
+      />
+
+      <ModifierTab
+        title='Parameters'
+        interactiveObjectInputs={{
+          parameters: focusedObject.parameters,
+        }}
+      />
+
+      <ModifierTab
+        title='Misc'
+        interactiveObjectInputs={{
+          args: focusedObject.args,
+        }}
+      />
     </div>
   )
 }
