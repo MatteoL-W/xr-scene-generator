@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types'
+import { useXR } from '@react-three/xr'
+import { RigidBody } from '@react-three/rapier'
 
 MeshWrapper.propTypes = {
   object: PropTypes.object.isRequired,
@@ -8,5 +10,8 @@ MeshWrapper.propTypes = {
 
 // eslint-disable-next-line no-unused-vars
 export default function MeshWrapper({ object, objectRef, children }) {
-  return <>{children}</>
+  const { isPresenting } = useXR()
+
+  if (isPresenting) return <RigidBody colliders='hull'>{children}</RigidBody>
+  else return <>{children}</>
 }
