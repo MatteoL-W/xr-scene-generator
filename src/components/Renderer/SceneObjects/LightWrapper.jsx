@@ -1,9 +1,9 @@
 import { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import DirectionalLightWrapper from './TypeLightsWrapper/DirectionalLightWrapper.jsx'
-import SpotLightWrapper from './TypeLightsWrapper/SpotLightWrapper.jsx'
-import PointLightWrapper from './TypeLightsWrapper/PointLightWrapper.jsx'
-import AmbientLightWrapper from './TypeLightsWrapper/AmbientLightWrapper.jsx'
+import DirectionalLightWrapper from './LightTypeWrapper/DirectionalLightWrapper.jsx'
+import SpotLightWrapper from './LightTypeWrapper/SpotLightWrapper.jsx'
+import PointLightWrapper from './LightTypeWrapper/PointLightWrapper.jsx'
+import AmbientLightWrapper from './LightTypeWrapper/AmbientLightWrapper.jsx'
 import { useXR } from '@react-three/xr'
 
 LightWrapper.propTypes = {

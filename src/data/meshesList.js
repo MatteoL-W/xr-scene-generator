@@ -17,6 +17,7 @@ const meshesList = [
       receiveShadow: false,
       castShadow: false,
       hasPhysics: false,
+      hasInteractivity: false,
     },
   },
   {
@@ -37,6 +38,7 @@ const meshesList = [
       receiveShadow: false,
       castShadow: false,
       hasPhysics: false,
+      hasInteractivity: false,
     },
   },
 ]
