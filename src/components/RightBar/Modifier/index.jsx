@@ -41,6 +41,7 @@ export default function ObjectModifier() {
         interactiveObjectInputs={{
           args: focusedObject.args,
         }}
+        isLargerGrid={true}
       />
     </div>
   )

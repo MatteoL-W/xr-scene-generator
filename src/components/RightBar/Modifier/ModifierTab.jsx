@@ -6,12 +6,14 @@ ModifierTab.propTypes = {
   interactiveObjectInputs: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   showXYZ: PropTypes.bool,
+  isLargerGrid: PropTypes.bool,
 }
 
 export default function ModifierTab({
   interactiveObjectInputs,
   title,
   showXYZ,
+  isLargerGrid,
 }) {
   const repository = Object.keys(interactiveObjectInputs)[0]
   const repositoryContent = interactiveObjectInputs[repository]
@@ -31,7 +33,13 @@ export default function ModifierTab({
           </div>
         )}
 
-        <div className='grid grid-cols-4 w-[95%] items-center gap-3'>
+        <div
+          className={
+            !isLargerGrid
+              ? 'grid grid-cols-4 w-[95%] items-center gap-3'
+              : 'grid grid-cols-2 w-[95%] items-center gap-y-2'
+          }
+        >
           {Object.entries(repositoryContent).map(
             ([propertyLabel, propertyValue]) => (
               <GenerateAutomaticInput

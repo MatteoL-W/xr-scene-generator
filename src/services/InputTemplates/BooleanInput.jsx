@@ -13,7 +13,6 @@ export default function BooleanInput({
   repository,
 }) {
   function onChange() {
-    console.log(propertyLabel, propertyValue, repository)
     modifyFocusedObject(
       {
         [propertyLabel]: !propertyValue,
@@ -25,13 +24,14 @@ export default function BooleanInput({
   const [modifyFocusedObject] = useStore((state) => [state.modifyFocusedObject])
   return (
     <div className='flex items-center'>
-      <label htmlFor={propertyLabel}>{propertyLabel}</label>
       <input
         type='checkbox'
         id={propertyLabel}
         checked={propertyValue}
         onChange={onChange}
+        className='mr-2'
       />
+      <label htmlFor={propertyLabel}>{propertyLabel}</label>
     </div>
   )
 }
