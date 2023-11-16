@@ -9,6 +9,7 @@ MeshWrapper.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
+// eslint-disable-next-line no-unused-vars
 export default function MeshWrapper({ object, objectRef, children }) {
   const { isPresenting } = useXR()
   const { hasPhysics, hasInteractivity } = object.args || {}
@@ -17,11 +18,11 @@ export default function MeshWrapper({ object, objectRef, children }) {
 
   let wrappedMesh = children
 
-  if (hasInteractivity)
-    wrappedMesh = <InteractiveMeshWrapper>{wrappedMesh}</InteractiveMeshWrapper>
-
   if (hasPhysics)
     wrappedMesh = <PhysicsMeshWrapper>{wrappedMesh}</PhysicsMeshWrapper>
+
+  if (hasInteractivity)
+    wrappedMesh = <InteractiveMeshWrapper>{wrappedMesh}</InteractiveMeshWrapper>
 
   return <>{wrappedMesh}</>
 }
