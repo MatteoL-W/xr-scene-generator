@@ -5,7 +5,10 @@ import { BsFillBoxFill, BsLightbulbFill } from 'react-icons/bs'
 import { IoCloseSharp } from 'react-icons/io5'
 
 export default function SceneMenu() {
-  const [addObjectToScene] = useStore((state) => [state.addObjectToScene])
+  const [addObjectToScene, setMenuState] = useStore((state) => [
+    state.addObjectToScene,
+    state.setMenuState,
+  ])
 
   return (
     <div className='absolute top-5 left-5 p-3 flex flex-col z-10 bg-jean'>
@@ -35,7 +38,10 @@ export default function SceneMenu() {
         ))}
       </ul>
 
-      <div className='pt-3 border-t border-white text-white text-center w-full cursor-pointer flex items-center'>
+      <div
+        className='pt-3 border-t border-white text-white text-center w-full cursor-pointer flex items-center'
+        onClick={() => setMenuState(false)}
+      >
         <IoCloseSharp className='mx-2' />
         Close
       </div>

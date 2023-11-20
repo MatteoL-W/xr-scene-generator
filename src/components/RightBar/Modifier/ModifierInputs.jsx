@@ -21,7 +21,7 @@ export default function ModifierInputs({
     <>
       <div className='px-4 p-3 pt-0 flex flex-col gap-y-2'>
         {showXYZ && (
-          <div className='grid grid-cols-4 w-[95%] text-xs'>
+          <div className='grid grid-cols-4 w-[95%] text-xs -mt-2'>
             <div></div>
             <div className='text-center'>X</div>
             <div className='text-center'>Y</div>

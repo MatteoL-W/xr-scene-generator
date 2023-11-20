@@ -19,7 +19,7 @@ export default function Header() {
         XR-SCENE-GENERATOR
       </a>
 
-      <div className='flex items-center'>
+      <div className='flex items-center cursor-pointer'>
         <IoMdSettings className='mr-2' />
         Settings
       </div>
@@ -32,7 +32,7 @@ export default function Header() {
         Debugger
       </div>
 
-      <div className='flex items-center'>
+      <div className='flex items-center cursor-pointer'>
         <PiVirtualReality className='mr-2' />
         <span onClick={() => setImmersiveExperienceMode('vr')}>
           <VRButton style={{}} />

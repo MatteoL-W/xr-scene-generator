@@ -9,11 +9,7 @@ export default function SceneCompositionList() {
   const [setMenuState] = useStore((state) => [state.setMenuState])
 
   if (sceneObjects.length === 0) {
-    return (
-      <div onClick={() => setMenuState(true)}>
-        <Title title='Add objects with A or by clicking here' />
-      </div>
-    )
+    return <Title title='Add objects to start' />
   }
 
   return (
