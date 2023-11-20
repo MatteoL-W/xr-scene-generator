@@ -1,5 +1,9 @@
 import useStore from '@/store/index.jsx'
 import { ARButton, VRButton } from '@react-three/xr'
+import { IoMdSettings } from 'react-icons/io'
+import { VscDebugAlt } from 'react-icons/vsc'
+import { PiVirtualReality } from 'react-icons/pi'
+import { TbAugmentedReality } from 'react-icons/tb'
 
 export default function Header() {
   const [isDebuggerUIOpen, setDebuggerUIState, setImmersiveExperienceMode] =
@@ -10,29 +14,37 @@ export default function Header() {
     ])
 
   return (
-    <div className='h-12 bg-jean flex items-center gap-10 px-5 text-white border-r border-r-white'>
+    <div className='h-10 bg-dark-jean flex items-center gap-10 px-5 text-white border-b border-white'>
       <a href='#' className='font-semibold no-underline'>
         XR-SCENE-GENERATOR
       </a>
-      <span>Settings</span>
 
-      <span onClick={() => setDebuggerUIState(!isDebuggerUIOpen)}>
+      <div className='flex items-center'>
+        <IoMdSettings className='mr-2' />
+        Settings
+      </div>
+
+      <div
+        className='flex items-center'
+        onClick={() => setDebuggerUIState(!isDebuggerUIOpen)}
+      >
+        <VscDebugAlt className='mr-2' />
         Debugger
-      </span>
+      </div>
 
-      <span>
-        VR :{' '}
+      <div className='flex items-center'>
+        <PiVirtualReality className='mr-2' />
         <span onClick={() => setImmersiveExperienceMode('vr')}>
           <VRButton style={{}} />
         </span>
-      </span>
+      </div>
 
-      <span>
-        AR :{' '}
+      <div className='flex items-center'>
+        <TbAugmentedReality className='mr-2' />
         <span onClick={() => setImmersiveExperienceMode('ar')}>
           <ARButton style={{}} />
         </span>
-      </span>
+      </div>
     </div>
   )
 }

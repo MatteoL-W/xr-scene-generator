@@ -1,10 +1,14 @@
 import Title from '../Title.jsx'
 import { useFocusedObjectData } from '@/hooks/useFocusedObjectData.jsx'
 import { BsFillBoxFill } from 'react-icons/bs'
-import ModifierTab from './ModifierTab.jsx'
+import ModifierInputs from './ModifierInputs.jsx'
+import { useState } from 'react'
+import ModifierTitle from '@/components/RightBar/Modifier/ModifierTitle.jsx'
 
 export default function ObjectModifier() {
   const focusedObject = useFocusedObjectData()
+  const [modifierMode, setModifierMode] = useState('geometry')
+
   if (!focusedObject) return
 
   return (
@@ -14,35 +18,49 @@ export default function ObjectModifier() {
         Icon={BsFillBoxFill}
       />
 
-      <ModifierTab
-        title='Geometry'
-        interactiveObjectInputs={{
-          transformations: focusedObject.transformations,
-        }}
-        showXYZ
+      <ModifierTitle
+        focusedObject={focusedObject}
+        modifierMode={modifierMode}
+        setModifierMode={setModifierMode}
       />
 
-      <ModifierTab
-        title='Material'
-        interactiveObjectInputs={{
-          material: focusedObject.material,
-        }}
-      />
+      {modifierMode === 'geometry' && (
+        <ModifierInputs
+          title='Geometry'
+          interactiveObjectInputs={{
+            transformations: focusedObject.transformations,
+          }}
+          showXYZ
+        />
+      )}
 
-      <ModifierTab
-        title='Parameters'
-        interactiveObjectInputs={{
-          parameters: focusedObject.parameters,
-        }}
-      />
+      {modifierMode === 'material' && (
+        <ModifierInputs
+          title='Material'
+          interactiveObjectInputs={{
+            material: focusedObject.material,
+          }}
+        />
+      )}
 
-      <ModifierTab
-        title='Misc'
-        interactiveObjectInputs={{
-          args: focusedObject.args,
-        }}
-        isLargerGrid={true}
-      />
+      {modifierMode === 'parameters' && (
+        <ModifierInputs
+          title='Parameters'
+          interactiveObjectInputs={{
+            parameters: focusedObject.parameters,
+          }}
+        />
+      )}
+
+      {modifierMode === 'misc' && (
+        <ModifierInputs
+          title='Misc'
+          interactiveObjectInputs={{
+            args: focusedObject.args,
+          }}
+          isLargerGrid
+        />
+      )}
     </div>
   )
 }

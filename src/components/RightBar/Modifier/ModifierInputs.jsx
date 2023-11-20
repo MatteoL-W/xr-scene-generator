@@ -1,17 +1,14 @@
 import PropTypes from 'prop-types'
-import Subtitle from '@/components/RightBar/Subtitle.jsx'
 import GenerateAutomaticInput from '@/services/GenerateAutomaticInput.jsx'
 
-ModifierTab.propTypes = {
+ModifierInputs.propTypes = {
   interactiveObjectInputs: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
   showXYZ: PropTypes.bool,
   isLargerGrid: PropTypes.bool,
 }
 
-export default function ModifierTab({
+export default function ModifierInputs({
   interactiveObjectInputs,
-  title,
   showXYZ,
   isLargerGrid,
 }) {
@@ -22,8 +19,7 @@ export default function ModifierTab({
 
   return (
     <>
-      <Subtitle title={title} />
-      <div className='p-3 pt-0 flex flex-col gap-y-2'>
+      <div className='px-4 p-3 pt-0 flex flex-col gap-y-2'>
         {showXYZ && (
           <div className='grid grid-cols-4 w-[95%] text-xs'>
             <div></div>

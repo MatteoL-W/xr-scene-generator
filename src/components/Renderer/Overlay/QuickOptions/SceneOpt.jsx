@@ -19,7 +19,7 @@ export default function SceneOpt() {
   ])
 
   return (
-    <div className='bg-coalblue text-white flex flex-col p-2 gap-y-2 pointer-events-auto rounded'>
+    <div className='bg-jean text-white flex flex-col p-2 gap-y-2 pointer-events-auto rounded'>
       <BiGrid
         className='h-6 w-6 cursor-pointer'
         onClick={() => setGridState(!isGridOpen)}

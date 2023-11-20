@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        jean: '#27374D',
-        coalblue: '#526D82',
+        'dark-jean': '#1F416F',
+        jean: '#355581',
+        coalblue: '#5C96C4',
         greysky: '#9DB2BF',
       },
     },

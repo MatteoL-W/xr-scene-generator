@@ -18,7 +18,7 @@ export default function ControlsOpt() {
   if (!objectTransformations) return
 
   return (
-    <div className='bg-coalblue text-white flex flex-col p-2 gap-y-2 pointer-events-auto rounded'>
+    <div className='bg-greysky text-jean flex flex-col p-2 gap-y-2 pointer-events-auto rounded'>
       {objectTransformations?.position && (
         <LiaArrowsAltSolid
           className='h-6 w-6 cursor-pointer'
