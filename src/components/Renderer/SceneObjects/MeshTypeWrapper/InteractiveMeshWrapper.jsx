@@ -9,25 +9,26 @@ InteractiveMeshWrapper.propTypes = {
 }
 
 export default function InteractiveMeshWrapper({ children }) {
-  const grabbingController = useRef()
-  const groupRef = useRef()
   const previousTransform = useMemo(() => new Matrix4(), [])
+  const grabbingController = useRef()
+  const interactiveRef = useRef()
 
   useFrame(() => {
     const controller = grabbingController.current
-    const group = groupRef.current
     if (!controller) return
 
-    group.applyMatrix4(previousTransform)
-    group.applyMatrix4(controller.matrixWorld)
-    group.updateMatrixWorld()
+    const interactiveObject = interactiveRef.current
+    interactiveObject.applyMatrix4(previousTransform)
+    interactiveObject.applyMatrix4(controller.matrixWorld)
+    interactiveObject.updateMatrixWorld()
 
     previousTransform.copy(controller.matrixWorld).invert()
   })
 
   return (
     <Interactive
-      ref={groupRef}
+      ref={interactiveRef}
+      name='MeshInteractiveComponent'
       onSelectStart={(e) => {
         grabbingController.current = e.target.controller
         previousTransform.copy(e.target.controller.matrixWorld).invert()

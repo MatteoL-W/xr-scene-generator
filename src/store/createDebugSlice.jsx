@@ -1,5 +1,5 @@
 export const manageDebugger = (set) => ({
-  isDebuggerUIOpen: false,
+  isDebuggerUIOpen: true,
   setDebuggerUIState: (newState) => {
     set(() => ({ isDebuggerUIOpen: newState }))
   },

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useXR } from '@react-three/xr'
-import InteractiveMeshWrapper from '@/components/Renderer/SceneObjects/MeshTypeWrapper/InteractiveMeshWrapper.jsx'
-import PhysicsMeshWrapper from '@/components/Renderer/SceneObjects/MeshTypeWrapper/PhysicsMeshWrapper.jsx'
+import InteractiveMeshWrapper from './MeshTypeWrapper/InteractiveMeshWrapper.jsx'
+import PhysicsMeshWrapper from './MeshTypeWrapper/PhysicsMeshWrapper.jsx'
 
 MeshWrapper.propTypes = {
   object: PropTypes.object.isRequired,
@@ -18,11 +18,11 @@ export default function MeshWrapper({ object, objectRef, children }) {
 
   let wrappedMesh = children
 
-  if (hasPhysics)
-    wrappedMesh = <PhysicsMeshWrapper>{wrappedMesh}</PhysicsMeshWrapper>
-
   if (hasInteractivity)
     wrappedMesh = <InteractiveMeshWrapper>{wrappedMesh}</InteractiveMeshWrapper>
+
+  if (hasPhysics)
+    wrappedMesh = <PhysicsMeshWrapper>{wrappedMesh}</PhysicsMeshWrapper>
 
   return <>{wrappedMesh}</>
 }
