@@ -22,13 +22,17 @@ export default function MeshWrapper({ object, objectRef, children }) {
 
   if (hasInteractivity)
     wrappedMesh = (
-      <InteractiveMeshWrapper meshWrapperRef={meshWrapperRef}>
+      <InteractiveMeshWrapper objectRef={objectRef}>
         {wrappedMesh}
       </InteractiveMeshWrapper>
     )
 
   if (hasPhysics)
-    wrappedMesh = <PhysicsMeshWrapper>{wrappedMesh}</PhysicsMeshWrapper>
+    wrappedMesh = (
+      <PhysicsMeshWrapper objectRef={objectRef}>
+        {wrappedMesh}
+      </PhysicsMeshWrapper>
+    )
 
   return <group ref={meshWrapperRef}>{wrappedMesh}</group>
 }

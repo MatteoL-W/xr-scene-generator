@@ -6,10 +6,10 @@ import { Interactive } from '@react-three/xr'
 
 InteractiveMeshWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  meshWrapperRef: PropTypes.object.isRequired,
+  objectRef: PropTypes.object.isRequired,
 }
 
-export default function InteractiveMeshWrapper({ children, meshWrapperRef }) {
+export default function InteractiveMeshWrapper({ children, objectRef }) {
   const previousTransform = useMemo(() => new Matrix4(), [])
   const grabbingController = useRef()
 
@@ -17,10 +17,10 @@ export default function InteractiveMeshWrapper({ children, meshWrapperRef }) {
     const controller = grabbingController.current
     if (!controller) return
 
-    const interactiveObject = meshWrapperRef.current
-    interactiveObject.applyMatrix4(previousTransform)
-    interactiveObject.applyMatrix4(controller.matrixWorld)
-    interactiveObject.updateMatrixWorld()
+    const mesh = objectRef.current
+    mesh.applyMatrix4(previousTransform)
+    mesh.applyMatrix4(controller.matrixWorld)
+    mesh.updateMatrixWorld()
 
     previousTransform.copy(controller.matrixWorld).invert()
   })
