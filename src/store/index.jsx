@@ -6,6 +6,7 @@ import { manageOverlay } from './createOverlaySlice.jsx'
 import { manageDebugger } from './createDebugSlice.jsx'
 import { manageRendererMisc } from './createRendererMiscSlice.jsx'
 import { manageImmersiveExperience } from '@/store/createImmersiveSlice.jsx'
+import { manageExporter } from '@/store/createExporterSlice.jsx'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -20,6 +21,7 @@ const useStore = create(
       ...manageDebugger(...a),
       ...manageRendererMisc(...a),
       ...manageImmersiveExperience(...a),
+      ...manageExporter(...a),
     }),
     {
       name: 'scene',

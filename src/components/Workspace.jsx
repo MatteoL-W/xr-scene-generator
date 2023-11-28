@@ -1,6 +1,6 @@
 import RendererPreview from './Renderer/index.jsx'
 import { HotkeysProvider } from 'react-hotkeys-hook'
-import Header from './Header.jsx'
+import Header from './Header/index.jsx'
 
 export default function Workspace() {
   return (

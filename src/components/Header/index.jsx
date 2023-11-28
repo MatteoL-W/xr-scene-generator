@@ -1,9 +1,10 @@
 import useStore from '@/store/index.jsx'
 import { ARButton, VRButton } from '@react-three/xr'
-import { IoMdSettings } from 'react-icons/io'
+import { IoMdDownload, IoMdSettings } from 'react-icons/io'
 import { VscDebugAlt } from 'react-icons/vsc'
 import { PiVirtualReality } from 'react-icons/pi'
 import { TbAugmentedReality } from 'react-icons/tb'
+import GLTFExporterButton from '@/components/Header/GLTFExporterButton.jsx'
 
 export default function Header() {
   const [isDebuggerUIOpen, setDebuggerUIState, setImmersiveExperienceMode] =
@@ -24,6 +25,11 @@ export default function Header() {
         Settings
       </div>
 
+      <div className='flex items-center cursor-pointer'>
+        <IoMdDownload className='mr-2' />
+        <GLTFExporterButton />
+      </div>
+
       <div
         className='flex items-center'
         onClick={() => setDebuggerUIState(!isDebuggerUIOpen)}
@@ -32,7 +38,7 @@ export default function Header() {
         Debugger
       </div>
 
-      <div className='flex items-center cursor-pointer'>
+      <div className='flex items-center'>
         <PiVirtualReality className='mr-2' />
         <span onClick={() => setImmersiveExperienceMode('vr')}>
           <VRButton style={{}} />

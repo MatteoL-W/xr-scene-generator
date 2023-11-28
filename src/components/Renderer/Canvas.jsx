@@ -1,6 +1,7 @@
 import useStore from '@/store/index.jsx'
 import { Canvas as R3FCanvas } from '@react-three/fiber'
 import Debug from './Debug.jsx'
+import Exporter from '@/components/Renderer/Exporter.jsx'
 import { XR } from '@react-three/xr'
 import XRSpecificControls from './XR/index.jsx'
 import Controls from './Controls/index.jsx'
@@ -17,6 +18,7 @@ export default function Canvas() {
     <>
       <R3FCanvas shadows>
         <Debug />
+        <Exporter />
 
         <XR>
           <XRSpecificControls />
