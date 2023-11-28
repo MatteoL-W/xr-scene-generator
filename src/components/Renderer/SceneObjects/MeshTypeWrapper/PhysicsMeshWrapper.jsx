@@ -6,17 +6,10 @@ PhysicsMeshWrapper.propTypes = {
   objectRef: PropTypes.object.isRequired,
 }
 
+// eslint-disable-next-line no-unused-vars
 export default function PhysicsMeshWrapper({ children, objectRef }) {
-  const position = objectRef?.current?.position
-  const rotation = objectRef?.current?.rotation
-
   return (
-    <RigidBody
-      colliders='hull'
-      name='MeshPhysicsComponent'
-      position={position}
-      quaternion={rotation}
-    >
+    <RigidBody colliders='hull' name='MeshPhysicsComponent'>
       {children}
     </RigidBody>
   )

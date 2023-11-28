@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import { useXR } from '@react-three/xr'
+import { useRef } from 'react'
 import InteractiveMeshWrapper from './MeshTypeWrapper/InteractiveMeshWrapper.jsx'
 import PhysicsMeshWrapper from './MeshTypeWrapper/PhysicsMeshWrapper.jsx'
-import { useRef } from 'react'
+import FloatingMeshWrapper from './MeshTypeWrapper/FloatingMeshWrapper.jsx'
 
 MeshWrapper.propTypes = {
   object: PropTypes.object.isRequired,
@@ -14,7 +15,7 @@ MeshWrapper.propTypes = {
 export default function MeshWrapper({ object, objectRef, children }) {
   const meshWrapperRef = useRef()
   const { isPresenting } = useXR()
-  const { hasPhysics, hasInteractivity } = object.args || {}
+  const { hasPhysics, hasInteractivity, isFloating } = object.args || {}
 
   if (!isPresenting) return <>{children}</>
 
@@ -32,6 +33,13 @@ export default function MeshWrapper({ object, objectRef, children }) {
       <PhysicsMeshWrapper objectRef={objectRef}>
         {wrappedMesh}
       </PhysicsMeshWrapper>
+    )
+
+  if (isFloating)
+    wrappedMesh = (
+      <FloatingMeshWrapper objectRef={objectRef}>
+        {wrappedMesh}
+      </FloatingMeshWrapper>
     )
 
   return <group ref={meshWrapperRef}>{wrappedMesh}</group>

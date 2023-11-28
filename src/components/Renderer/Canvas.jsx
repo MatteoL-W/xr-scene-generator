@@ -15,7 +15,7 @@ export default function Canvas() {
   const [isDebuggerUIOpen] = useStore((state) => [state.isDebuggerUIOpen])
   return (
     <>
-      <R3FCanvas shadows frameloop='demand'>
+      <R3FCanvas shadows>
         <Debug />
 
         <XR>

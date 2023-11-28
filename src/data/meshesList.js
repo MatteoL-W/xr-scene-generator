@@ -18,6 +18,7 @@ const meshesList = [
       castShadow: false,
       hasPhysics: false,
       hasInteractivity: false,
+      isFloating: false,
     },
   },
   {
@@ -39,6 +40,7 @@ const meshesList = [
       castShadow: false,
       hasPhysics: false,
       hasInteractivity: false,
+      isFloating: false,
     },
   },
 ]
