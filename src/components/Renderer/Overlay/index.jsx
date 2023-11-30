@@ -1,19 +1,13 @@
-import SceneMenu from './SceneMenu.jsx'
-import useStore from '@/store/index.jsx'
-import { useShallow } from 'zustand/react/shallow'
 import Shortcut from './Shortcut.jsx'
 import QuickOptions from './QuickOptions/index.jsx'
-import SceneMenuButton from './SceneMenuButton.jsx'
 import DebugReportButton from '@/components/Renderer/Overlay/DebugReportButton.jsx'
+import SceneMenuHandler from '@/components/Renderer/Overlay/Menu/index.jsx'
 
 export default function RendererOverlay() {
-  const [isMenuOpen] = useStore(useShallow((state) => [state.isMenuOpen]))
-
   return (
     <Shortcut>
       <div className='relative'>
-        {!isMenuOpen && <SceneMenuButton />}
-        {isMenuOpen && <SceneMenu />}
+        <SceneMenuHandler />
         <DebugReportButton />
 
         <QuickOptions />

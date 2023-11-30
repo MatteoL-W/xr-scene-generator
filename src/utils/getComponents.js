@@ -1,5 +1,5 @@
 import { Box, Sphere } from '@react-three/drei'
-import { BoxPhong } from '@/data/components.jsx'
+import { BoxPhong } from '@/data/meshesComponents.jsx'
 import {
   AmbientLight,
   DirectionalLight,

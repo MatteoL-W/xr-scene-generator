@@ -1,6 +1,7 @@
 import meshesList from '@/data/meshesList.js'
 import lightsList from '@/data/lightsList.js'
 import useStore from '@/store/index.jsx'
+import ExternalGLTFLoader from './ExternalGLTFLoader.jsx'
 import { BsFillBoxFill, BsLightbulbFill } from 'react-icons/bs'
 import { IoCloseSharp } from 'react-icons/io5'
 
@@ -23,6 +24,11 @@ export default function SceneMenu() {
             {mesh.name}
           </li>
         ))}
+
+        <li className='flex items-center mb-1 cursor-pointer'>
+          <BsFillBoxFill className='mx-2' />
+          <ExternalGLTFLoader />
+        </li>
 
         {lightsList.map((light, index) => (
           <li
