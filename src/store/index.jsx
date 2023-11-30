@@ -27,6 +27,7 @@ const useStore = create(
     }),
     {
       name: 'scene',
+      partialize: () => ({}),
     },
   ),
 )

@@ -26,5 +26,7 @@ export default function ExternalGLTFLoader() {
 
     const url = URL.createObjectURL(file)
     setImportedMeshUrl(url)
+
+    event.target.value = null
   }
 }

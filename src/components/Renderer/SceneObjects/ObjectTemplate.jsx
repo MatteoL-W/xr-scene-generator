@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useMemo, useRef } from 'react'
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
+import useThreeObject from '@/hooks/useThreeObject.jsx'
 import { getObjectComponent } from '@/utils/getComponents.js'
 import LightWrapper from './LightWrapper.jsx'
 import MeshWrapper from './MeshWrapper.jsx'
@@ -15,12 +16,15 @@ export default function ObjectTemplate({ object }) {
     [object.component],
   )
   const objectComponentRef = useRef(null)
+  const threeObject = useThreeObject(object.uuid)
 
   // Set the object uuid the same as R3F Object uuid (do not add more dependencies)
   useEffect(() => {
-    if (!object.isImported) {
-      modifyObjectUUID(object, objectComponentRef?.current?.uuid)
+    if (object.isImported && threeObject) {
+      objectComponentRef?.current?.attach(threeObject)
+      return
     }
+    modifyObjectUUID(object, objectComponentRef?.current?.uuid)
   }, [])
 
   const ObjectTypeWrapper =

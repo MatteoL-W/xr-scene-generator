@@ -19,13 +19,16 @@ export default function Importer() {
 
   const onLoad = (gltf) => {
     URL.revokeObjectURL(importedMeshUrl)
-    scene.add(gltf.scene) // ToDo: ne pas ajouter directement dans la scène
-    addObjectToScene(generateGroupFromGLTF(gltf.scene.uuid))
+
+    gltf.scene.children.map((children) => {
+      scene.add(children)
+      addObjectToScene(generateGroupFromGLTF(children.uuid))
+    })
   }
 
   const onError = (error) => {
     URL.revokeObjectURL(importedMeshUrl)
-    console.log('error', error)
+    console.log('An error happened', error)
   }
 
   importer.load(importedMeshUrl, onLoad, null, onError)

@@ -15,7 +15,7 @@ export default function ListenForCameraInstruction({
     useShallow((state) => [state.cameraDirectionInstruction]),
   )
 
-  if (orbitControlsRef?.current) {
+  if (orbitControlsRef.current) {
     orbitControlsRef.current.target = cameraDirectionInstruction
     orbitControlsRef.current.update()
   }
