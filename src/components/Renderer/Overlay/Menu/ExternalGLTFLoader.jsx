@@ -1,17 +1,15 @@
-import { useMemo, useRef } from 'react'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { useRef } from 'react'
+import useStore from '@/store/index.jsx'
 
 export default function ExternalGLTFLoader() {
-  const loader = useMemo(() => new GLTFLoader(), [])
+  const [setImportedMeshUrl] = useStore((state) => [state.setImportedMeshUrl])
   const gltfInputRef = useRef()
-
-  function handleOnClick() {
-    gltfInputRef.current?.click()
-  }
 
   return (
     <>
-      <span onClick={handleOnClick}>Load a GLB object</span>
+      <span onClick={() => gltfInputRef.current?.click()}>
+        Load a GLB object
+      </span>
       <input
         type='file'
         accept='.gltf, .glb'
@@ -27,17 +25,6 @@ export default function ExternalGLTFLoader() {
     if (!file) return
 
     const url = URL.createObjectURL(file)
-
-    const onLoad = (gltf) => {
-      URL.revokeObjectURL(url)
-      console.log(gltf)
-    }
-
-    const onError = (error) => {
-      console.log('error', error)
-      URL.revokeObjectURL(url)
-    }
-
-    loader.load(url, onLoad, null, onError)
+    setImportedMeshUrl(url)
   }
 }

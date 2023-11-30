@@ -6,6 +6,7 @@ import {
   PointLight,
   SpotLight,
 } from '@/config/presets/components/lights.jsx'
+import { Custom } from '@/config/presets/components/importedGLTF.jsx'
 
 export function getObjectComponent(name) {
   switch (name) {
@@ -24,6 +25,11 @@ export function getObjectComponent(name) {
       return BoxPhong
     case 'Sphere':
       return Sphere
+
+    // Imported
+    case 'Custom':
+      return Custom
+
     default:
       return Box
   }

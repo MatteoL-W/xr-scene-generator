@@ -18,7 +18,9 @@ export default function ObjectTemplate({ object }) {
 
   // Set the object uuid the same as R3F Object uuid (do not add more dependencies)
   useEffect(() => {
-    modifyObjectUUID(object, objectComponentRef?.current?.uuid)
+    if (!object.isImported) {
+      modifyObjectUUID(object, objectComponentRef?.current?.uuid)
+    }
   }, [])
 
   const ObjectTypeWrapper =

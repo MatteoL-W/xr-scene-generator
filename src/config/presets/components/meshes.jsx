@@ -3,9 +3,13 @@ import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 export const BoxPhong = forwardRef((props, ref) => {
+  const componentProps = { ...props }
+  const materialColor = props['material-color']
+  delete componentProps['material-color']
+
   return (
-    <Box ref={ref} {...props}>
-      <meshStandardMaterial color={props['material-color']} />
+    <Box ref={ref} {...componentProps}>
+      <meshStandardMaterial color={materialColor} />
     </Box>
   )
 })

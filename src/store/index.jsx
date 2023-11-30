@@ -7,6 +7,7 @@ import { manageDebugger } from './createDebugSlice.jsx'
 import { manageRendererMisc } from './createRendererMiscSlice.jsx'
 import { manageImmersiveExperience } from '@/store/createImmersiveSlice.jsx'
 import { manageExporter } from '@/store/createExporterSlice.jsx'
+import { manageImporter } from './createImporterSlice.jsx'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -22,12 +23,10 @@ const useStore = create(
       ...manageRendererMisc(...a),
       ...manageImmersiveExperience(...a),
       ...manageExporter(...a),
+      ...manageImporter(...a),
     }),
     {
       name: 'scene',
-      partialize: (state) => ({
-        sceneObjects: state.sceneObjects,
-      }),
     },
   ),
 )
