@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { useHistoric } from '@/hooks/useHistoric.jsx'
 import useStore from '@/store/index.jsx'
-import { argumentsDefaultParameters } from '@/data/argumentsDefaultParameters.js'
+import { propertiesParameters } from '@/config/default/modifiersPropertiesParams.js'
 import { BsLink45Deg } from 'react-icons/bs'
 
 ArrayInputs.propTypes = {
@@ -67,9 +67,9 @@ export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
 
       {propertyValue.map((value, index) => {
         const defaultParameters = {
-          min: argumentsDefaultParameters?.[propertyLabel]?.min,
-          max: argumentsDefaultParameters?.[propertyLabel]?.max,
-          step: argumentsDefaultParameters?.[propertyLabel]?.step,
+          min: propertiesParameters?.[propertyLabel]?.min,
+          max: propertiesParameters?.[propertyLabel]?.max,
+          step: propertiesParameters?.[propertyLabel]?.step,
         }
         const inputCodeName = `${propertyLabel}_${index}`
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
-import { argumentsDefaultParameters } from '@/data/argumentsDefaultParameters.js'
+import { propertiesParameters } from '@/config/default/modifiersPropertiesParams.js'
 
 DefaultInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,
@@ -21,9 +21,9 @@ export function DefaultInput({ propertyLabel, propertyValue, repository }) {
   }
 
   const defaultArguments = {
-    min: argumentsDefaultParameters?.[propertyLabel]?.min ?? undefined,
-    max: argumentsDefaultParameters?.[propertyLabel]?.max ?? undefined,
-    step: argumentsDefaultParameters?.[propertyLabel]?.step ?? undefined,
+    min: propertiesParameters?.[propertyLabel]?.min ?? undefined,
+    max: propertiesParameters?.[propertyLabel]?.max ?? undefined,
+    step: propertiesParameters?.[propertyLabel]?.step ?? undefined,
   }
 
   return (

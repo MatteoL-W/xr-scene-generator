@@ -1,11 +1,11 @@
 import { Box, Sphere } from '@react-three/drei'
-import { BoxPhong } from '@/data/meshesComponents.jsx'
+import { BoxPhong } from '@/config/presets/components/meshes.jsx'
 import {
   AmbientLight,
   DirectionalLight,
   PointLight,
   SpotLight,
-} from '@/data/lightsComponent.jsx'
+} from '@/config/presets/components/lights.jsx'
 
 export function getObjectComponent(name) {
   switch (name) {

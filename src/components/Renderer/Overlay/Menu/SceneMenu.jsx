@@ -1,5 +1,5 @@
-import meshesList from '@/data/meshesList.js'
-import lightsList from '@/data/lightsList.js'
+import meshesList from '@/config/presets/meshesList.js'
+import lightsList from '@/config/presets/lightsList.js'
 import useStore from '@/store/index.jsx'
 import ExternalGLTFLoader from './ExternalGLTFLoader.jsx'
 import { BsFillBoxFill, BsLightbulbFill } from 'react-icons/bs'

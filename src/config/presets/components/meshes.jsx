@@ -10,8 +10,7 @@ export const BoxPhong = forwardRef((props, ref) => {
   )
 })
 
+BoxPhong.displayName = 'BoxPhong'
 BoxPhong.propTypes = {
   'material-color': PropTypes.string.isRequired,
 }
-
-BoxPhong.displayName = 'BoxPhong'
