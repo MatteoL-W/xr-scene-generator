@@ -1,6 +1,6 @@
 export const manageExporter = (set) => ({
   isWaitingToDownloadGLTF: false,
-  setIsWaitingToDownloadGLTF: () => {
+  startWaitingToDownloadGLTF: () => {
     set(() => ({ isWaitingToDownloadGLTF: true }))
   },
   stopWaitingToDownloadGLTF: () => {

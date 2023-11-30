@@ -4,21 +4,6 @@ import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js'
 import useStore from '@/store/index.jsx'
 import { downloadStringBasedFile } from '@/utils/download.js'
 
-function downloadSceneObjects(scene, exporter) {
-  const exportedObject = scene.getObjectByName('SceneObjectsComponent')
-
-  exporter.parse(
-    exportedObject,
-    function (gltf) {
-      const output = JSON.stringify(gltf, null, 2)
-      downloadStringBasedFile('scene.gltf', output)
-    },
-    function (error) {
-      console.log('An error happened', error)
-    },
-  )
-}
-
 export default function Exporter() {
   const [isWaitingToDownloadGLTF, stopWaitingToDownloadGLTF] = useStore(
     (state) => [state.isWaitingToDownloadGLTF, state.stopWaitingToDownloadGLTF],
@@ -32,4 +17,19 @@ export default function Exporter() {
   }
 
   return <></>
+}
+
+function downloadSceneObjects(scene, exporter) {
+  const exportedObject = scene.getObjectByName('SceneObjectsComponent')
+
+  exporter.parse(
+    exportedObject,
+    function (gltf) {
+      const output = JSON.stringify(gltf, null, 2)
+      downloadStringBasedFile('scene.gltf', output)
+    },
+    function (error) {
+      console.log('An error happened', error)
+    },
+  )
 }

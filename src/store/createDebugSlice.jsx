@@ -3,4 +3,12 @@ export const manageDebugger = (set) => ({
   setDebuggerUIState: (newState) => {
     set(() => ({ isDebuggerUIOpen: newState }))
   },
+
+  isWaitingForDebugReport: false,
+  startWaitingForDebugReport: () => {
+    set(() => ({ isWaitingForDebugReport: true }))
+  },
+  stopWaitingForDebugReport: () => {
+    set(() => ({ isWaitingForDebugReport: false }))
+  },
 })
