@@ -1,0 +1,50 @@
+{
+  "header": {
+    "gltf": "Download GLTF"
+  },
+  "overlay": {
+    "menu": {
+      "add": "Add object",
+      "gltf": "Load a GLB object",
+      "close": "Close"
+    }
+  },
+  "right": {
+    "list": {
+      "addToStart": "Add objects to start",
+      "title": "Scene composition"
+    },
+    "modifier": {
+      "title": "Modifier",
+      "geometry": "Geometry",
+      "material": "Material",
+      "parameters": "Parameters",
+      "misc": "Misc"
+    },
+    "skybox": {
+      "title": "Skybox",
+      "none": "None",
+      "basic": "Basic preset",
+      "user": "User preset"
+    },
+    "property": {
+      "position": "Position",
+      "rotation": "Rotation",
+      "scale": "Scale",
+      "material-color": "Color",
+      "visible": "Visible",
+      "receiveShadow": "Receive Shadow",
+      "castShadow": "Cast Shadow",
+      "hasPhysics": "Has Physics",
+      "hasInteractivity": "Interactive",
+      "isFloating": "Floating",
+      "direction": "Direction",
+      "color": "Color",
+      "intensity": "Intensity",
+      "distance": "Distance",
+      "decay": "Decay",
+      "penumbra": "Penumbra",
+      "angle": "Angle"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "header": {
+    "gltf": "GLTFのダウンロード"
+  },
+  "overlay": {
+    "menu": {
+      "add": "オブジェクトを追加",
+      "gltf": "GLBオブジェクトを読み込む",
+      "close": "閉じる"
+    }
+  },
+  "right": {
+    "list": {
+      "addToStart": "開始時にオブジェクトを追加",
+      "title": "シーンの構成"
+    },
+    "modifier": {
+      "title": "変更",
+      "geometry": "ジオメトリ",
+      "material": "マテリアル",
+      "parameters": "パラメータ",
+      "misc": "その他"
+    },
+    "skybox": {
+      "title": "スカイボックス",
+      "none": "なし",
+      "basic": "基本プリセット",
+      "user": "ユーザープリセット"
+    },
+    "property": {
+      "position": "位置",
+      "rotation": "回転",
+      "scale": "スケール",
+      "material-color": "色",
+      "visible": "可視",
+      "receiveShadow": "シャドウを受け取る",
+      "castShadow": "シャドウを投げる",
+      "hasPhysics": "物理演算を使用",
+      "hasInteractivity": "対話可能",
+      "isFloating": "フローティング",
+      "direction": "方向",
+      "color": "色",
+      "intensity": "強度",
+      "distance": "距離",
+      "decay": "減衰",
+      "penumbra": "ペナンブラ",
+      "angle": "角度"
+    }
+  }
+}

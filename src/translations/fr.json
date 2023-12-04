@@ -1,0 +1,50 @@
+{
+  "header": {
+    "gltf": "Télécharger GLTF"
+  },
+  "overlay": {
+    "menu": {
+      "add": "Ajouter un objet",
+      "gltf": "Charger un objet GLB",
+      "close": "Fermer"
+    }
+  },
+  "right": {
+    "list": {
+      "addToStart": "Ajouter des objets au démarrage",
+      "title": "Composition de la scène"
+    },
+    "modifier": {
+      "title": "Modificateur",
+      "geometry": "Géométrie",
+      "material": "Matériau",
+      "parameters": "Paramètres",
+      "misc": "Divers"
+    },
+    "skybox": {
+      "title": "Skybox",
+      "none": "Aucun",
+      "basic": "Skybox intégrée",
+      "user": "Skybox utilisateur"
+    },
+    "property": {
+      "position": "Position",
+      "rotation": "Rotation",
+      "scale": "Échelle",
+      "material-color": "Couleur",
+      "visible": "Visible",
+      "receiveShadow": "Recevoir une ombre",
+      "castShadow": "Projeter une ombre",
+      "hasPhysics": "A des propriétés physiques",
+      "hasInteractivity": "Interactif",
+      "isFloating": "Flottant",
+      "direction": "Direction",
+      "color": "Couleur",
+      "intensity": "Intensité",
+      "distance": "Distance",
+      "decay": "Désintégration",
+      "penumbra": "Pénombre",
+      "angle": "Angle"
+    }
+  }
+}
