@@ -21,7 +21,14 @@ export default function Environment() {
       background
       preset={!skyboxFilesPreset ? skyboxPreset : ''}
       files={skyboxFilesPreset}
-      ground={appearsAtTheGround && isBackgroundActivated}
+      ground={
+        appearsAtTheGround &&
+        isBackgroundActivated && {
+          height: 15, // Height of the camera that was used to create the env map (Default: 15)
+          radius: 60, // Radius of the world. (Default 60)
+          scale: 100, // Scale of the backside projected sphere that holds the env texture (Default: 100)
+        }
+      }
     />
   )
 }
