@@ -8,4 +8,9 @@ export const manageSkybox = (set) => ({
   setSkyboxFilesPreset: (newFiles) => {
     set(() => ({ skyboxFilesPreset: newFiles }))
   },
+
+  appearsAtTheGround: true,
+  setAppearsAtTheGround: (newState) => {
+    set(() => ({ appearsAtTheGround: newState }))
+  },
 })

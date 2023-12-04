@@ -15,7 +15,7 @@ export default function UserPreset() {
   }
 
   return (
-    <div className='flex px-5 py-3'>
+    <div className='flex px-5 py-1.5'>
       <span className='w-24'>User preset</span>
       <select
         name='preset'

@@ -27,7 +27,7 @@ export default function SoftwarePreset() {
   }
 
   return (
-    <div className='flex px-5 py-3'>
+    <div className='flex px-5 pt-3 pb-1.5'>
       <span className='w-24'>Basic preset</span>
       <select
         name='preset'

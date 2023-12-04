@@ -3,10 +3,13 @@ import useImmersiveExperienceHandler from '@/hooks/useImmersiveExperienceHandler
 import useStore from '@/store/index.jsx'
 
 export default function Environment() {
-  const [skyboxPreset, skyboxFilesPreset] = useStore((state) => [
-    state.skyboxPreset,
-    state.skyboxFilesPreset,
-  ])
+  const [skyboxPreset, skyboxFilesPreset, appearsAtTheGround] = useStore(
+    (state) => [
+      state.skyboxPreset,
+      state.skyboxFilesPreset,
+      state.appearsAtTheGround,
+    ],
+  )
   const { getImmersiveMode } = useImmersiveExperienceHandler()
   const immersiveMode = getImmersiveMode()
   const isBackgroundActivated = immersiveMode !== 'ar'
@@ -15,15 +18,10 @@ export default function Environment() {
 
   return (
     <EnvironmentDrei
+      background
       preset={!skyboxFilesPreset ? skyboxPreset : ''}
       files={skyboxFilesPreset}
-      ground={
-        isBackgroundActivated && {
-          height: 15, // Height of the camera that was used to create the env map (Default: 15)
-          radius: 60, // Radius of the world. (Default 60)
-          scale: 100, // Scale of the backside projected sphere that holds the env texture (Default: 100)
-        }
-      }
+      ground={appearsAtTheGround && isBackgroundActivated}
     />
   )
 }
