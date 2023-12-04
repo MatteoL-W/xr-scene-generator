@@ -1,5 +1,6 @@
 import useStore from '@/store/index.jsx'
 import { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const presets = [
   'apartment',
@@ -15,6 +16,7 @@ const presets = [
 ]
 
 export default function SoftwarePreset() {
+  const { t } = useTranslation()
   const [skyboxPreset, setSkyboxPreset] = useStore((state) => [
     state.skyboxPreset,
     state.setSkyboxPreset,
@@ -28,7 +30,7 @@ export default function SoftwarePreset() {
 
   return (
     <div className='flex px-5 pt-3 pb-1.5'>
-      <span className='w-24'>Basic preset</span>
+      <span className='w-40'>{t('right.skybox.basic')}</span>
       <select
         name='preset'
         className='px-2 py-1 rounded capitalize'
@@ -36,7 +38,7 @@ export default function SoftwarePreset() {
         onChange={handleChange}
         value={skyboxPreset}
       >
-        <option value=''>None</option>
+        <option value=''>{t('right.skybox.none')}</option>
         {presets.map((preset) => (
           <option value={preset} key={preset}>
             {preset}

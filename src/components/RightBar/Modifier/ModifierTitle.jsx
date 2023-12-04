@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
 ModifierTitle.propTypes = {
@@ -12,6 +13,7 @@ export default function ModifierTitle({
   modifierMode,
   setModifierMode,
 }) {
+  const { t } = useTranslation()
   const modifiers = useMemo(() => {
     let usefulModifier = []
     if (focusedObject?.transformations) usefulModifier.push('geometry')
@@ -32,7 +34,7 @@ export default function ModifierTitle({
             modifierMode === modifierTitle ? 'bg-coalblue' : ''
           }`}
         >
-          {modifierTitle}
+          {t('right.modifier.' + modifierTitle)}
         </span>
       ))}
     </div>

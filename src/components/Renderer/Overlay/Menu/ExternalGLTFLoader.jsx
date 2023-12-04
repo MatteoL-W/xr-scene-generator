@@ -1,18 +1,20 @@
 import { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
 
 export default function ExternalGLTFLoader() {
+  const { t } = useTranslation()
   const [setImportedMeshUrl] = useStore((state) => [state.setImportedMeshUrl])
   const gltfInputRef = useRef()
 
   return (
     <>
       <span onClick={() => gltfInputRef.current?.click()}>
-        Load a GLB object
+        {t('overlay.menu.gltf')}
       </span>
       <input
         type='file'
-        accept='.gltf, .glb'
+        accept='.glb'
         onChange={handleFileChange}
         ref={gltfInputRef}
         className='hidden'

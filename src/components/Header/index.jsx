@@ -21,11 +21,6 @@ export default function Header() {
       </a>
 
       <div className='flex items-center cursor-pointer'>
-        <IoMdSettings className='mr-2' />
-        Settings
-      </div>
-
-      <div className='flex items-center cursor-pointer'>
         <IoMdDownload className='mr-2' />
         <GLTFExporterButton />
       </div>
@@ -50,6 +45,11 @@ export default function Header() {
         <span onClick={() => setImmersiveExperienceMode('ar')}>
           <ARButton style={{}} />
         </span>
+      </div>
+
+      <div className='flex items-center cursor-pointer'>
+        <IoMdSettings className='mr-2' />
+        Settings
       </div>
     </div>
   )

@@ -1,8 +1,10 @@
 import { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
 import { userPresets } from '@/config/user/userImportedPresets.js'
 
 export default function UserPreset() {
+  const { t } = useTranslation()
   const [skyboxFilesPreset, setSkyboxFilesPreset] = useStore((state) => [
     state.skyboxFilesPreset,
     state.setSkyboxFilesPreset,
@@ -16,7 +18,7 @@ export default function UserPreset() {
 
   return (
     <div className='flex px-5 py-1.5'>
-      <span className='w-24'>User preset</span>
+      <span className='w-40'>{t('right.skybox.user')}</span>
       <select
         name='preset'
         className='px-2 py-1 rounded capitalize'
@@ -24,7 +26,7 @@ export default function UserPreset() {
         onChange={handleChange}
         value={skyboxFilesPreset}
       >
-        <option value=''>None</option>
+        <option value=''>{t('right.skybox.none')}</option>
         {userPresets.map((preset) => (
           <option value={preset.file} key={preset.name}>
             {preset.name}

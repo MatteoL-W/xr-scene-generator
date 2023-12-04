@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import useStore from '@/store/index.jsx'
 import useOutsideClick from '@/hooks/useOutsideClick.jsx'
+import { useTranslation } from 'react-i18next'
 import Colorful from '@uiw/react-color-colorful'
 import PropTypes from 'prop-types'
 import { hexColorValidator } from '@/utils/typesValidator.jsx'
@@ -13,6 +14,7 @@ ColorPickerInput.propTypes = {
 }
 
 export function ColorPickerInput({ propertyLabel, propertyValue, repository }) {
+  const { t } = useTranslation()
   const [modifyFocusedObject] = useStore((state) => [state.modifyFocusedObject])
   const [color, setColor] = useState()
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false)
@@ -43,7 +45,7 @@ export function ColorPickerInput({ propertyLabel, propertyValue, repository }) {
   return (
     <>
       <label htmlFor={propertyLabel} className='capitalize'>
-        {propertyLabel === 'material-color' ? 'Color' : propertyLabel}
+        {t('right.property.' + propertyLabel)}
       </label>
 
       <div

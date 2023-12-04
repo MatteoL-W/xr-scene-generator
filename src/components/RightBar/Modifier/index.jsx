@@ -3,11 +3,13 @@ import { useFocusedObjectData } from '@/hooks/useFocusedObjectData.jsx'
 import { BsFillBoxFill } from 'react-icons/bs'
 import ModifierInputs from './ModifierInputs.jsx'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import useStore from '@/store/index.jsx'
 import ModifierTitle from '@/components/RightBar/Modifier/ModifierTitle.jsx'
 import { AiFillDelete } from 'react-icons/ai'
-import useStore from '@/store/index.jsx'
 
 export default function ObjectModifier() {
+  const { t } = useTranslation()
   const focusedObject = useFocusedObjectData()
   const [modifierMode, setModifierMode] = useState('geometry')
   const [removeObject] = useStore((state) => [state.removeObjectFromScene])
@@ -18,7 +20,7 @@ export default function ObjectModifier() {
     <div className='border-b border-b-white'>
       <div className='relative'>
         <Title
-          title={`"${focusedObject.userSetName}" Modifier`}
+          title={`"${focusedObject.userSetName}" ${t('right.modifier.title')}`}
           Icon={BsFillBoxFill}
         />
         <div className='absolute top-0 right-2 h-full flex items-center text-xl'>
@@ -37,7 +39,6 @@ export default function ObjectModifier() {
 
       {modifierMode === 'geometry' && (
         <ModifierInputs
-          title='Geometry'
           interactiveObjectInputs={{
             transformations: focusedObject.transformations,
           }}
@@ -47,7 +48,6 @@ export default function ObjectModifier() {
 
       {modifierMode === 'material' && (
         <ModifierInputs
-          title='Material'
           interactiveObjectInputs={{
             material: focusedObject.material,
           }}
@@ -56,7 +56,6 @@ export default function ObjectModifier() {
 
       {modifierMode === 'parameters' && (
         <ModifierInputs
-          title='Parameters'
           interactiveObjectInputs={{
             parameters: focusedObject.parameters,
           }}
@@ -65,7 +64,7 @@ export default function ObjectModifier() {
 
       {modifierMode === 'misc' && (
         <ModifierInputs
-          title='Misc'
+          title={t('right.modifier.misc')}
           interactiveObjectInputs={{
             args: focusedObject.args,
           }}

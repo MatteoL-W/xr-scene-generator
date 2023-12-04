@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
+import { useTranslation } from 'react-i18next'
 import { propertiesParameters } from '@/config/default/modifiersPropertiesParams.js'
 
 DefaultInput.propTypes = {
@@ -9,6 +10,7 @@ DefaultInput.propTypes = {
 }
 
 export function DefaultInput({ propertyLabel, propertyValue, repository }) {
+  const { t } = useTranslation()
   const [modifyFocusedObject] = useStore((state) => [state.modifyFocusedObject])
 
   function handleOnChange(event) {
@@ -29,7 +31,7 @@ export function DefaultInput({ propertyLabel, propertyValue, repository }) {
   return (
     <>
       <label htmlFor={propertyLabel} className='capitalize'>
-        {propertyLabel}
+        {t('right.property.' + propertyLabel)}
       </label>
       <input
         type='number'

@@ -1,6 +1,8 @@
 import useStore from '@/store/index.jsx'
+import { useTranslation } from 'react-i18next'
 
 export default function SceneMenuButton() {
+  const { t } = useTranslation()
   const [setMenuState] = useStore((state) => [state.setMenuState])
 
   return (
@@ -9,7 +11,7 @@ export default function SceneMenuButton() {
       onClick={() => setMenuState(true)}
     >
       <span className='text-center text-4xl font-semibold'>+</span>
-      Add object
+      {t('overlay.menu.add')}
     </div>
   )
 }

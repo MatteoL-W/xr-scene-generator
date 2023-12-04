@@ -1,11 +1,13 @@
 import meshesList from '@/config/presets/meshesList.js'
 import lightsList from '@/config/presets/lightsList.js'
+import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
 import ExternalGLTFLoader from './ExternalGLTFLoader.jsx'
 import { BsFillBoxFill, BsLightbulbFill } from 'react-icons/bs'
 import { IoCloseSharp } from 'react-icons/io5'
 
 export default function SceneMenu() {
+  const { t } = useTranslation()
   const [addObjectToScene, setMenuState] = useStore((state) => [
     state.addObjectToScene,
     state.setMenuState,
@@ -49,7 +51,7 @@ export default function SceneMenu() {
         onClick={() => setMenuState(false)}
       >
         <IoCloseSharp className='mx-2' />
-        Close
+        {t('overlay.menu.close')}
       </div>
     </div>
   )

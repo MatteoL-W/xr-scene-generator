@@ -1,4 +1,5 @@
 import useStore from '@/store/index.jsx'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
 BooleanInput.propTypes = {
@@ -12,6 +13,7 @@ export default function BooleanInput({
   propertyValue,
   repository,
 }) {
+  const { t } = useTranslation()
   function onChange() {
     modifyFocusedObject(
       {
@@ -31,7 +33,9 @@ export default function BooleanInput({
         onChange={onChange}
         className='mr-2'
       />
-      <label htmlFor={propertyLabel}>{propertyLabel}</label>
+      <label htmlFor={propertyLabel}>
+        {t('right.property.' + propertyLabel)}
+      </label>
     </div>
   )
 }

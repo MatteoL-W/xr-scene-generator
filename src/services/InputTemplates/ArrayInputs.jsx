@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { useHistoric } from '@/hooks/useHistoric.jsx'
+import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
 import { propertiesParameters } from '@/config/default/modifiersPropertiesParams.js'
 import { BsLink45Deg } from 'react-icons/bs'
@@ -12,6 +13,7 @@ ArrayInputs.propTypes = {
 }
 
 export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
+  const { t } = useTranslation()
   const [modifyFocusedObject, transformControlsRef] = useStore((state) => [
     state.modifyFocusedObject,
     state.transformControlsRef,
@@ -56,7 +58,9 @@ export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
   return (
     <>
       <div className='flex items-center w-20 justify-between'>
-        <label className='capitalize'>{propertyLabel}</label>
+        <label className='capitalize'>
+          {t('right.property.' + propertyLabel)}
+        </label>
         <BsLink45Deg
           className={`h-full rounded ${
             hasSyncProperties ? 'bg-white text-jean' : ''
