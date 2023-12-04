@@ -11,9 +11,10 @@ export default function ControlsOpt() {
     state.setNewCameraDirectionInstruction,
   ])
 
-  const objectTransformations = useFocusedObjectTransformationsData()
-  const focusedObjectPosition = new Vector3(...objectTransformations.position)
   const setTransformControlsMode = useNewTransformControlsMode()
+  const objectTransformations = useFocusedObjectTransformationsData()
+  if (!objectTransformations?.position) return
+  const focusedObjectPosition = new Vector3(...objectTransformations.position)
 
   if (!objectTransformations) return
 

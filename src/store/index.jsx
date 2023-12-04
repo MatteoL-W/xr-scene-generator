@@ -27,7 +27,9 @@ const useStore = create(
     }),
     {
       name: 'scene',
-      partialize: () => ({}),
+      partialize: (state) => ({
+        sceneObjects: state.sceneObjects,
+      }),
     },
   ),
 )

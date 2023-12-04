@@ -41,8 +41,8 @@ export default function ObjectTemplate({ object }) {
         {...object.parameters}
         {...object.transformations}
         ref={objectComponentRef}
-        onClick={(e) => {
-          changeFocusedObjectUUID(e.object.uuid)
+        onClick={() => {
+          changeFocusedObjectUUID(object.uuid)
         }}
       />
     </ObjectTypeWrapper>

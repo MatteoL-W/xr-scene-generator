@@ -1,4 +1,5 @@
 import { forwardRef } from 'react'
+import PropTypes from 'prop-types'
 
 const forwardedProps = ['receiveShadow', 'castShadow', 'onClick']
 
@@ -11,6 +12,9 @@ export const Custom = forwardRef((props, ref) => {
     })
   })
 
-  return <group ref={ref} {...props} />
+  return <group ref={ref} onClick={props?.onClick} />
 })
 Custom.displayName = 'Custom'
+Custom.propTypes = {
+  onClick: PropTypes.func,
+}

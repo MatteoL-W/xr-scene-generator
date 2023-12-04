@@ -1,10 +1,9 @@
 import { useHotkeys } from 'react-hotkeys-hook'
 import { useHistoric } from '@/hooks/useHistoric.jsx'
 import useStore from '@/store/index.jsx'
-import PropTypes from 'prop-types'
 import useNewTransformControlsMode from '@/hooks/useTransformControlsHandler.jsx'
 
-export default function Shortcut({ children }) {
+export default function Shortcut() {
   const [isMenuOpen, setMenuState, removeFocusedObjectFromScene] = useStore(
     (state) => [
       state.isMenuOpen,
@@ -15,23 +14,20 @@ export default function Shortcut({ children }) {
   const setTransformControlsMode = useNewTransformControlsMode()
   const { undo, redo } = useHistoric()
 
+  const openMenu = () => setMenuState(!isMenuOpen)
+  const setTranslateMode = () => setTransformControlsMode('translate')
+  const setRotateMode = () => setTransformControlsMode('rotate')
+  const setScaleMode = () => setTransformControlsMode('scale')
+
   // Overlay openings
-  useHotkeys('a', () => setMenuState(!isMenuOpen), {
-    scopes: ['renderer'],
-  })
+  useHotkeys('a', openMenu, { scopes: ['renderer'] })
 
   // TransformControlsMode
-  useHotkeys('g', () => setTransformControlsMode('translate'), {
-    scopes: ['renderer'],
-  })
-  useHotkeys('r', () => setTransformControlsMode('rotate'), {
-    scopes: ['renderer'],
-  })
-  useHotkeys('s', () => setTransformControlsMode('scale'), {
-    scopes: ['renderer'],
-  })
+  useHotkeys('g', setTranslateMode, { scopes: ['renderer'] })
+  useHotkeys('r', setRotateMode, { scopes: ['renderer'] })
+  useHotkeys('s', setScaleMode, { scopes: ['renderer'] })
 
-  // remove the focused object
+  // Remove the focused object
   useHotkeys('delete,backspace', removeFocusedObjectFromScene, {
     scopes: ['renderer'],
   })
@@ -40,9 +36,5 @@ export default function Shortcut({ children }) {
   useHotkeys('ctrl+z', undo, { scopes: ['renderer'] })
   useHotkeys('ctrl+shift+z', redo, { scopes: ['renderer'] })
 
-  return <>{children}</>
-}
-
-Shortcut.propTypes = {
-  children: PropTypes.node.isRequired,
+  return <></>
 }
