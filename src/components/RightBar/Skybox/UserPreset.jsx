@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import useStore from '@/store/index.jsx'
-import { userPresets } from './userImportedPresets.js'
+import { userPresets } from '@/config/user/userImportedPresets.js'
 
 export default function UserPreset() {
   const [skyboxFilesPreset, setSkyboxFilesPreset] = useStore((state) => [
