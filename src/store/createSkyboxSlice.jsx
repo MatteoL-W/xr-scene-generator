@@ -3,4 +3,9 @@ export const manageSkybox = (set) => ({
   setSkyboxPreset: (newPreset) => {
     set(() => ({ skyboxPreset: newPreset }))
   },
+
+  skyboxFilesPreset: '',
+  setSkyboxFilesPreset: (newFiles) => {
+    set(() => ({ skyboxFilesPreset: newFiles }))
+  },
 })

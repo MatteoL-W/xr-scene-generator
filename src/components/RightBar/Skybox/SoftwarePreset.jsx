@@ -27,8 +27,8 @@ export default function SoftwarePreset() {
   }
 
   return (
-    <div className='flex px-5 py-3 leading-8'>
-      <span className='mr-5'>Skybox basic preset</span>
+    <div className='flex px-5 py-3'>
+      <span className='w-24'>Basic preset</span>
       <select
         name='preset'
         className='px-2 py-1 rounded capitalize'
