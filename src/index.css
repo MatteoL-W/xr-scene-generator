@@ -13,7 +13,8 @@
     font-family: 'Gabarito', cursive;
   }
 
-  input{
+  input,
+  select {
     @apply bg-coalblue;
   }
 }

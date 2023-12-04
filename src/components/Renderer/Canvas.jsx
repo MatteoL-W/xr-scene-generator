@@ -10,33 +10,38 @@ import Environment from './Environment.jsx'
 import Misc from './Misc.jsx'
 import { Suspense } from 'react'
 import { Physics } from '@react-three/rapier'
-import SceneObjects from './SceneObjects/index.jsx'
 import Ground from './Ground.jsx'
+import SceneObjects from './SceneObjects/index.jsx'
+import Loader from './Loader.jsx'
 
 export default function Canvas() {
   const [isDebuggerUIOpen] = useStore((state) => [state.isDebuggerUIOpen])
   return (
     <>
       <R3FCanvas shadows>
-        <Debug />
-        <Exporter />
-        <Importer />
+        <Suspense>
+          <Debug />
+          <Exporter />
+          <Importer />
 
-        <XR>
-          <XRSpecificControls />
+          <XR>
+            <XRSpecificControls />
 
-          <Controls />
-          <Environment />
-          <Misc />
+            <Controls />
+            <Environment />
+            <Misc />
 
-          <Suspense>
-            <Physics debug={isDebuggerUIOpen}>
-              <Ground />
-              <SceneObjects />
-            </Physics>
-          </Suspense>
-        </XR>
+            <Suspense>
+              <Physics debug={isDebuggerUIOpen}>
+                <Ground />
+                <SceneObjects />
+              </Physics>
+            </Suspense>
+          </XR>
+        </Suspense>
       </R3FCanvas>
+
+      <Loader />
     </>
   )
 }

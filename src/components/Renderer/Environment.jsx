@@ -1,15 +1,19 @@
-import { Environment as EnvironmentR3F } from '@react-three/drei'
+import { Environment as EnvironmentDrei } from '@react-three/drei'
 import useImmersiveExperienceHandler from '@/hooks/useImmersiveExperienceHandler.jsx'
+import useStore from '@/store/index.jsx'
 
 export default function Environment() {
+  const [skyboxPreset] = useStore((state) => [state.skyboxPreset])
   const { getImmersiveMode } = useImmersiveExperienceHandler()
   const immersiveMode = getImmersiveMode()
 
   const isBackgroundActivated = immersiveMode !== 'ar'
 
+  if (!skyboxPreset) return
+
   return (
-    <EnvironmentR3F
-      preset='park'
+    <EnvironmentDrei
+      preset={skyboxPreset}
       ground={
         isBackgroundActivated && {
           height: 15, // Height of the camera that was used to create the env map (Default: 15)

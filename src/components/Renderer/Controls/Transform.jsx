@@ -23,10 +23,13 @@ export default function Transform() {
   const transformControlsRef = useRef()
   const focusedObjectTransformations = useFocusedObjectTransformationsData()
   const { saveFocusedObjectTransformations } = useHistoric()
+  const { isPresenting } = useXR()
 
   useEffect(() => {
     setTransformControls(transformControlsRef)
   }, [setTransformControls])
+
+  if (!transformControlsRef) return
 
   function handleDragEnd(e) {
     if (!e.target || !focusedObjectTransformations) return
@@ -44,8 +47,6 @@ export default function Transform() {
     saveFocusedObjectTransformations()
     modifyFocusedObject(focusedObjectTransformProperty, 'transformations')
   }
-
-  const { isPresenting } = useXR()
 
   const hasFocusedObject =
     focusedObjectUUID !== '' &&

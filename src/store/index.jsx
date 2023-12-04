@@ -8,6 +8,7 @@ import { manageRendererMisc } from './createRendererMiscSlice.jsx'
 import { manageImmersiveExperience } from '@/store/createImmersiveSlice.jsx'
 import { manageExporter } from '@/store/createExporterSlice.jsx'
 import { manageImporter } from './createImporterSlice.jsx'
+import { manageSkybox } from '@/store/createSkyboxSlice.jsx'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -24,6 +25,7 @@ const useStore = create(
       ...manageImmersiveExperience(...a),
       ...manageExporter(...a),
       ...manageImporter(...a),
+      ...manageSkybox(...a),
     }),
     {
       name: 'scene',
