@@ -3,6 +3,7 @@ import { Canvas as R3FCanvas } from '@react-three/fiber'
 import Debug from './Debug.jsx'
 import Exporter from './Exporter.jsx'
 import Importer from './Importer.jsx'
+import Camera from './Camera.jsx'
 import { XR } from '@react-three/xr'
 import XRSpecificControls from './XR/index.jsx'
 import Controls from './Controls/index.jsx'
@@ -23,6 +24,7 @@ export default function Canvas() {
           <Debug />
           <Exporter />
           <Importer />
+          <Camera />
 
           <XR>
             <XRSpecificControls />
