@@ -15,7 +15,6 @@ export default function Environment() {
 
   return (
     <EnvironmentDrei
-      background
       preset={!skyboxFilesPreset ? skyboxPreset : ''}
       files={skyboxFilesPreset}
       ground={
