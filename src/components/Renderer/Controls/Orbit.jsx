@@ -13,11 +13,7 @@ export default function Orbit() {
   useEffect(() => {
     function handleCameraChange() {
       const cameraNeedsToBeReset = cameraMatrix.includes(NaN)
-      if (cameraNeedsToBeReset) {
-        control?.reset()
-      } else {
-        control?.saveState()
-      }
+      if (cameraNeedsToBeReset) control?.reset()
     }
 
     control?.addEventListener('change', handleCameraChange)

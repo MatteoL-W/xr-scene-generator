@@ -1,7 +1,7 @@
 import { manageHistory } from './createHistorySlice.jsx'
 import { manageSceneObjects } from './createObjectsSlice.jsx'
 import { manageFocusedObject } from './createFocusedObjectSlice.jsx'
-import { manageControls } from './createTransformControlsSlice.jsx'
+import { manageControls } from './createControlsSlice.jsx'
 import { manageOverlay } from './createOverlaySlice.jsx'
 import { manageDebugger } from './createDebugSlice.jsx'
 import { manageRendererMisc } from './createRendererMiscSlice.jsx'

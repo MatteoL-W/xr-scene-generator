@@ -2,6 +2,7 @@ import { TbFocusCentered, TbGizmo } from 'react-icons/tb'
 import { BiGrid } from 'react-icons/bi'
 import useStore from '@/store/index.jsx'
 import { Vector3 } from 'three'
+import { MdOutlineFlipCameraIos } from 'react-icons/md'
 
 export default function SceneOpt() {
   const [
@@ -10,12 +11,14 @@ export default function SceneOpt() {
     isAxesHelperOpen,
     setAxisHelperState,
     setNewCameraDirectionInstruction,
+    startWaitingForCameraReset,
   ] = useStore((state) => [
     state.isGridOpen,
     state.setGridState,
     state.isAxesHelperOpen,
     state.setAxisHelperState,
     state.setNewCameraDirectionInstruction,
+    state.startWaitingForCameraReset,
   ])
 
   return (
@@ -31,6 +34,10 @@ export default function SceneOpt() {
       <TbFocusCentered
         className='h-6 w-6 cursor-pointer'
         onClick={() => setNewCameraDirectionInstruction(new Vector3(0, 0, 0))}
+      />
+      <MdOutlineFlipCameraIos
+        className='h-6 w-6 cursor-pointer'
+        onClick={() => startWaitingForCameraReset()}
       />
     </div>
   )

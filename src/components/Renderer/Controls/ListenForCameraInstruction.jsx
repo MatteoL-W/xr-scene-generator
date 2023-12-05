@@ -11,13 +11,29 @@ export default function ListenForCameraInstruction({
   children,
   orbitControlsRef,
 }) {
-  const [cameraDirectionInstruction] = useStore(
-    useShallow((state) => [state.cameraDirectionInstruction]),
+  const [
+    cameraDirectionInstruction,
+    isWaitingForCameraReset,
+    stopWaitingForCameraReset,
+  ] = useStore(
+    useShallow((state) => [
+      state.cameraDirectionInstruction,
+      state.isWaitingForCameraReset,
+      state.stopWaitingForCameraReset,
+    ]),
   )
 
-  if (orbitControlsRef.current) {
-    orbitControlsRef.current.target = cameraDirectionInstruction
-    orbitControlsRef.current.update()
+  const control = orbitControlsRef.current
+
+  if (control && cameraDirectionInstruction) {
+    control.target = cameraDirectionInstruction
+    control.update()
+  }
+
+  if (control && isWaitingForCameraReset) {
+    stopWaitingForCameraReset()
+    control.reset()
+    control.update()
   }
 
   return <>{children}</>
