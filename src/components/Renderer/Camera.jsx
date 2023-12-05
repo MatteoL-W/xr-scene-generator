@@ -6,7 +6,7 @@ export default function Camera() {
 
   useEffect(() => {
     camera.position.set(2.5, 2.5, 2.5)
-    controls.saveState()
+    controls?.saveState()
   }, [])
 
   return <></>
