@@ -15,7 +15,8 @@ export default function Orbit() {
       const cameraNeedsToBeReset = cameraMatrix.includes(NaN)
       if (cameraNeedsToBeReset) {
         control?.reset()
-        camera.position.set(2.5, 2.5, 2.5)
+      } else {
+        control?.saveState()
       }
     }
 
