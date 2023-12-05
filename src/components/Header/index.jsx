@@ -1,10 +1,12 @@
 import useStore from '@/store/index.jsx'
+import GLTFExporterButton from './GLTFExporterButton.jsx'
+import LanguageSwitcher from './LanguageSwitcher.jsx'
 import { ARButton, VRButton } from '@react-three/xr'
-import { IoMdDownload, IoMdSettings } from 'react-icons/io'
+import { IoMdDownload } from 'react-icons/io'
 import { VscDebugAlt } from 'react-icons/vsc'
 import { PiVirtualReality } from 'react-icons/pi'
 import { TbAugmentedReality } from 'react-icons/tb'
-import GLTFExporterButton from '@/components/Header/GLTFExporterButton.jsx'
+import { BsTranslate } from 'react-icons/bs'
 
 export default function Header() {
   const [isDebuggerUIOpen, setDebuggerUIState, setImmersiveExperienceMode] =
@@ -48,8 +50,8 @@ export default function Header() {
       </div>
 
       <div className='flex items-center cursor-pointer'>
-        <IoMdSettings className='mr-2' />
-        Settings
+        <BsTranslate className='mr-2' />
+        <LanguageSwitcher />
       </div>
     </div>
   )
