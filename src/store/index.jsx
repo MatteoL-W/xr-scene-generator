@@ -31,6 +31,7 @@ const useStore = create(
       name: 'scene',
       partialize: (state) => ({
         sceneObjects: state.sceneObjects,
+        skyboxPreset: state.skyboxPreset,
       }),
     },
   ),
