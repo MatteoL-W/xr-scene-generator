@@ -12,6 +12,7 @@ export default function ExternalGLTFLoader() {
       <span onClick={() => gltfInputRef.current?.click()}>
         {t('overlay.menu.gltf')}
       </span>
+
       <input
         type='file'
         accept='.glb'

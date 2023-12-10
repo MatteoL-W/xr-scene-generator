@@ -19,6 +19,7 @@ export function useFocusedObjectData() {
   return focusedObject
 }
 
+// ToDo: Remove ?
 export function useFocusedObjectTransformationsData() {
   const focusedObject = useFocusedObjectData()
   if (focusedObject?.transformations) return focusedObject.transformations

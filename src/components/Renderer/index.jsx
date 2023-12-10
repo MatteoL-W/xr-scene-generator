@@ -1,8 +1,8 @@
 import Overlay from './Overlay/index.jsx'
-import Canvas from './Canvas.jsx'
-import Shortcut from '@/components/Renderer/Overlay/Shortcut.jsx'
+import Canvas from './Canvas/index.jsx'
+import Shortcut from './Shortcut.jsx'
 
-export default function RendererPreview() {
+export default function Renderer() {
   return (
     <div className='w-full h-full relative'>
       <Overlay />

@@ -1,13 +1,13 @@
-import Orbit from './Orbit.jsx'
+import Orbit from './Orbit/index.jsx'
 import Transform from './Transform.jsx'
-import AppliedGizmoHelper from './AppliedGizmoHelper.jsx'
+import Gizmo from './Gizmo.jsx'
 
 export default function Controls() {
   return (
     <>
       <Orbit />
       <Transform />
-      <AppliedGizmoHelper />
+      <Gizmo />
     </>
   )
 }

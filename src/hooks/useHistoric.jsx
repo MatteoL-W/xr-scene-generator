@@ -1,7 +1,7 @@
 import useStore from '@/store/index.jsx'
 import { useFocusedObjectTransformationsData } from '@/hooks/useFocusedObjectData.jsx'
 
-export function useHistoric() {
+export default function useHistoric() {
   const [
     undo,
     redo,

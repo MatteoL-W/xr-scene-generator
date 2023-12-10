@@ -3,14 +3,5 @@ export function logDebugReport(debugObject) {
   const controls = debugObject?.controls
 
   if (camera) console.log(camera)
-  if (controls)
-    console.log(
-      controls,
-      'azimuthal',
-      controls.getAzimuthalAngle(),
-      'distance',
-      controls.getDistance(),
-      'polar',
-      controls.getPolarAngle(),
-    )
+  if (controls) console.log(controls)
 }

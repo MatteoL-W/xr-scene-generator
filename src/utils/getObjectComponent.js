@@ -8,6 +8,8 @@ import {
 } from '@/config/presets/components/lights.jsx'
 import { Custom } from '@/config/presets/components/importedGLTF.jsx'
 
+// ToDo: Move to presets ?
+
 export function getObjectComponent(name) {
   switch (name) {
     // Lights

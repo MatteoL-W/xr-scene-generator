@@ -1,3 +1,5 @@
+// ToDo : Separate meshesList into different files
+
 const meshesList = [
   {
     name: 'Box',

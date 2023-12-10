@@ -1,10 +1,10 @@
 import useThreeObject from '@/hooks/useThreeObject.jsx'
-import { useEffect, useRef } from 'react'
+import useHistoric from '@/hooks/useHistoric.jsx'
 import useStore from '@/store/index.jsx'
+import { useEffect, useRef } from 'react'
 import { useXR } from '@react-three/xr'
 import { TransformControls } from '@react-three/drei'
 import { useFocusedObjectTransformationsData } from '@/hooks/useFocusedObjectData.jsx'
-import { useHistoric } from '@/hooks/useHistoric.jsx'
 
 export default function Transform() {
   const [

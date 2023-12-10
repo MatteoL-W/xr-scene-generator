@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-import { useHistoric } from '@/hooks/useHistoric.jsx'
 import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
+import useHistoric from '@/hooks/useHistoric.jsx'
 import { propertiesParameters } from '@/config/default/modifiersPropertiesParams.js'
 import { BsLink45Deg } from 'react-icons/bs'
 

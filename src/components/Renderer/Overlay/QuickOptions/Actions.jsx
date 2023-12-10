@@ -1,5 +1,5 @@
 import { CgRedo, CgUndo } from 'react-icons/cg'
-import { useHistoric } from '@/hooks/useHistoric.jsx'
+import useHistoric from '@/hooks/useHistoric.jsx'
 
 export default function Actions() {
   const { undo, redo } = useHistoric()

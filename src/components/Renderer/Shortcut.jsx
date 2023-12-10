@@ -1,5 +1,5 @@
 import { useHotkeys } from 'react-hotkeys-hook'
-import { useHistoric } from '@/hooks/useHistoric.jsx'
+import useHistoric from '@/hooks/useHistoric.jsx'
 import useStore from '@/store/index.jsx'
 import useNewTransformControlsMode from '@/hooks/useTransformControlsHandler.jsx'
 
@@ -20,12 +20,12 @@ export default function Shortcut() {
   const setScaleMode = () => setTransformControlsMode('scale')
 
   // Overlay openings
-  useHotkeys('a', openMenu, { scopes: ['renderer'] })
+  useHotkeys('a', openMenu)
 
   // TransformControlsMode
-  useHotkeys('g', setTranslateMode, { scopes: ['renderer'] })
-  useHotkeys('r', setRotateMode, { scopes: ['renderer'] })
-  useHotkeys('s', setScaleMode, { scopes: ['renderer'] })
+  useHotkeys('g', setTranslateMode)
+  useHotkeys('r', setRotateMode)
+  useHotkeys('s', setScaleMode)
 
   // Remove the focused object
   useHotkeys('delete,backspace', removeFocusedObjectFromScene, {
@@ -33,8 +33,8 @@ export default function Shortcut() {
   })
 
   // undo, redo
-  useHotkeys('ctrl+z', undo, { scopes: ['renderer'] })
-  useHotkeys('ctrl+shift+z', redo, { scopes: ['renderer'] })
+  useHotkeys('ctrl+z', undo)
+  useHotkeys('ctrl+shift+z', redo)
 
   return <></>
 }

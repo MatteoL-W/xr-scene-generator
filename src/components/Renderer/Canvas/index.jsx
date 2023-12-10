@@ -5,10 +5,11 @@ import Exporter from './Exporter.jsx'
 import Importer from './Importer.jsx'
 import Camera from './Camera.jsx'
 import { XR } from '@react-three/xr'
-import XRSpecificControls from './XR/index.jsx'
+import XRControls from './XRControls.jsx'
 import Controls from './Controls/index.jsx'
-import Environment from './Environment.jsx'
-import Misc from './Misc.jsx'
+import Skybox from './Skybox.jsx'
+import AxesHelper from './AxesHelper.jsx'
+import Grid from './Grid.jsx'
 import { Suspense } from 'react'
 import { Physics } from '@react-three/rapier'
 import Ground from './Ground.jsx'
@@ -27,11 +28,12 @@ export default function Canvas() {
           <Camera />
 
           <XR>
-            <XRSpecificControls />
-
+            <XRControls />
             <Controls />
-            <Environment />
-            <Misc />
+
+            <Skybox />
+            <AxesHelper />
+            <Grid />
 
             <Suspense>
               <Physics debug={isDebuggerUIOpen}>

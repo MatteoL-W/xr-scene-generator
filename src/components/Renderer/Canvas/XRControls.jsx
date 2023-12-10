@@ -2,7 +2,7 @@ import { Controllers, Hands } from '@react-three/xr'
 import { useThree } from '@react-three/fiber'
 import { Texture } from 'three'
 
-export default function XRSpecificControls() {
+export default function XRControls() {
   const { scene } = useThree()
   const envMapDataTexture = scene.background
 

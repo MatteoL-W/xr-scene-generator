@@ -10,9 +10,8 @@ export default function SceneCompositionList() {
   const [sceneObjects] = useStore(useShallow((state) => [state.sceneObjects]))
   const [setMenuState] = useStore((state) => [state.setMenuState])
 
-  if (sceneObjects.length === 0) {
+  if (sceneObjects.length === 0)
     return <Title title={t('right.list.addToStart')} />
-  }
 
   return (
     <div className='border-b border-b-white'>

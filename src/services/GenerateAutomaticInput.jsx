@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
+import { isHexColor } from '@/utils/typesTest.jsx'
 import { ColorPickerInput } from './InputTemplates/ColorPickerInput.jsx'
 import { DefaultInput } from './InputTemplates/DefaultInput.jsx'
-import { isHexColor } from '@/utils/typesTest.jsx'
-import { ArrayInputs } from '@/services/InputTemplates/ArrayInputs.jsx'
-import BooleanInput from '@/services/InputTemplates/BooleanInput.jsx'
+import { ArrayInputs } from './InputTemplates/ArrayInputs.jsx'
+import BooleanInput from './InputTemplates/BooleanInput.jsx'
 
 GenerateAutomaticInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,

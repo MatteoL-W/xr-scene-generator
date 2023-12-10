@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       <I18nextProvider i18n={i18n}>
-        <HotkeysProvider initiallyActiveScopes={['renderer']}>
+        <HotkeysProvider>
           <Dashboard />
         </HotkeysProvider>
       </I18nextProvider>

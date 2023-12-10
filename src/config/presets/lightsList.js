@@ -1,3 +1,5 @@
+// ToDo : Separate lightsList into different files
+
 const lightsList = [
   {
     name: 'Ambient',

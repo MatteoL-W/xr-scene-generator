@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
 import useOutsideClick from '@/hooks/useOutsideClick.jsx'
-import { useTranslation } from 'react-i18next'
+import useDebounce from '@/hooks/useDebounce.jsx'
 import Colorful from '@uiw/react-color-colorful'
 import PropTypes from 'prop-types'
 import { hexColorValidator } from '@/utils/typesValidator.jsx'
-import useDebounce from '@/hooks/useDebounce.jsx'
 
 ColorPickerInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,

@@ -1,8 +1,8 @@
-import { Environment as EnvironmentDrei } from '@react-three/drei'
+import { Environment } from '@react-three/drei'
 import useImmersiveExperienceHandler from '@/hooks/useImmersiveExperienceHandler.jsx'
 import useStore from '@/store/index.jsx'
 
-export default function Environment() {
+export default function Skybox() {
   const [skyboxPreset, skyboxFilesPreset] = useStore((state) => [
     state.skyboxPreset,
     state.skyboxFilesPreset,
@@ -14,7 +14,7 @@ export default function Environment() {
   if (!skyboxPreset && !skyboxFilesPreset) return
 
   return (
-    <EnvironmentDrei
+    <Environment
       preset={!skyboxFilesPreset ? skyboxPreset : ''}
       files={skyboxFilesPreset}
       ground={

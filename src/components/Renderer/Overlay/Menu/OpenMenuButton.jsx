@@ -1,7 +1,7 @@
 import useStore from '@/store/index.jsx'
 import { useTranslation } from 'react-i18next'
 
-export default function SceneMenuButton() {
+export default function OpenMenuButton() {
   const { t } = useTranslation()
   const [setMenuState] = useStore((state) => [state.setMenuState])
 
