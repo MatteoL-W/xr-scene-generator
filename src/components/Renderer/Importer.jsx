@@ -2,7 +2,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { useThree } from '@react-three/fiber'
 import { useMemo } from 'react'
 import useStore from '@/store/index.jsx'
-import { generateGroupFromGLTF } from '@/utils/customComponent.js'
+import { generateGroupFromGLTF } from '@/utils/importedMeshGeneration.js'
 
 export default function Importer() {
   const [importedMeshUrl, resetImportedMeshUrl, addObjectToScene] = useStore(

@@ -1,12 +1,12 @@
 import Title from '../Title.jsx'
 import { useFocusedObjectData } from '@/hooks/useFocusedObjectData.jsx'
-import { BsFillBoxFill } from 'react-icons/bs'
-import ModifierInputs from './ModifierInputs.jsx'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
-import ModifierTitle from '@/components/RightBar/Modifier/ModifierTitle.jsx'
+import ModifierTitle from './ModifierTitle.jsx'
+import ModifierInputs from './ModifierInputs.jsx'
 import { AiFillDelete } from 'react-icons/ai'
+import { BsFillBoxFill } from 'react-icons/bs'
 
 export default function ObjectModifier() {
   const { t } = useTranslation()

@@ -2,7 +2,7 @@ import { useThree } from '@react-three/fiber'
 import { useMemo } from 'react'
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js'
 import useStore from '@/store/index.jsx'
-import { downloadStringBasedFile } from '@/utils/download.js'
+import { downloadStringBasedFile } from '@/utils/userDownload.js'
 
 export default function Exporter() {
   const [isWaitingToDownloadGLTF, stopWaitingToDownloadGLTF] = useStore(

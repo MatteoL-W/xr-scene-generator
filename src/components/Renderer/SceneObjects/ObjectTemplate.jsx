@@ -2,7 +2,7 @@ import { Fragment, useEffect, useMemo, useRef } from 'react'
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
 import useThreeObject from '@/hooks/useThreeObject.jsx'
-import { getObjectComponent } from '@/utils/getComponents.js'
+import { getObjectComponent } from '@/utils/getObjectComponent.js'
 import LightWrapper from './LightWrapper.jsx'
 import MeshWrapper from './MeshWrapper.jsx'
 

@@ -1,7 +1,7 @@
 import useStore from '@/store/index.jsx'
 import { useThree } from '@react-three/fiber'
 import { StatsGl } from '@react-three/drei'
-import { logDebugReport } from '@/utils/debug.js'
+import { logDebugReport } from '@/utils/debugReport.js'
 
 export default function Debug() {
   const [isDebuggerUIOpen, isWaitingForDebugReport, stopWaitingForDebugReport] =

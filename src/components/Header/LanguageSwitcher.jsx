@@ -8,7 +8,10 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <select onChange={handleChange} className='bg-transparent outline-0'>
+    <select
+      onChange={handleChange}
+      className='bg-transparent outline-0 cursor-pointer'
+    >
       <option className='bg-jean' value='en'>
         English
       </option>
