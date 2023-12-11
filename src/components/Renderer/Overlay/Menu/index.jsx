@@ -1,5 +1,5 @@
-import meshesList from '@/config/presets/meshesList.js'
-import lightsList from '@/config/presets/lightsList.js'
+import meshesList from '@/config/presets/objects/meshesList.js'
+import lightsList from '@/config/presets/objects/lightsList.js'
 import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
 import OpenMenuButton from './OpenMenuButton.jsx'

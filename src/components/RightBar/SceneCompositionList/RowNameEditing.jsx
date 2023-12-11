@@ -9,17 +9,17 @@ RowNameEditing.propTypes = {
 }
 
 export default function RowNameEditing({ object, editing, resetEditingState }) {
-  const [focusedObjectUUID, changeFocusedObjectUUID, modifyObjectName] =
+  const [focusedObjectUUID, changeFocusedObjectByUUID, modifyObjectName] =
     useStore((state) => [
       state.focusedObjectUUID,
-      state.changeFocusedObjectUUID,
+      state.changeFocusedObjectByUUID,
       state.modifyObjectName,
     ])
   const newNameInput = useRef()
 
   function toggleItem(uuid) {
     if (object.args.visible)
-      changeFocusedObjectUUID(focusedObjectUUID === uuid ? '' : uuid)
+      changeFocusedObjectByUUID(focusedObjectUUID === uuid ? '' : uuid)
   }
 
   function saveName(e) {

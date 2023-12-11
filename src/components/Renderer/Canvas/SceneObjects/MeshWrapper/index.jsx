@@ -11,7 +11,6 @@ MeshWrapper.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-// eslint-disable-next-line no-unused-vars
 export default function MeshWrapper({ object, objectRef, children }) {
   const meshWrapperRef = useRef()
   const { isPresenting } = useXR()

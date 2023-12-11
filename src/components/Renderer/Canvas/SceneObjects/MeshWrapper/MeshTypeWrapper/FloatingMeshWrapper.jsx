@@ -6,7 +6,6 @@ FloatingMeshWrapper.propTypes = {
   objectRef: PropTypes.object.isRequired,
 }
 
-// eslint-disable-next-line no-unused-vars
 export default function FloatingMeshWrapper({ children, objectRef }) {
   return (
     <Float speed={4} rotationIntensity={0.5} floatIntensity={2}>

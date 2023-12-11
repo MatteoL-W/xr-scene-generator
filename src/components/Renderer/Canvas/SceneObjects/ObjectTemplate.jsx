@@ -1,54 +1,37 @@
-import { Fragment, useEffect, useMemo, useRef } from 'react'
+import { useRef } from 'react'
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
-import useThreeObject from '@/hooks/useThreeObject.jsx'
-import { getObjectComponent } from '@/utils/getObjectComponent.js'
-import LightWrapper from './LightWrapper.jsx'
-import MeshWrapper from './MeshWrapper.jsx'
+import useSyncThreeAndInternal from './useSyncThreeAndInternal.jsx'
+import getObjectComponent from '@/config/presets/getObjectComponent.js'
+import getObjectTypeWrapper from './getObjectTypeWrapper.js'
+
+// ToDo: Object content
+ObjectTemplate.propTypes = {
+  object: PropTypes.object.isRequired,
+}
 
 export default function ObjectTemplate({ object }) {
-  const [modifyObjectUUID, changeFocusedObjectUUID] = useStore((state) => [
-    state.modifyObjectUUID,
-    state.changeFocusedObjectUUID,
+  const [changeFocusedObjectByUUID] = useStore((state) => [
+    state.changeFocusedObjectByUUID,
   ])
-  const ObjectComponent = useMemo(
-    () => getObjectComponent(object.component),
-    [object.component],
-  )
   const objectComponentRef = useRef(null)
-  const threeObject = useThreeObject(object.uuid)
+  useSyncThreeAndInternal(object, objectComponentRef)
 
-  // Set the object uuid the same as R3F Object uuid (do not add more dependencies)
-  useEffect(() => {
-    if (object.isImported && threeObject) {
-      objectComponentRef?.current?.attach(threeObject)
-      return
-    }
-    modifyObjectUUID(object, objectComponentRef?.current?.uuid)
-  }, [])
-
-  const ObjectTypeWrapper =
-    {
-      mesh: MeshWrapper,
-      light: LightWrapper,
-    }[object.type] || Fragment
+  const ObjectComponent = getObjectComponent(object.component)
+  const ObjectTypeWrapper = getObjectTypeWrapper(object.type)
 
   return (
     <ObjectTypeWrapper object={object} objectRef={objectComponentRef}>
       <ObjectComponent
+        ref={objectComponentRef}
         {...object.args}
         {...object.material}
         {...object.parameters}
         {...object.transformations}
-        ref={objectComponentRef}
         onClick={() => {
-          changeFocusedObjectUUID(object.uuid)
+          changeFocusedObjectByUUID(object.uuid)
         }}
       />
     </ObjectTypeWrapper>
   )
-}
-
-ObjectTemplate.propTypes = {
-  object: PropTypes.object.isRequired,
 }

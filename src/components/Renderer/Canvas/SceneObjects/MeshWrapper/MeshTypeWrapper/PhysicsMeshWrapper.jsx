@@ -6,7 +6,6 @@ PhysicsMeshWrapper.propTypes = {
   objectRef: PropTypes.object.isRequired,
 }
 
-// eslint-disable-next-line no-unused-vars
 export default function PhysicsMeshWrapper({ children, objectRef }) {
   return (
     <RigidBody colliders='hull' name='MeshPhysicsComponent'>

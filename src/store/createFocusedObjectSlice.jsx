@@ -1,7 +1,7 @@
 export const manageFocusedObject = (set, get) => ({
   focusedObjectUUID: '',
 
-  changeFocusedObjectUUID: (newContentUUID) => {
+  changeFocusedObjectByUUID: (newContentUUID) => {
     set(() => ({
       focusedObjectUUID: newContentUUID,
     }))

@@ -14,12 +14,12 @@ export default function ObjectRow({ object }) {
   const [
     removeObjectFromScene,
     focusedObjectUUID,
-    changeFocusedObjectUUID,
+    changeFocusedObjectByUUID,
     modifyObjectArgs,
   ] = useStore((state) => [
     state.removeObjectFromScene,
     state.focusedObjectUUID,
-    state.changeFocusedObjectUUID,
+    state.changeFocusedObjectByUUID,
     state.modifyObjectArgs,
   ])
   const [isRenaming, setIsRenaming] = useState(false)
@@ -28,7 +28,7 @@ export default function ObjectRow({ object }) {
   function toggleObjectVisibility() {
     // Reset focused object when it's set on invisible
     if (objectIsVisible && focusedObjectUUID === object.uuid)
-      changeFocusedObjectUUID('')
+      changeFocusedObjectByUUID('')
 
     modifyObjectArgs(object.uuid, {
       visible: !objectIsVisible,
