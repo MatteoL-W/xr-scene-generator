@@ -11,6 +11,12 @@ MeshWrapper.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
+const propertyToWrap = {
+  hasPhysics: PhysicsMeshWrapper,
+  hasInteractivity: InteractiveMeshWrapper,
+  isFloating: FloatingMeshWrapper,
+}
+
 export default function MeshWrapper({
   object: { args: { hasPhysics, hasInteractivity, isFloating } = {} },
   objectRef,
@@ -19,13 +25,7 @@ export default function MeshWrapper({
   const { isPresenting } = useXR()
   const meshWrapperRef = useRef()
 
-  if (!isPresenting) return <>{children}</>
-
-  const propertyToWrap = {
-    hasPhysics: PhysicsMeshWrapper,
-    hasInteractivity: InteractiveMeshWrapper,
-    isFloating: FloatingMeshWrapper,
-  }
+  if (!isPresenting) return children
 
   const property = Object.keys(propertyToWrap).find(
     (property) => ({ hasPhysics, hasInteractivity, isFloating })[property],

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
 import useSyncThreeAndInternal from './useSyncThreeAndInternal.jsx'
 import getObjectComponent from '@/config/presets/getObjectComponent.js'
-import getObjectTypeWrapper from './getObjectTypeWrapper.js'
+import MeshWrapper from '@/components/Renderer/Canvas/SceneObjects/MeshWrapper/index.jsx'
+import LightWrapper from '@/components/Renderer/Canvas/SceneObjects/LightWrapper/index.jsx'
 
-// ToDo: Object content
 ObjectTemplate.propTypes = {
   object: PropTypes.object.isRequired,
 }
@@ -18,7 +18,10 @@ export default function ObjectTemplate({ object }) {
   useSyncThreeAndInternal(object, objectComponentRef)
 
   const ObjectComponent = getObjectComponent(object.component)
-  const ObjectTypeWrapper = getObjectTypeWrapper(object.type)
+  const ObjectTypeWrapper = {
+    mesh: MeshWrapper,
+    light: LightWrapper,
+  }[object.type]
 
   return (
     <ObjectTypeWrapper object={object} objectRef={objectComponentRef}>

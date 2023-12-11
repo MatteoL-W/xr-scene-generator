@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useXR } from '@react-three/xr'
 import PropTypes from 'prop-types'
-import DirectionalLightWrapper from './DirectionalLightWrapper.jsx'
-import SpotLightWrapper from './SpotLightWrapper.jsx'
-import PointLightWrapper from './PointLightWrapper.jsx'
+import DirectionalLightWrapper from './LightTypeWrapper/DirectionalLightWrapper.jsx'
+import SpotLightWrapper from './LightTypeWrapper/SpotLightWrapper.jsx'
+import PointLightWrapper from './LightTypeWrapper/PointLightWrapper.jsx'
 import FallbackWrapper from '@/utils/FallbackWrapper.jsx'
 
 LightWrapper.propTypes = {
