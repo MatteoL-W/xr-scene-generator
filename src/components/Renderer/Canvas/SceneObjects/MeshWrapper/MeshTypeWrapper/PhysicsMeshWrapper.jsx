@@ -3,10 +3,9 @@ import { RigidBody } from '@react-three/rapier'
 
 PhysicsMeshWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  objectRef: PropTypes.object.isRequired,
 }
 
-export default function PhysicsMeshWrapper({ children, objectRef }) {
+export default function PhysicsMeshWrapper({ children }) {
   return (
     <RigidBody colliders='hull' name='MeshPhysicsComponent'>
       {children}
