@@ -28,7 +28,7 @@ export default function LightWrapper({ object, objectRef, children }) {
   }, [object.parameters.direction])
 
   const { isPresenting } = useXR()
-  if (isPresenting) return children
+  if (isPresenting || !object.args.visible) return children
 
   const Wrapper = TypeLightWrapper[object.component] || FallbackWrapper
   return <Wrapper lightRef={objectRef}>{children}</Wrapper>
