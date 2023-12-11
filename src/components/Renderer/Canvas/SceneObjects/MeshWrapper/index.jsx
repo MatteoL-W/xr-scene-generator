@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import { useXR } from '@react-three/xr'
-import { useRef } from 'react'
 import InteractiveMeshWrapper from './MeshTypeWrapper/InteractiveMeshWrapper.jsx'
 import PhysicsMeshWrapper from './MeshTypeWrapper/PhysicsMeshWrapper.jsx'
 import FloatingMeshWrapper from './MeshTypeWrapper/FloatingMeshWrapper.jsx'
+import FallbackWrapper from '@/utils/FallbackWrapper.jsx'
+import { useXR } from '@react-three/xr'
 
 MeshWrapper.propTypes = {
   object: PropTypes.object.isRequired,
@@ -11,31 +11,20 @@ MeshWrapper.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-const propertyToWrap = {
+const activePropertyWrapper = {
   hasPhysics: PhysicsMeshWrapper,
   hasInteractivity: InteractiveMeshWrapper,
   isFloating: FloatingMeshWrapper,
 }
 
-export default function MeshWrapper({
-  object: { args: { hasPhysics, hasInteractivity, isFloating } = {} },
-  objectRef,
-  children,
-}) {
+export default function MeshWrapper({ object, objectRef, children }) {
   const { isPresenting } = useXR()
-  const meshWrapperRef = useRef()
-
   if (!isPresenting) return children
 
-  const property = Object.keys(propertyToWrap).find(
-    (property) => ({ hasPhysics, hasInteractivity, isFloating })[property],
+  const property = Object.keys(activePropertyWrapper).find(
+    (property) => object.args[property],
   )
+  const Wrapper = activePropertyWrapper[property] || FallbackWrapper
 
-  const Wrapper = propertyToWrap[property]
-
-  return (
-    <group ref={meshWrapperRef}>
-      {Wrapper ? <Wrapper objectRef={objectRef}>{children}</Wrapper> : children}
-    </group>
-  )
+  return <Wrapper objectRef={objectRef}>{children}</Wrapper>
 }
