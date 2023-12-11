@@ -9,5 +9,5 @@ DirectionalLightWrapper.propTypes = {
 
 export default function DirectionalLightWrapper({ children, lightRef }) {
   useHelper(lightRef, DirectionalLightHelper, 1, 'red')
-  return <>{children}</>
+  return children
 }

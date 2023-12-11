@@ -9,5 +9,5 @@ SpotLightWrapper.propTypes = {
 
 export default function SpotLightWrapper({ children, lightRef }) {
   useHelper(lightRef, SpotLightHelper, 'red')
-  return <>{children}</>
+  return children
 }

@@ -12,8 +12,8 @@ MeshWrapper.propTypes = {
 }
 
 export default function MeshWrapper({ object, objectRef, children }) {
-  const meshWrapperRef = useRef()
   const { isPresenting } = useXR()
+  const meshWrapperRef = useRef()
   const { hasPhysics, hasInteractivity, isFloating } = object.args || {}
 
   if (!isPresenting) return <>{children}</>

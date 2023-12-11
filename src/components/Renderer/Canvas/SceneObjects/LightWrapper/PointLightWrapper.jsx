@@ -9,5 +9,5 @@ PointLightWrapper.propTypes = {
 
 export default function PointLightWrapper({ children, lightRef }) {
   useHelper(lightRef, PointLightHelper, 1, 'red')
-  return <>{children}</>
+  return children
 }
