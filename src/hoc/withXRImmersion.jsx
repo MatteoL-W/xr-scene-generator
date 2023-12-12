@@ -12,12 +12,12 @@ export function withXRImmersion({
 
   function WithXRImmersionHOC(props) {
     const { isPresenting } = useXR()
-    const returnedValueOutsideXR = returnChildrenElse ? props.children : null
+    const returnedValueElse = returnChildrenElse ? props.children : null
 
     return isPresenting === insideXR ? (
       <Component {...props} />
     ) : (
-      returnedValueOutsideXR
+      returnedValueElse
     )
   }
 

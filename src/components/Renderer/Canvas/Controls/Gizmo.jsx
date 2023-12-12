@@ -1,10 +1,7 @@
 import { GizmoHelper, GizmoViewport } from '@react-three/drei'
-import { useXR } from '@react-three/xr'
+import { withXRImmersion } from '@/hoc/withXRImmersion.jsx'
 
-export default function Gizmo() {
-  const { isPresenting } = useXR()
-  if (isPresenting) return
-
+function GizmoComponent() {
   return (
     <GizmoHelper alignment='bottom-right' margin={[65, 65]}>
       <GizmoViewport
@@ -14,3 +11,9 @@ export default function Gizmo() {
     </GizmoHelper>
   )
 }
+
+const Gizmo = withXRImmersion({
+  Component: GizmoComponent,
+  insideXR: false,
+})
+export default Gizmo

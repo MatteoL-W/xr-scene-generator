@@ -1,21 +1,14 @@
-import { useXR } from '@react-three/xr'
 import PropTypes from 'prop-types'
 import DirectionalLightWrapper from './LightTypeWrapper/DirectionalLightWrapper.jsx'
 import SpotLightWrapper from './LightTypeWrapper/SpotLightWrapper.jsx'
 import PointLightWrapper from './LightTypeWrapper/PointLightWrapper.jsx'
 import FallbackWrapper from '@/utils/FallbackWrapper.jsx'
+import { withXRImmersion } from '@/hoc/withXRImmersion.jsx'
 
-LightWrapper.propTypes = {
-  object: PropTypes.object.isRequired,
-  objectRef: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
-}
+function LightWrapperComponent({ object, objectRef, children }) {
+  if (!object.args.visible) return children
 
-export default function LightWrapper({ object, objectRef, children }) {
-  const { isPresenting } = useXR()
-  if (isPresenting || !object.args.visible) return children
-
-  const Wrapper =
+  const TypeWrapper =
     {
       DirectionalLight: DirectionalLightWrapper,
       SpotLight: SpotLightWrapper,
@@ -23,8 +16,21 @@ export default function LightWrapper({ object, objectRef, children }) {
     }[object.component] || FallbackWrapper
 
   return (
-    <Wrapper lightRef={objectRef} object={object}>
+    <TypeWrapper lightRef={objectRef} object={object}>
       {children}
-    </Wrapper>
+    </TypeWrapper>
   )
 }
+
+LightWrapperComponent.propTypes = {
+  object: PropTypes.object.isRequired,
+  objectRef: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
+}
+
+const LightWrapper = withXRImmersion({
+  Component: LightWrapperComponent,
+  insideXR: false,
+  returnChildrenElse: true,
+})
+export default LightWrapper

@@ -11,13 +11,13 @@ const activeMeshPropertyWrapper = {
   isFloating: FloatingMeshWrapper,
 }
 
-const MeshWrapperComponent = ({ object, objectRef, children }) => {
+function MeshWrapperComponent({ object, objectRef, children }) {
   const property = Object.keys(activeMeshPropertyWrapper).find(
     (property) => object.args[property],
   )
-  const Wrapper = activeMeshPropertyWrapper[property] || FallbackWrapper
+  const PropertyWrapper = activeMeshPropertyWrapper[property] || FallbackWrapper
 
-  return <Wrapper objectRef={objectRef}>{children}</Wrapper>
+  return <PropertyWrapper objectRef={objectRef}>{children}</PropertyWrapper>
 }
 
 MeshWrapperComponent.propTypes = {
