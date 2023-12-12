@@ -3,28 +3,32 @@ import InteractiveMeshWrapper from './MeshTypeWrapper/InteractiveMeshWrapper.jsx
 import PhysicsMeshWrapper from './MeshTypeWrapper/PhysicsMeshWrapper.jsx'
 import FloatingMeshWrapper from './MeshTypeWrapper/FloatingMeshWrapper.jsx'
 import FallbackWrapper from '@/utils/FallbackWrapper.jsx'
-import { useXR } from '@react-three/xr'
+import { withXRImmersion } from '@/hoc/withXRImmersion.jsx'
 
-MeshWrapper.propTypes = {
-  object: PropTypes.object.isRequired,
-  objectRef: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
-}
-
-const activePropertyWrapper = {
+const activeMeshPropertyWrapper = {
   hasPhysics: PhysicsMeshWrapper,
   hasInteractivity: InteractiveMeshWrapper,
   isFloating: FloatingMeshWrapper,
 }
 
-export default function MeshWrapper({ object, objectRef, children }) {
-  const { isPresenting } = useXR()
-  if (!isPresenting) return children
-
-  const property = Object.keys(activePropertyWrapper).find(
+const MeshWrapperComponent = ({ object, objectRef, children }) => {
+  const property = Object.keys(activeMeshPropertyWrapper).find(
     (property) => object.args[property],
   )
-  const Wrapper = activePropertyWrapper[property] || FallbackWrapper
+  const Wrapper = activeMeshPropertyWrapper[property] || FallbackWrapper
 
   return <Wrapper objectRef={objectRef}>{children}</Wrapper>
 }
+
+MeshWrapperComponent.propTypes = {
+  object: PropTypes.object.isRequired,
+  objectRef: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
+}
+
+const MeshWrapper = withXRImmersion({
+  Component: MeshWrapperComponent,
+  insideXR: true,
+  returnChildrenElse: true,
+})
+export default MeshWrapper
