@@ -1,3 +1,4 @@
+import { Grid as GridDrei } from '@react-three/drei'
 import useStore from '@/store/index.jsx'
 
 export default function Grid() {
@@ -5,7 +6,7 @@ export default function Grid() {
 
   if (isGridOpen)
     return (
-      <Grid
+      <GridDrei
         position={[0, -0.001, 0]}
         args={[10.5, 10.5]}
         cellColor='#91A3B0'
