@@ -15,8 +15,8 @@ function MeshWrapperComponent({ object, objectRef, children }) {
   const property = Object.keys(activeMeshPropertyWrapper).find(
     (property) => object.args[property],
   )
-  const PropertyWrapper = activeMeshPropertyWrapper[property] || FallbackWrapper
 
+  const PropertyWrapper = activeMeshPropertyWrapper[property] || FallbackWrapper
   return <PropertyWrapper objectRef={objectRef}>{children}</PropertyWrapper>
 }
 

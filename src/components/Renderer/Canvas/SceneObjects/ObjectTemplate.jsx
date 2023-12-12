@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
 import useSyncThreeAndInternal from './useSyncThreeAndInternal.jsx'
 import getObjectComponent from '@/config/presets/getObjectComponent.js'
-import MeshWrapper from '@/components/Renderer/Canvas/SceneObjects/MeshWrapper/index.jsx'
-import LightWrapper from '@/components/Renderer/Canvas/SceneObjects/LightWrapper/index.jsx'
+import MeshWrapper from './MeshWrapper/index.jsx'
+import LightWrapper from './LightWrapper/index.jsx'
 
 ObjectTemplate.propTypes = {
   object: PropTypes.object.isRequired,
@@ -14,6 +14,7 @@ export default function ObjectTemplate({ object }) {
   const [changeFocusedObjectByUUID] = useStore((state) => [
     state.changeFocusedObjectByUUID,
   ])
+
   const objectComponentRef = useRef(null)
   useSyncThreeAndInternal(object, objectComponentRef)
 
@@ -31,9 +32,7 @@ export default function ObjectTemplate({ object }) {
         {...object.material}
         {...object.parameters}
         {...object.transformations}
-        onClick={() => {
-          changeFocusedObjectByUUID(object.uuid)
-        }}
+        onClick={() => changeFocusedObjectByUUID(object.uuid)}
       />
     </ObjectTypeWrapper>
   )

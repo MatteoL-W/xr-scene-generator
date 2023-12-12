@@ -1,7 +1,7 @@
-import { TbFocusCentered, TbGizmo } from 'react-icons/tb'
-import { BiGrid } from 'react-icons/bi'
 import useStore from '@/store/index.jsx'
 import { Vector3 } from 'three'
+import { TbFocusCentered, TbGizmo } from 'react-icons/tb'
+import { BiGrid } from 'react-icons/bi'
 import { MdOutlineFlipCameraIos } from 'react-icons/md'
 
 export default function SceneOpt() {
