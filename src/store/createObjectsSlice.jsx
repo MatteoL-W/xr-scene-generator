@@ -21,6 +21,12 @@ export const manageSceneObjects = (set, get) => ({
       focusedObjectUUID: '',
     }))
   },
+  resetScene: () => {
+    set(() => ({
+      focusedObjectUUID: '',
+      sceneObjects: [],
+    }))
+  },
   modifyObject: (newArgs, uuid, repository) => {
     set((state) => ({
       sceneObjects: state.sceneObjects.map((object) => {

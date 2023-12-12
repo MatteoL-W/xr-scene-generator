@@ -28,9 +28,7 @@ export default function Shortcut() {
   useHotkeys('s', setScaleMode)
 
   // Remove the focused object
-  useHotkeys('delete,backspace', removeFocusedObjectFromScene, {
-    scopes: ['renderer'],
-  })
+  useHotkeys('delete,backspace', removeFocusedObjectFromScene)
 
   // undo, redo
   useHotkeys('ctrl+z', undo)
