@@ -1,22 +1,10 @@
 import PropTypes from 'prop-types'
-import InteractiveMeshWrapper from './MeshTypeWrapper/InteractiveMeshWrapper.jsx'
-import PhysicsMeshWrapper from './MeshTypeWrapper/PhysicsMeshWrapper.jsx'
-import FloatingMeshWrapper from './MeshTypeWrapper/FloatingMeshWrapper.jsx'
-import FallbackWrapper from '@/utils/FallbackWrapper.jsx'
+import { getSpecificMeshWrapper } from './getSpecificMeshWrapper.js'
 import { withXRImmersion } from '@/hoc/withXRImmersion.jsx'
-
-const activeMeshPropertyWrapper = {
-  hasPhysics: PhysicsMeshWrapper,
-  hasInteractivity: InteractiveMeshWrapper,
-  isFloating: FloatingMeshWrapper,
-}
+import FallbackWrapper from '@/utils/FallbackWrapper.jsx'
 
 function MeshWrapperComponent({ object, objectRef, children }) {
-  const property = Object.keys(activeMeshPropertyWrapper).find(
-    (property) => object.args[property],
-  )
-
-  const PropertyWrapper = activeMeshPropertyWrapper[property] || FallbackWrapper
+  const PropertyWrapper = getSpecificMeshWrapper(object) || FallbackWrapper
   return <PropertyWrapper objectRef={objectRef}>{children}</PropertyWrapper>
 }
 
