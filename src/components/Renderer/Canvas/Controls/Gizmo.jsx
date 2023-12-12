@@ -5,7 +5,7 @@ function GizmoComponent() {
   return (
     <GizmoHelper alignment='bottom-right' margin={[65, 65]}>
       <GizmoViewport
-        axisColors={['#9d4b4b', '#2f7f4f', '#3b5b9d']}
+        axisColors={['#d93333', '#03bd49', '#2f69bd']}
         labelColor='white'
       />
     </GizmoHelper>
