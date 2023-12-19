@@ -1,8 +1,9 @@
 import { useGLTF } from '@react-three/drei'
 import { useEffect } from 'react'
+import { withXRImmersion } from '@/hoc/withXRImmersion.jsx'
 import useStore from '@/store/index.jsx'
 
-export default function HumanSilhouette() {
+function HumanSilhouetteComponent() {
   const gltf = useGLTF('/xr-scene-generator/models/immersive-helper/human.gltf')
   const [isHumanSilhouetteAppearing] = useStore((state) => [
     state.isHumanSilhouetteAppearing,
@@ -21,3 +22,9 @@ export default function HumanSilhouette() {
 
   if (isHumanSilhouetteAppearing) return <primitive object={gltf.scene} />
 }
+
+const HumanSilhouette = withXRImmersion({
+  Component: HumanSilhouetteComponent,
+  insideXR: false,
+})
+export default HumanSilhouette
