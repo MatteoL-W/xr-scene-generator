@@ -3,22 +3,27 @@ import { Vector3 } from 'three'
 import { TbFocusCentered, TbGizmo } from 'react-icons/tb'
 import { BiGrid } from 'react-icons/bi'
 import { MdOutlineFlipCameraIos } from 'react-icons/md'
+import { PiFinnTheHumanFill } from 'react-icons/pi'
 
 export default function SceneOpt() {
   const [
     isGridOpen,
     setGridState,
     isAxesHelperOpen,
+    isHumanSilhouetteAppearing,
     setAxisHelperState,
     setNewCameraDirectionInstruction,
     startWaitingForCameraReset,
+    setHumanSilhouetteState,
   ] = useStore((state) => [
     state.isGridOpen,
     state.setGridState,
     state.isAxesHelperOpen,
+    state.isHumanSilhouetteAppearing,
     state.setAxisHelperState,
     state.setNewCameraDirectionInstruction,
     state.startWaitingForCameraReset,
+    state.setHumanSilhouetteState,
   ])
 
   return (
@@ -38,6 +43,11 @@ export default function SceneOpt() {
       <MdOutlineFlipCameraIos
         className='h-6 w-6 cursor-pointer'
         onClick={() => startWaitingForCameraReset()}
+      />
+
+      <PiFinnTheHumanFill
+        className='h-6 w-6 cursor-pointer'
+        onClick={() => setHumanSilhouetteState(!isHumanSilhouetteAppearing)}
       />
     </div>
   )

@@ -8,4 +8,9 @@ export const manageRendererMisc = (set) => ({
   setAxisHelperState: (isAxesHelperOpen) => {
     set(() => ({ isAxesHelperOpen }))
   },
+
+  isHumanSilhouetteAppearing: true,
+  setHumanSilhouetteState: (isHumanSilhouetteAppearing) => {
+    set(() => ({ isHumanSilhouetteAppearing }))
+  },
 })

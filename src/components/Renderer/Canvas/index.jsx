@@ -4,11 +4,13 @@ import Debug from './Debug.jsx'
 import Exporter from './Exporter.jsx'
 import Importer from './Importer.jsx'
 import Camera from './Camera.jsx'
+import Gizmo from './Gizmo.jsx'
 import { XR } from '@react-three/xr'
 import XRControls from './XRControls.jsx'
 import Controls from './Controls/index.jsx'
 import Skybox from './Skybox.jsx'
 import AxesHelper from './AxesHelper.jsx'
+import HumanSilhouette from './HumanSilhouette.jsx'
 import Grid from './Grid.jsx'
 import { Suspense } from 'react'
 import { Physics } from '@react-three/rapier'
@@ -26,6 +28,9 @@ export default function Canvas() {
           <Exporter />
           <Importer />
           <Camera />
+
+          <Gizmo />
+          <HumanSilhouette />
 
           <XR>
             <XRControls />
