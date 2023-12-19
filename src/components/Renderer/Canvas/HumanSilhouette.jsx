@@ -17,7 +17,7 @@ export default function HumanSilhouette() {
         node.material.opacity = 0.5
       }
     })
-  }, [])
+  }, [gltf.scene])
 
   if (isHumanSilhouetteAppearing) return <primitive object={gltf.scene} />
 }
