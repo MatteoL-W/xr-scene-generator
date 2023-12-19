@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import useStore from '@/store/index.jsx'
 
 export default function HumanSilhouette() {
-  const gltf = useGLTF('/models/immersive-helper/human.gltf')
+  const gltf = useGLTF('/xr-scene-generator/models/immersive-helper/human.gltf')
   const [isHumanSilhouetteAppearing] = useStore((state) => [
     state.isHumanSilhouetteAppearing,
   ])
