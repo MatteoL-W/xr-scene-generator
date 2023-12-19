@@ -13,16 +13,16 @@ export default function EnvironmentLightInput() {
     state.skyboxFilesPreset,
   ])
 
-  if (!skyboxPreset && !skyboxFilesPreset) return
+  const isInvisible = !skyboxPreset && !skyboxFilesPreset
 
   return (
-    <div className='flex px-5 py-1.5'>
+    <div className={`${isInvisible && 'hidden'} flex px-5 py-1.5`}>
       <input
         type='checkbox'
         className='mr-2'
-        name='environmentLight'
-        value={hasEnvironmentLight}
-        onChange={() => setEnvironmentLightState(!hasEnvironmentLight)}
+        id='environmentLight'
+        checked={hasEnvironmentLight}
+        onChange={(e) => setEnvironmentLightState(e.target.checked)}
       />
 
       <label htmlFor='environmentLight'>

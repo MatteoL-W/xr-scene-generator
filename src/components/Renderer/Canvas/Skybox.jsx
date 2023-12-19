@@ -16,13 +16,14 @@ export default function Skybox() {
 
   if (!skyboxPreset && !skyboxFilesPreset) return
 
-  const backgroundValue = hasEnvironmentLight ? 'only' : true
+  const backgroundValue = hasEnvironmentLight ? true : 'only'
+  const presetValue = !skyboxFilesPreset ? skyboxPreset : ''
 
   return (
     <Environment
+      preset={presetValue}
       files={skyboxFilesPreset}
       background={backgroundValue}
-      preset={!skyboxFilesPreset ? skyboxPreset : ''}
       ground={
         isBackgroundActivated && {
           height: 15, // Height of the camera that was used to create the env map (Default: 15)
