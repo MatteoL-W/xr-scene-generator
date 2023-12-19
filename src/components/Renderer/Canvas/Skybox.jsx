@@ -3,20 +3,26 @@ import useImmersiveExperienceHandler from '@/hooks/useImmersiveExperienceHandler
 import useStore from '@/store/index.jsx'
 
 export default function Skybox() {
-  const [skyboxPreset, skyboxFilesPreset] = useStore((state) => [
-    state.skyboxPreset,
-    state.skyboxFilesPreset,
-  ])
+  const [skyboxPreset, skyboxFilesPreset, hasEnvironmentLight] = useStore(
+    (state) => [
+      state.skyboxPreset,
+      state.skyboxFilesPreset,
+      state.hasEnvironmentLight,
+    ],
+  )
   const { getImmersiveMode } = useImmersiveExperienceHandler()
   const immersiveMode = getImmersiveMode()
   const isBackgroundActivated = immersiveMode !== 'ar'
 
   if (!skyboxPreset && !skyboxFilesPreset) return
 
+  const backgroundValue = hasEnvironmentLight ? 'only' : true
+
   return (
     <Environment
-      preset={!skyboxFilesPreset ? skyboxPreset : ''}
       files={skyboxFilesPreset}
+      background={backgroundValue}
+      preset={!skyboxFilesPreset ? skyboxPreset : ''}
       ground={
         isBackgroundActivated && {
           height: 15, // Height of the camera that was used to create the env map (Default: 15)

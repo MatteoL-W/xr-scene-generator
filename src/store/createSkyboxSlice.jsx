@@ -8,4 +8,9 @@ export const manageSkybox = (set) => ({
   setSkyboxFilesPreset: (newFiles) => {
     set(() => ({ skyboxFilesPreset: newFiles }))
   },
+
+  hasEnvironmentLight: true,
+  setEnvironmentLightState: (newState) => {
+    set(() => ({ hasEnvironmentLight: newState }))
+  },
 })
