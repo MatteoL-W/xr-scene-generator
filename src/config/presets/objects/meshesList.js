@@ -1,28 +1,9 @@
-// ToDo : Separate meshesList into different files
+import Box from './meshes/Box.js'
+import BigTori from './meshes/BigTori.js'
 
 const meshesList = [
-  {
-    name: 'Box',
-    userSetName: 'Box',
-    type: 'mesh',
-    component: 'BoxPhong',
-    transformations: {
-      position: [0, 0, 0],
-      rotation: [0, 0, 0],
-      scale: [1, 1, 1.5],
-    },
-    material: {
-      'material-color': '#000000',
-    },
-    args: {
-      visible: true,
-      receiveShadow: false,
-      castShadow: false,
-      hasPhysics: false,
-      hasInteractivity: false,
-      isFloating: false,
-    },
-  },
+  Box,
+  BigTori,
   {
     name: 'Sphere',
     userSetName: 'Sphere',
@@ -35,25 +16,6 @@ const meshesList = [
     },
     material: {
       'material-color': '#000000',
-    },
-    args: {
-      visible: true,
-      receiveShadow: false,
-      castShadow: false,
-      hasPhysics: false,
-      hasInteractivity: false,
-      isFloating: false,
-    },
-  },
-  {
-    name: 'Big Tori',
-    userSetName: 'Big Tori',
-    type: 'mesh',
-    component: 'BigTori',
-    transformations: {
-      position: [0, 0, 0],
-      rotation: [0, 0, 0],
-      scale: [1, 1, 1],
     },
     args: {
       visible: true,
