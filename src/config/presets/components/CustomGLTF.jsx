@@ -14,6 +14,7 @@ export const Custom = forwardRef((props, ref) => {
 
   return <group ref={ref} onClick={props?.onClick} />
 })
+
 Custom.displayName = 'Custom'
 Custom.propTypes = {
   onClick: PropTypes.func,

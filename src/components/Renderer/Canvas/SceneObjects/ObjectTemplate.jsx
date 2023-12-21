@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
 import useSyncThreeAndInternal from './useSyncThreeAndInternal.jsx'
-import getObjectComponent from '@/config/presets/getObjectComponent.js'
+import getObjectComponent from './getObjectComponent.js'
 import MeshWrapper from './MeshWrapper/index.jsx'
 import LightWrapper from './LightWrapper/index.jsx'
 

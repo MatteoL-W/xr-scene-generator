@@ -1,21 +1,11 @@
-import { forwardRef } from 'react'
+import { AmbientLight } from './lights/AmbientLight.jsx'
+import { DirectionalLight } from './lights/DirectionalLight.jsx'
+import { PointLight } from './lights/PointLight.jsx'
+import { SpotLight } from './lights/SpotLight.jsx'
 
-export const AmbientLight = forwardRef((props, ref) => {
-  return <ambientLight ref={ref} {...props} />
-})
-AmbientLight.displayName = 'AmbientLight'
-
-export const DirectionalLight = forwardRef((props, ref) => {
-  return <directionalLight ref={ref} {...props} />
-})
-DirectionalLight.displayName = 'DirectionalLight'
-
-export const PointLight = forwardRef((props, ref) => {
-  return <pointLight ref={ref} {...props} />
-})
-PointLight.displayName = 'PointLight'
-
-export const SpotLight = forwardRef((props, ref) => {
-  return <spotLight ref={ref} {...props} />
-})
-SpotLight.displayName = 'SpotLight'
+export const lightComponentsLists = {
+  AmbientLight,
+  DirectionalLight,
+  PointLight,
+  SpotLight,
+}
