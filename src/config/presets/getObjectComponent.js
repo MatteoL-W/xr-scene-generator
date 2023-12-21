@@ -5,7 +5,7 @@ import {
   SpotLight,
 } from './components/lights.jsx'
 
-import { BoxPhong } from './components/meshes.jsx'
+import { BigTori, BoxPhong } from './components/meshes.jsx'
 import { Sphere } from '@react-three/drei'
 
 import { Custom } from './components/importedGLTF.jsx'
@@ -18,6 +18,7 @@ const componentMap = {
 
   BoxPhong,
   Sphere,
+  BigTori,
 
   Custom,
 }
