@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
-import { userPresets } from '@/config/user/userImportedPresets.js'
+import { userSkyboxPresets } from '@/config/skybox/userImportedPresets.js'
 
 export default function UserPreset() {
   const { t } = useTranslation()
@@ -27,7 +27,7 @@ export default function UserPreset() {
         value={skyboxFilesPreset}
       >
         <option value=''>{t('right.skybox.none')}</option>
-        {userPresets.map((preset) => (
+        {userSkyboxPresets.map((preset) => (
           <option value={preset.file} key={preset.name}>
             {preset.name}
           </option>

@@ -1,4 +1,4 @@
-export const propertiesParameters = {
+export const defaultParameters = {
   scale: {
     step: 0.25,
   },

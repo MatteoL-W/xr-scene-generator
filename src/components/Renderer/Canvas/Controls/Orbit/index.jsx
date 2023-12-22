@@ -20,7 +20,6 @@ export default function Orbit() {
 
   useEffect(() => {
     const old = get().controls
-    console.log(old)
     set({ controls: orbitControls.current })
     return () =>
       set({

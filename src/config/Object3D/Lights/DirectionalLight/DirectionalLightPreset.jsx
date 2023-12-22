@@ -1,4 +1,4 @@
-export default {
+export const DirectionalLightPreset = {
   name: 'Directional',
   userSetName: 'Directional',
   type: 'light',

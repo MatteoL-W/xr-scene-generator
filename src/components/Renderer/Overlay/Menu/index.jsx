@@ -1,5 +1,5 @@
-import meshesList from '@/config/presets/objects/meshesList.js'
-import lightsList from '@/config/presets/objects/lightsList.js'
+import meshesPresetList from '@/config/Object3D/Meshes/MeshesPresetList.js'
+import lightsPresetList from '@/config/Object3D/Lights/LightsPresetList.js'
 import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
 import OpenMenuButton from './OpenMenuButton.jsx'
@@ -22,7 +22,7 @@ export default function Menu() {
   return (
     <div className='absolute top-5 left-5 p-3 flex flex-col z-10 bg-jean'>
       <ul className='text-white my-2'>
-        {meshesList.map((mesh) => (
+        {meshesPresetList.map((mesh) => (
           <li
             className='flex items-center mb-1 cursor-pointer'
             key={mesh.name}
@@ -38,7 +38,7 @@ export default function Menu() {
           <ExternalGLTFLoader />
         </li>
 
-        {lightsList.map((light, index) => (
+        {lightsPresetList.map((light, index) => (
           <li
             className={`flex items-center mb-1 cursor-pointer ${
               index === 0 ? 'mt-4 border-t border-white pt-4' : ''

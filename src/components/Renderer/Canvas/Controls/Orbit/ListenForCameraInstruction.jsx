@@ -3,14 +3,10 @@ import useStore from '@/store/index.jsx'
 import { useShallow } from 'zustand/react/shallow'
 
 ListenForCameraInstruction.propTypes = {
-  children: PropTypes.node.isRequired,
   orbitControlsRef: PropTypes.object.isRequired,
 }
 
-export default function ListenForCameraInstruction({
-  children,
-  orbitControlsRef,
-}) {
+export default function ListenForCameraInstruction({ orbitControlsRef }) {
   const [
     cameraDirectionInstruction,
     isWaitingForCameraReset,
@@ -35,6 +31,4 @@ export default function ListenForCameraInstruction({
     control.reset()
     control.update()
   }
-
-  return children
 }

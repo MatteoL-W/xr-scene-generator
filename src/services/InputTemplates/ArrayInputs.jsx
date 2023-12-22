@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import useStore from '@/store/index.jsx'
 import useHistoric from '@/hooks/useHistoric.jsx'
-import { propertiesParameters } from '@/config/default/modifiersPropertiesParams.js'
+import { defaultParameters } from '@/config/properties/defaultParameters.js'
 import { BsLink45Deg } from 'react-icons/bs'
 
 ArrayInputs.propTypes = {
@@ -70,10 +70,10 @@ export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
       </div>
 
       {propertyValue.map((value, index) => {
-        const defaultParameters = {
-          min: propertiesParameters?.[propertyLabel]?.min,
-          max: propertiesParameters?.[propertyLabel]?.max,
-          step: propertiesParameters?.[propertyLabel]?.step,
+        const parameters = {
+          min: defaultParameters?.[propertyLabel]?.min,
+          max: defaultParameters?.[propertyLabel]?.max,
+          step: defaultParameters?.[propertyLabel]?.step,
         }
         const inputCodeName = `${propertyLabel}_${index}`
 
@@ -84,7 +84,7 @@ export function ArrayInputs({ propertyLabel, propertyValue, repository }) {
             onChange={(e) => handleOnChange(e, index)}
             key={inputCodeName}
             name={inputCodeName}
-            {...defaultParameters}
+            {...parameters}
             className='w-full px-2 py-1 rounded'
           />
         )

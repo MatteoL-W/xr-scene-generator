@@ -1,4 +1,4 @@
-export default {
+export const SpotLightPreset = {
   name: 'Spot',
   userSetName: 'Spot',
   type: 'light',

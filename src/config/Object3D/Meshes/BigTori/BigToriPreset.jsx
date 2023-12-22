@@ -1,4 +1,4 @@
-export default {
+export const BigToriPreset = {
   name: 'Big Tori',
   userSetName: 'Big Tori',
   type: 'mesh',

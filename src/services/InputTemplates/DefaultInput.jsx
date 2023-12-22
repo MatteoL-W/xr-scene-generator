@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import useStore from '@/store/index.jsx'
 import { useTranslation } from 'react-i18next'
-import { propertiesParameters } from '@/config/default/modifiersPropertiesParams.js'
+import { defaultParameters } from '@/config/properties/defaultParameters.js'
 
 DefaultInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,
@@ -23,9 +23,9 @@ export function DefaultInput({ propertyLabel, propertyValue, repository }) {
   }
 
   const defaultArguments = {
-    min: propertiesParameters?.[propertyLabel]?.min ?? undefined,
-    max: propertiesParameters?.[propertyLabel]?.max ?? undefined,
-    step: propertiesParameters?.[propertyLabel]?.step ?? undefined,
+    min: defaultParameters?.[propertyLabel]?.min ?? undefined,
+    max: defaultParameters?.[propertyLabel]?.max ?? undefined,
+    step: defaultParameters?.[propertyLabel]?.step ?? undefined,
   }
 
   return (

@@ -1,3 +1,3 @@
-export const userPresets = [
+export const userSkyboxPresets = [
   { name: 'Spree Bank 8K', file: 'skybox/spree_bank_8k.hdr' },
 ]

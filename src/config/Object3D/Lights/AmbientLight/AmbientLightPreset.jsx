@@ -1,4 +1,4 @@
-export default {
+export const AmbientLightPreset = {
   name: 'Ambient',
   userSetName: 'Ambient',
   type: 'light',

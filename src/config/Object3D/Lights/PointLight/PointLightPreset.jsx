@@ -1,4 +1,4 @@
-export default {
+export const PointLightPreset = {
   name: 'Point',
   userSetName: 'Point',
   type: 'light',

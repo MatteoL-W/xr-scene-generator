@@ -1,11 +1,11 @@
-import { lightComponentsLists } from '@/config/presets/components/lights.jsx'
-import { meshesComponentsLists } from '@/config/presets/components/meshes.jsx'
-import { Custom } from '@/config/presets/components/CustomGLTF.jsx'
+import { lightsComponentList } from '@/config/Object3D/Lights/LightsComponentList.js'
+import { meshesComponentList } from '@/config/Object3D/Meshes/MeshesComponentList.js'
+import { Custom } from '@/config/Object3D/Meshes/CustomGLTF.jsx'
 import { Sphere } from '@react-three/drei'
 
 const componentMap = {
-  ...lightComponentsLists,
-  ...meshesComponentsLists,
+  ...lightsComponentList,
+  ...meshesComponentList,
 
   Sphere,
   Custom,
