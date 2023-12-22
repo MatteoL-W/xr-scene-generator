@@ -1,19 +1,34 @@
-import ListenForCameraInstruction from './ListenForCameraInstruction.jsx'
-import { OrbitControls } from '@react-three/drei'
-import { useRef } from 'react'
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import { useEffect, useRef } from 'react'
+import { useFrame, useThree } from '@react-three/fiber'
+import ListenForCameraInstruction from '@/components/Renderer/Canvas/Controls/Orbit/ListenForCameraInstruction.jsx'
 
 export default function Orbit() {
-  const orbitControlsRef = useRef()
+  const { camera, gl, set, get } = useThree()
+  const orbitControls = useRef()
 
-  return (
-    <ListenForCameraInstruction orbitControlsRef={orbitControlsRef}>
-      <OrbitControls
-        makeDefault
-        enableDamping={false}
-        ref={orbitControlsRef}
-        maxDistance={50}
-        minDistance={0.5}
-      />
-    </ListenForCameraInstruction>
-  )
+  useEffect(() => {
+    orbitControls.current = new OrbitControls(camera, gl.domElement)
+    orbitControls.current.enableDamping = false
+    orbitControls.current.maxDistance = 50
+    orbitControls.current.minDistance = 0.5
+
+    return () => {
+      orbitControls.current.dispose()
+    }
+  }, [camera, gl])
+
+  useEffect(() => {
+    const old = get().controls
+    console.log(old)
+    set({ controls: orbitControls.current })
+    return () =>
+      set({
+        controls: old,
+      })
+  }, [orbitControls])
+
+  useFrame(() => orbitControls.current.update())
+
+  return <ListenForCameraInstruction orbitControlsRef={orbitControls} />
 }
