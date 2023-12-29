@@ -1,16 +1,9 @@
 import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
-
-const forwardedProps = ['receiveShadow', 'castShadow', 'onClick']
+import { forwardPropsToGLTFChildren } from '@/utils/forwardPropsToGLTFChildren.js'
 
 export const Custom = forwardRef((props, ref) => {
-  const group = ref.current
-
-  group?.traverse((node) => {
-    forwardedProps.map((prop) => {
-      if (props?.[prop] !== null) node[prop] = props[prop]
-    })
-  })
+  forwardPropsToGLTFChildren(ref, props)
 
   return <group ref={ref} onClick={props?.onClick} />
 })
