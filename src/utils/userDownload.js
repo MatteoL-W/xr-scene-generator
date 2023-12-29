@@ -1,3 +1,8 @@
+/**
+ * Download a string file filled with the content
+ * @param fileName
+ * @param content
+ */
 export function downloadStringBasedFile(fileName, content) {
   const blob = new Blob([content], { type: 'text/plain' })
   const url = URL.createObjectURL(blob)

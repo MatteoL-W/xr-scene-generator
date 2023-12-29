@@ -1,5 +1,10 @@
 import { useEffect } from 'react'
 
+/**
+ * This hook is used to sync the light direction with the light target position
+ * @param light
+ * @param lightRef
+ */
 export default function useSyncLightDirection(light, lightRef) {
   useEffect(() => {
     const direction = light.parameters.direction

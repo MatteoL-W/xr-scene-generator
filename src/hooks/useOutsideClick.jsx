@@ -1,5 +1,10 @@
 import { useEffect, useRef } from 'react'
 
+/**
+ * Returns a ref that can be used to execute callback on outside clicks
+ * @param callback
+ * @returns {React.MutableRefObject<undefined>}
+ */
 export default function useOutsideClick(callback) {
   const ref = useRef()
 

@@ -19,6 +19,11 @@ export default function Exporter() {
   return <></>
 }
 
+/**
+ * Download the scene objects as a GLTF file
+ * @param scene
+ * @param exporter
+ */
 function downloadSceneObjects(scene, exporter) {
   const exportedObject = scene.getObjectByName('SceneObjectsComponent')
 

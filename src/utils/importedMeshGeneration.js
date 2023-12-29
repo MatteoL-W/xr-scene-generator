@@ -1,3 +1,8 @@
+/**
+ * Generates a group 3D object for the imported mesh
+ * @param gltfSceneUUID
+ * @returns {object}
+ */
 export function generateGroupFromGLTF(gltfSceneUUID) {
   return {
     isImported: true,

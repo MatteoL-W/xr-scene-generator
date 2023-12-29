@@ -11,6 +11,12 @@ GenerateAutomaticInput.propTypes = {
   repository: PropTypes.string,
 }
 
+/**
+ * This component is used to generate the correct input for the property
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function GenerateAutomaticInput(props) {
   if (Array.isArray(props.propertyValue)) {
     return <ArrayInputs {...props} />

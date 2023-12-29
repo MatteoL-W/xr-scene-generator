@@ -1,5 +1,9 @@
 const forwardedProps = ['receiveShadow', 'castShadow', 'onClick']
 
+/**
+ * @param ref
+ * @param props
+ */
 export function forwardPropsToGLTFChildren(ref, props) {
   const group = ref.current
 

@@ -2,6 +2,11 @@ import useStore from '@/store/index.jsx'
 import useThreeObject from '@/hooks/useThreeObject.jsx'
 import { useEffect } from 'react'
 
+/**
+ * Sync three.js scene object with the given internal object
+ * @param object
+ * @param objectComponentRef
+ */
 export default function useSyncThreeAndInternal(object, objectComponentRef) {
   const [modifyObjectUUID, changeFocusedObjectByUUID] = useStore((state) => [
     state.modifyObjectUUID,

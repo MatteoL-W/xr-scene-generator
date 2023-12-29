@@ -8,6 +8,11 @@ const meshWrapperList = {
   isFloating: FloatingMeshWrapper,
 }
 
+/**
+ * Get mesh wrapper component by object properties
+ * @param object
+ * @returns {PhysicsMeshWrapper|InteractiveMeshWrapper|FloatingMeshWrapper}
+ */
 export function getSpecificMeshWrapper(object) {
   // Find the property in {hasPhysics, hasInteractivity, isFloating} that is true
   const activeProperty = Object.keys(meshWrapperList).find(
