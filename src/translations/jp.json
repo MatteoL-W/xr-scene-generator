@@ -7,6 +7,37 @@
       "add": "オブジェクトを追加",
       "gltf": "GLBオブジェクトを読み込む",
       "close": "閉じる"
+    },
+    "folders": {
+      "utils": "ユーティリティ",
+      "trees": "木々",
+      "decorations": "装飾",
+      "vegetation": "植生"
+    },
+    "meshes": {
+      "BigTori": "大きな鳥居",
+      "Tori": "鳥居",
+      "BoxPhong": "ボックス",
+      "FruityTree": "果物の木",
+      "ArcCircleTree": "円弧状の木",
+      "BonsaiTree": "盆栽の木",
+      "FirTree": "モミの木",
+      "IrregularFirTree": "不規則なモミの木",
+      "LargeTree": "大きな木",
+      "SquareTree": "四角い木",
+      "Grass": "草",
+      "HighGrass": "高い草",
+      "NightFlowers": "夜の花",
+      "RedFlowers": "赤い花",
+      "PinkFlower": "ピンクの花",
+      "Rock": "岩",
+      "TreeTrunk": "木の幹"
+    },
+    "lights": {
+      "AmbientLight": "環境光",
+      "DirectionalLight": "方向光",
+      "PointLight": "ポイント光",
+      "SpotLight": "スポットライト"
     }
   },
   "right": {
@@ -25,7 +56,8 @@
       "title": "スカイボックス",
       "none": "なし",
       "basic": "基本プリセット",
-      "user": "ユーザープリセット"
+      "user": "ユーザープリセット",
+      "environmentLight" : "スカイボックスの環境で照らされていますか？"
     },
     "property": {
       "position": "位置",

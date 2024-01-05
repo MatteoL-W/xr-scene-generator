@@ -7,6 +7,37 @@
       "add": "Ajouter un objet",
       "gltf": "Charger un objet GLB",
       "close": "Fermer"
+    },
+    "folders": {
+      "utils": "Outils",
+      "trees": "Arbres",
+      "decorations": "Décorations",
+      "vegetation": "Végétation"
+    },
+    "meshes": {
+      "BigTori": "Grand Portail Japonais",
+      "Tori": "Portail Japonais",
+      "BoxPhong": "Boîte",
+      "FruityTree": "Arbre Fruitier",
+      "ArcCircleTree": "Arbre en Arc Circulaire",
+      "BonsaiTree": "Arbre Bonsaï",
+      "FirTree": "Sapin",
+      "IrregularFirTree": "Sapin Irrégulier",
+      "LargeTree": "Grand Arbre",
+      "SquareTree": "Arbre Carré",
+      "Grass": "Herbe",
+      "HighGrass": "Herbe Haute",
+      "NightFlowers": "Fleurs de Nuit",
+      "RedFlowers": "Fleurs Rouges",
+      "PinkFlower": "Fleur Rose",
+      "Rock": "Rocher",
+      "TreeTrunk": "Tronc d'Arbre"
+    },
+    "lights": {
+      "AmbientLight": "Lumière Ambiante",
+      "DirectionalLight": "Lumière Directionnelle",
+      "PointLight": "Lumière Ponctuelle",
+      "SpotLight": "Projecteur"
     }
   },
   "right": {
@@ -25,7 +56,8 @@
       "title": "Skybox",
       "none": "Aucun",
       "basic": "Skybox intégrée",
-      "user": "Skybox utilisateur"
+      "user": "Skybox utilisateur",
+      "environmentLight" : "Est illuminé par le contenu de la skybox ? "
     },
     "property": {
       "position": "Position",

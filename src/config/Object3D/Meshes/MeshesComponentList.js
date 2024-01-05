@@ -30,8 +30,8 @@ export const meshesComponentList = {
   Grass,
   HighGrass,
   NightFlowers,
-  PinkFlower,
   RedFlowers,
+  PinkFlower,
   Rock,
   TreeTrunk,
 }

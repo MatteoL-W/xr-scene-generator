@@ -7,6 +7,37 @@
       "add": "Add object",
       "gltf": "Load a GLB object",
       "close": "Close"
+    },
+    "folders": {
+      "utils": "Utils",
+      "trees": "Trees",
+      "decorations": "Decorations",
+      "vegetation": "Vegetation"
+    },
+    "meshes": {
+      "BigTori": "Big Japanese Gate",
+      "Tori": "Japanese Gate",
+      "BoxPhong": "Box",
+      "FruityTree": "Fruity Tree",
+      "ArcCircleTree": "Circular Arc Tree",
+      "BonsaiTree": "Bonsai Tree",
+      "FirTree": "Fir Tree",
+      "IrregularFirTree": "Irregular Fir Tree",
+      "LargeTree": "Large Tree",
+      "SquareTree": "Square Tree",
+      "Grass": "Grass",
+      "HighGrass": "High Grass",
+      "NightFlowers": "Night Flowers",
+      "RedFlowers": "Red Flowers",
+      "PinkFlower": "Pink Flower",
+      "Rock": "Rock",
+      "TreeTrunk": "Tree Trunk"
+    },
+    "lights": {
+      "AmbientLight": "Ambient Light",
+      "DirectionalLight": "Directional Light",
+      "PointLight": "Point Light",
+      "SpotLight": "Spot Light"
     }
   },
   "right": {
@@ -25,7 +56,8 @@
       "title": "Skybox",
       "none": "None",
       "basic": "Basic preset",
-      "user": "User preset"
+      "user": "User preset",
+      "environmentLight": "Is illuminated by the skybox environment ?"
     },
     "property": {
       "position": "Position",

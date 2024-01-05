@@ -1,6 +1,6 @@
 export const Folders = {
-  UTILS: 'Utils',
-  TREES: 'Trees',
-  DECORATIONS: 'Decorations',
-  VEGETATION: 'Vegetation',
+  UTILS: 'utils',
+  TREES: 'trees',
+  DECORATIONS: 'decorations',
+  VEGETATION: 'vegetation',
 }

@@ -5,8 +5,10 @@ import useStore from '@/store/index.jsx'
 import ExternalGLTFLoader from './ExternalGLTFLoader.jsx'
 import { Folders } from '@/config/Object3D/Meshes/Folders.js'
 import { IoIosArrowDropdown, IoIosArrowDropup } from 'react-icons/io'
+import { useTranslation } from 'react-i18next'
 
 export default function MeshesList() {
+  const { t } = useTranslation()
   const [addObjectToScene] = useStore((state) => [state.addObjectToScene])
   const [expandedFolder, setExpandedFolder] = useState(null)
 
@@ -36,7 +38,7 @@ export default function MeshesList() {
           >
             <div className='flex items-center'>
               <ArrowComponent className='mr-2' />
-              <span>{folderName}</span>
+              <span>{t(`overlay.folders.${folderName}`)}</span>
             </div>
 
             {isExpended &&
@@ -47,7 +49,7 @@ export default function MeshesList() {
                   className='flex items-center mt-1 cursor-pointer'
                 >
                   <BsFillBoxFill className='mx-2' />
-                  {mesh.name}
+                  {t(`overlay.meshes.${mesh.internalName}`)}
                 </li>
               ))}
           </ul>

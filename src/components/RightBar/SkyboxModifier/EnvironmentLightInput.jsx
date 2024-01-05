@@ -1,6 +1,8 @@
 import useStore from '@/store/index.jsx'
+import { useTranslation } from 'react-i18next'
 
 export default function EnvironmentLightInput() {
+  const { t } = useTranslation()
   const [
     hasEnvironmentLight,
     setEnvironmentLightState,
@@ -26,7 +28,7 @@ export default function EnvironmentLightInput() {
       />
 
       <label htmlFor='environmentLight'>
-        Is illuminated by the skybox environment
+        {t('right.skybox.environmentLight')}
       </label>
     </div>
   )

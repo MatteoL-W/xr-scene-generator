@@ -1,8 +1,10 @@
 import lightsPresetList from '@/config/Object3D/Lights/LightsPresetList.js'
 import { BsLightbulbFill } from 'react-icons/bs'
 import useStore from '@/store/index.jsx'
+import { useTranslation } from 'react-i18next'
 
 export default function LightsList() {
+  const { t } = useTranslation()
   const [addObjectToScene] = useStore((state) => [state.addObjectToScene])
 
   return lightsPresetList.map((light, index) => (
@@ -14,7 +16,7 @@ export default function LightsList() {
       key={light.internalName}
     >
       <BsLightbulbFill className='mx-2' />
-      {light.name}
+      {t(`overlay.lights.${light.internalName}`)}
     </li>
   ))
 }
