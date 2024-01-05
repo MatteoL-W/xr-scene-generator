@@ -13,7 +13,6 @@ export default function SceneOpt() {
     isHumanSilhouetteAppearing,
     setAxisHelperState,
     setNewCameraDirectionInstruction,
-    startWaitingForCameraReset,
     setHumanSilhouetteState,
   ] = useStore((state) => [
     state.isGridOpen,
@@ -22,7 +21,6 @@ export default function SceneOpt() {
     state.isHumanSilhouetteAppearing,
     state.setAxisHelperState,
     state.setNewCameraDirectionInstruction,
-    state.startWaitingForCameraReset,
     state.setHumanSilhouetteState,
   ])
 
@@ -40,11 +38,6 @@ export default function SceneOpt() {
         className='h-6 w-6 cursor-pointer'
         onClick={() => setNewCameraDirectionInstruction(new Vector3(0, 0, 0))}
       />
-      <MdOutlineFlipCameraIos
-        className='h-6 w-6 cursor-pointer'
-        onClick={() => startWaitingForCameraReset()}
-      />
-
       <PiFinnTheHumanFill
         className='h-6 w-6 cursor-pointer'
         onClick={() => setHumanSilhouetteState(!isHumanSilhouetteAppearing)}

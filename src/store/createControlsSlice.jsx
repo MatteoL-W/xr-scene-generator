@@ -15,12 +15,4 @@ export const manageControls = (set) => ({
   setNewCameraDirectionInstruction: (vector3) => {
     set(() => ({ cameraDirectionInstruction: vector3 }))
   },
-
-  isWaitingForCameraReset: false,
-  startWaitingForCameraReset: () => {
-    set(() => ({ isWaitingForCameraReset: true }))
-  },
-  stopWaitingForCameraReset: () => {
-    set(() => ({ isWaitingForCameraReset: false }))
-  },
 })

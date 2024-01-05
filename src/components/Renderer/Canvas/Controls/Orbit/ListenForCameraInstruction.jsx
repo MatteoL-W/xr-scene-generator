@@ -7,28 +7,14 @@ ListenForCameraInstruction.propTypes = {
 }
 
 export default function ListenForCameraInstruction({ orbitControlsRef }) {
-  const [
-    cameraDirectionInstruction,
-    isWaitingForCameraReset,
-    stopWaitingForCameraReset,
-  ] = useStore(
-    useShallow((state) => [
-      state.cameraDirectionInstruction,
-      state.isWaitingForCameraReset,
-      state.stopWaitingForCameraReset,
-    ]),
+  const [cameraDirectionInstruction] = useStore(
+    useShallow((state) => [state.cameraDirectionInstruction]),
   )
 
   const control = orbitControlsRef.current
 
   if (control && cameraDirectionInstruction) {
     control.target = cameraDirectionInstruction
-    control.update()
-  }
-
-  if (control && isWaitingForCameraReset) {
-    stopWaitingForCameraReset()
-    control.reset()
     control.update()
   }
 }
