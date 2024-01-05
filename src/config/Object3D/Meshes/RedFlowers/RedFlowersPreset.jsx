@@ -2,10 +2,9 @@ import { Folders } from '../Folders.js'
 
 export const RedFlowersPreset = {
   name: 'Red Flowers',
-  userSetName: 'Red Flowers',
+  internalName: 'RedFlowers',
   type: 'mesh',
   folder: Folders.VEGETATION,
-  component: 'RedFlowers',
   transformations: {
     position: [0, 0, 0],
     rotation: [0, 0, 0],

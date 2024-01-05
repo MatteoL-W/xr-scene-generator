@@ -1,8 +1,7 @@
 export const AmbientLightPreset = {
   name: 'Ambient',
-  userSetName: 'Ambient',
+  internalName: 'AmbientLight',
   type: 'light',
-  component: 'AmbientLight',
   parameters: {
     color: '#000000',
     intensity: 1,

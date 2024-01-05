@@ -2,10 +2,9 @@ import { Folders } from '../Folders.js'
 
 export const TreeTrunkPreset = {
   name: 'Tree Trunk',
-  userSetName: 'Tree Trunk',
+  internalName: 'TreeTrunk',
   type: 'mesh',
   folder: Folders.TREES,
-  component: 'TreeTrunk',
   transformations: {
     position: [0, 0, 0],
     rotation: [0, 0, 0],

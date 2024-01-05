@@ -42,7 +42,7 @@ export default function MeshesList() {
             {isExpended &&
               meshes.map((mesh) => (
                 <li
-                  key={mesh.name}
+                  key={mesh.internalName}
                   onClick={() => addObjectToScene(mesh)}
                   className='flex items-center mt-1 cursor-pointer'
                 >

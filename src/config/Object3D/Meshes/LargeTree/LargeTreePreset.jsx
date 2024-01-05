@@ -1,13 +1,10 @@
 import { Folders } from '../Folders.js'
 
-// ToDo : 'name' => internalName ; -'component' ; 'userSetName' => 'name'
-
 export const LargeTreePreset = {
   name: 'Large Tree',
-  userSetName: 'Large Tree',
+  internalName: 'LargeTree',
   type: 'mesh',
   folder: Folders.TREES,
-  component: 'LargeTree',
   transformations: {
     position: [0, 0, 0],
     rotation: [0, 0, 0],

@@ -20,7 +20,7 @@ export default function ObjectModifier() {
     <div className='border-b border-b-white'>
       <div className='relative'>
         <Title
-          title={`"${focusedObject.userSetName}" ${t('right.modifier.title')}`}
+          title={`"${focusedObject.name}" ${t('right.modifier.title')}`}
           Icon={BsFillBoxFill}
         />
         <div className='absolute top-0 right-2 h-full flex items-center text-xl'>

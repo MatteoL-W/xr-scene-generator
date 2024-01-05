@@ -2,10 +2,9 @@ import { Folders } from '../Folders.js'
 
 export const IrregularFirTreePreset = {
   name: 'Irregular Fir Tree',
-  userSetName: 'Irregular Fir Tree',
+  internalName: 'IrregularFirTree',
   type: 'mesh',
   folder: Folders.TREES,
-  component: 'IrregularFirTree',
   transformations: {
     position: [0, 0, 0],
     rotation: [0, 0, 0],

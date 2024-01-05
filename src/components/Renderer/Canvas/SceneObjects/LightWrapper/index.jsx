@@ -13,7 +13,7 @@ function LightWrapperComponent({ object, objectRef, children }) {
       DirectionalLight: DirectionalLightWrapper,
       SpotLight: SpotLightWrapper,
       PointLight: PointLightWrapper,
-    }[object.component] || FallbackWrapper
+    }[object.internalName] || FallbackWrapper
 
   return (
     <TypeWrapper lightRef={objectRef} object={object}>

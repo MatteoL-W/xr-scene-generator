@@ -1,8 +1,7 @@
 export const PointLightPreset = {
   name: 'Point',
-  userSetName: 'Point',
+  internalName: 'PointLight',
   type: 'light',
-  component: 'PointLight',
   transformations: {
     position: [0, 0, 0],
   },

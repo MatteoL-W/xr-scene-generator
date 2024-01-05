@@ -18,7 +18,7 @@ export default function ObjectTemplate({ object }) {
   const objectComponentRef = useRef(null)
   useSyncThreeAndInternal(object, objectComponentRef)
 
-  const ObjectComponent = getObjectComponent(object.component)
+  const ObjectComponent = getObjectComponent(object.internalName)
   const ObjectTypeWrapper = {
     mesh: MeshWrapper,
     light: LightWrapper,

@@ -9,7 +9,7 @@ export function generateGroupFromGLTF(gltfSceneUUID) {
     uuid: gltfSceneUUID,
 
     name: 'Imported',
-    userSetName: 'Imported',
+    internalName: 'Imported',
     type: 'mesh',
     component: 'Custom',
     transformations: {

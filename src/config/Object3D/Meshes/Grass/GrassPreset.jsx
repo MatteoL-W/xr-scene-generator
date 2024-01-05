@@ -2,10 +2,9 @@ import { Folders } from '../Folders.js'
 
 export const GrassPreset = {
   name: 'Grass',
-  userSetName: 'Grass',
+  internalName: 'Grass',
   type: 'mesh',
   folder: Folders.VEGETATION,
-  component: 'Grass',
   transformations: {
     position: [0, 0, 0],
     rotation: [0, 0, 0],

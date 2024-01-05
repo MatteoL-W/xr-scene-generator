@@ -34,14 +34,14 @@ export default function RowNameEditing({ object, editing, resetEditingState }) {
         onClick={() => toggleItem(object.uuid)}
         className={editing ? 'hidden' : 'block'}
       >
-        {object.userSetName}
+        {object.name}
       </span>
 
       <form onSubmit={saveName}>
         <input
           type='text'
           name='editobjectName'
-          defaultValue={object.userSetName}
+          defaultValue={object.name}
           className={editing ? 'block' : 'hidden'}
           ref={newNameInput}
         />

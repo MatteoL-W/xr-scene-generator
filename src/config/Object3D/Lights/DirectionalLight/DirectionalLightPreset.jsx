@@ -1,8 +1,7 @@
 export const DirectionalLightPreset = {
   name: 'Directional',
-  userSetName: 'Directional',
+  internalName: 'DirectionalLight',
   type: 'light',
-  component: 'DirectionalLight',
   transformations: {
     position: [5, 0, 0],
   },

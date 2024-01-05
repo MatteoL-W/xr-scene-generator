@@ -61,9 +61,7 @@ export const manageSceneObjects = (set, get) => ({
   modifyObjectName: (objectUUID, newName) => {
     set((state) => ({
       sceneObjects: state.sceneObjects.map((object) =>
-        object.uuid === objectUUID
-          ? { ...object, userSetName: newName }
-          : object,
+        object.uuid === objectUUID ? { ...object, name: newName } : object,
       ),
     }))
   },

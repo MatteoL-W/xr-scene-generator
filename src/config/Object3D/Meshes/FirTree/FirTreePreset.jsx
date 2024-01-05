@@ -2,10 +2,9 @@ import { Folders } from '../Folders.js'
 
 export const FirTreePreset = {
   name: 'Fir Tree',
-  userSetName: 'Fir Tree',
+  internalName: 'FirTree',
   type: 'mesh',
   folder: Folders.TREES,
-  component: 'FirTree',
   transformations: {
     position: [0, 0, 0],
     rotation: [0, 0, 0],

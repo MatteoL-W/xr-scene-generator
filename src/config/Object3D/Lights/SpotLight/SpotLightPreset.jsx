@@ -1,8 +1,7 @@
 export const SpotLightPreset = {
   name: 'Spot',
-  userSetName: 'Spot',
+  internalName: 'SpotLight',
   type: 'light',
-  component: 'SpotLight',
   transformations: {
     position: [0, 0, 5],
   },

@@ -11,7 +11,7 @@ export default function LightsList() {
         index === 0 ? 'mt-4 border-t border-white pt-4' : ''
       }`}
       onClick={() => addObjectToScene(light)}
-      key={light.name}
+      key={light.internalName}
     >
       <BsLightbulbFill className='mx-2' />
       {light.name}

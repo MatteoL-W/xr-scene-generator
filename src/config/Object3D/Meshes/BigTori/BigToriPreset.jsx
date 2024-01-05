@@ -2,10 +2,9 @@ import { Folders } from '../Folders.js'
 
 export const BigToriPreset = {
   name: 'Big Tori',
-  userSetName: 'Big Tori',
+  internalName: 'BigTori',
   type: 'mesh',
   folder: Folders.DECORATIONS,
-  component: 'BigTori',
   transformations: {
     position: [0, 0, 0],
     rotation: [0, 0, 0],

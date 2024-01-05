@@ -2,10 +2,9 @@ import { Folders } from '../Folders.js'
 
 export const BoxPhongPreset = {
   name: 'Box',
-  userSetName: 'Box',
+  internalName: 'BoxPhong',
   type: 'mesh',
   folder: Folders.UTILS,
-  component: 'BoxPhong',
   transformations: {
     position: [0, 0, 0],
     rotation: [0, 0, 0],

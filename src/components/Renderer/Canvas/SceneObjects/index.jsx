@@ -8,7 +8,7 @@ export default function SceneObjects() {
   return (
     <group name='SceneObjectsComponent'>
       {sceneObjects.map((object, index) => (
-        <ObjectTemplate object={object} key={object.name + index} />
+        <ObjectTemplate object={object} key={object.internalName + index} />
       ))}
     </group>
   )
