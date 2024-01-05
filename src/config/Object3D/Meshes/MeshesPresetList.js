@@ -6,6 +6,8 @@ import { ArcCircleTreePreset } from './ArcCircleTree/ArcCircleTreePreset.jsx'
 import { BonsaiTreePreset } from './BonsaiTree/BonsaiTreePreset.jsx'
 import { FirTreePreset } from './FirTree/FirTreePreset.jsx'
 import { IrregularFirTreePreset } from './IrregularFirTree/IrregularFirTreePreset.jsx'
+import { LargeTreePreset } from './LargeTree/LargeTreePreset.jsx'
+import { SquareTreePreset } from './SquareTree/SquareTreePreset.jsx'
 
 const meshesPresetList = [
   BoxPhongPreset,
@@ -16,6 +18,8 @@ const meshesPresetList = [
   BonsaiTreePreset,
   FirTreePreset,
   IrregularFirTreePreset,
+  LargeTreePreset,
+  SquareTreePreset,
 ]
 
 export default meshesPresetList
