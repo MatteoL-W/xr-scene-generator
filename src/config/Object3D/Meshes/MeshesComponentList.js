@@ -3,6 +3,7 @@ import { BoxPhong } from './BoxPhong/BoxPhong.jsx'
 import { Tori } from './Tori/Tori.jsx'
 import { FruityTree } from './FruityTree/FruityTree.jsx'
 import { ArcCircleTree } from './ArcCircleTree/ArcCircleTree.jsx'
+import { BonsaiTree } from './BonsaiTree/BonsaiTree.jsx'
 
 export const meshesComponentList = {
   BigTori,
@@ -10,4 +11,5 @@ export const meshesComponentList = {
   BoxPhong,
   FruityTree,
   ArcCircleTree,
+  BonsaiTree,
 }

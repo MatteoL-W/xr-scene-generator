@@ -1,6 +1,6 @@
 export const FruityTreePreset = {
-  name: 'FruityTree',
-  userSetName: 'FruityTree',
+  name: 'Fruity Tree',
+  userSetName: 'Fruity Tree',
   type: 'mesh',
   component: 'FruityTree',
   transformations: {

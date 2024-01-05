@@ -1,8 +1,8 @@
-export const ArcCircleTreePreset = {
-  name: 'Arc Circle Tree',
-  userSetName: 'Arc Circle Tree',
+export const BonsaiTreePreset = {
+  name: 'Bonsai Tree',
+  userSetName: 'Bonsai Tree',
   type: 'mesh',
-  component: 'ArcCircleTree',
+  component: 'BonsaiTree',
   transformations: {
     position: [0, 0, 0],
     rotation: [0, 0, 0],
