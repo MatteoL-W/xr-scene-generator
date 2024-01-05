@@ -1,7 +1,10 @@
+import { Folders } from '../Folders.js'
+
 export const FruityTreePreset = {
   name: 'Fruity Tree',
   userSetName: 'Fruity Tree',
   type: 'mesh',
+  folder: Folders.TREES,
   component: 'FruityTree',
   transformations: {
     position: [0, 0, 0],

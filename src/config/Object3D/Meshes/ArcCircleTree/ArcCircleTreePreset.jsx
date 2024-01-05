@@ -1,7 +1,10 @@
+import { Folders } from '../Folders.js'
+
 export const ArcCircleTreePreset = {
   name: 'Arc Circle Tree',
   userSetName: 'Arc Circle Tree',
   type: 'mesh',
+  folder: Folders.TREES,
   component: 'ArcCircleTree',
   transformations: {
     position: [0, 0, 0],

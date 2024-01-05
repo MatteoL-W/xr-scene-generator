@@ -1,7 +1,10 @@
+import { Folders } from '../Folders.js'
+
 export const BoxPhongPreset = {
   name: 'Box',
   userSetName: 'Box',
   type: 'mesh',
+  folder: Folders.UTILS,
   component: 'BoxPhong',
   transformations: {
     position: [0, 0, 0],

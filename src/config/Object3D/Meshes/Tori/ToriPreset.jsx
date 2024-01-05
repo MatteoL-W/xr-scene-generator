@@ -1,7 +1,10 @@
+import { Folders } from '../Folders.js'
+
 export const ToriPreset = {
   name: 'Tori',
   userSetName: 'Tori',
   type: 'mesh',
+  folder: Folders.DECORATIONS,
   component: 'Tori',
   transformations: {
     position: [0, 0, 0],
