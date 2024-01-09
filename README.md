@@ -13,6 +13,8 @@ This project is a 3D scene generator built with **React-Three-Fiber**. It allows
 - In the XR environment, 3D objects can exhibit various behaviors such as floating, interacting with the controller, or being governed by physics.
 - Control lighting with options for ambient light, directional light, point light, and spotlight.
 - Modify the skybox with basic and user presets.
+- Easily add new 3D objects or skybox presets.
+- Automatically save the scene in the browser's local storage.
 - Load external GLB objects (which won't be automatically saved).
 
 ## Installation (for development)
