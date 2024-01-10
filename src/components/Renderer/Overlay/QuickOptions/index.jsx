@@ -1,7 +1,7 @@
+import useStore from '@/store/index.jsx'
 import Actions from './Actions.jsx'
 import SceneOpt from './SceneOpt.jsx'
-import ControlsOpt from './ControlsOpt.jsx'
-import useStore from '@/store/index.jsx'
+import ControlsOpt from './ControlsOpt/index.jsx'
 
 export default function QuickOptions() {
   const [focusedObjectUUID] = useStore((state) => [state.focusedObjectUUID])
