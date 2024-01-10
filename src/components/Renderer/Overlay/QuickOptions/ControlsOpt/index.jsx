@@ -1,3 +1,4 @@
+import DuplicateOpt from './DuplicateOpt.jsx'
 import TransformControlsOpt from './TransformControlsOpt.jsx'
 import FocusControlsOpt from './FocusControlsOpt.jsx'
 import { useFocusedObjectTransformationsData } from '@/hooks/useFocusedObjectData.jsx'
@@ -16,10 +17,16 @@ export default function ControlsOpt() {
 
   return (
     <div className='bg-greysky text-jean flex flex-col p-2 gap-y-2 pointer-events-auto rounded'>
-      <TransformControlsOpt objectTransformations={objectTransformations} />
+      <DuplicateOpt />
 
-      {objectTransformations?.position && (
-        <FocusControlsOpt position={focusedObjectPosition} />
+      {objectTransformations && (
+        <>
+          <TransformControlsOpt objectTransformations={objectTransformations} />
+
+          {objectTransformations.position && (
+            <FocusControlsOpt position={focusedObjectPosition} />
+          )}
+        </>
       )}
     </div>
   )
