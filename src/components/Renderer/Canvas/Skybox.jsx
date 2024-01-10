@@ -19,18 +19,19 @@ export default function Skybox() {
   const backgroundValue = hasEnvironmentLight ? true : 'only'
   const presetValue = !skyboxFilesPreset ? skyboxPreset : ''
 
-  return (
-    <Environment
-      preset={presetValue}
-      files={skyboxFilesPreset}
-      background={backgroundValue}
-      ground={
-        isBackgroundActivated && {
+  // There is a drei issue with the ground and the background light, we handle it with this workaround
+  if (isBackgroundActivated)
+    return (
+      <Environment
+        preset={presetValue}
+        files={skyboxFilesPreset}
+        background={backgroundValue}
+        ground={{
           height: 15, // Height of the camera that was used to create the env map (Default: 15)
           radius: 60, // Radius of the world. (Default 60)
           scale: 100, // Scale of the backside projected sphere that holds the env texture (Default: 100)
-        }
-      }
-    />
-  )
+        }}
+      />
+    )
+  else return <Environment preset={presetValue} files={skyboxFilesPreset} />
 }
