@@ -5,10 +5,12 @@ export default function LanguageSwitcher() {
 
   function handleChange(e) {
     i18n.changeLanguage(e.target.value)
+    localStorage.setItem('language', e.target.value)
   }
 
   return (
     <select
+      value={i18n.language}
       onChange={handleChange}
       className='bg-transparent outline-0 cursor-pointer'
     >

@@ -16,6 +16,12 @@ export default function MeshesList() {
     setExpandedFolder((prevFolder) => (prevFolder === folder ? null : folder))
   }
 
+  function handleMeshClick(mesh, meshTranslation) {
+    const addedMesh = { ...mesh }
+    addedMesh.name = meshTranslation
+    addObjectToScene(addedMesh)
+  }
+
   const foldersAndContent = Object.values(Folders).reduce((acc, folder) => {
     acc[folder] = meshesPresetList.filter((mesh) => mesh.folder === folder)
     return acc
@@ -42,16 +48,20 @@ export default function MeshesList() {
             </div>
 
             {isExpended &&
-              meshes.map((mesh) => (
-                <li
-                  key={mesh.internalName}
-                  onClick={() => addObjectToScene(mesh)}
-                  className='flex items-center mt-1 cursor-pointer'
-                >
-                  <BsFillBoxFill className='mx-2' />
-                  {t(`overlay.meshes.${mesh.internalName}`)}
-                </li>
-              ))}
+              meshes.map((mesh) => {
+                const meshTranslation = t(`overlay.meshes.${mesh.internalName}`)
+
+                return (
+                  <li
+                    key={mesh.internalName}
+                    onClick={() => handleMeshClick(mesh, meshTranslation)}
+                    className='flex items-center mt-1 cursor-pointer'
+                  >
+                    <BsFillBoxFill className='mx-2' />
+                    {meshTranslation}
+                  </li>
+                )
+              })}
           </ul>
         )
       })}
