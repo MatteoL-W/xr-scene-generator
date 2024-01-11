@@ -9,9 +9,9 @@ export default function ControlsOpt() {
   const objectTransformations = useFocusedObjectTransformationsData()
 
   const focusedObjectPosition = useMemo(() => {
-    if (!objectTransformations.position) return
+    if (!objectTransformations?.position) return
     return new Vector3(...objectTransformations.position)
-  }, [objectTransformations.position])
+  }, [objectTransformations?.position])
 
   if (!objectTransformations) return
 

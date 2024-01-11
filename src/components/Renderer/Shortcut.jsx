@@ -2,6 +2,7 @@ import { useHotkeys } from 'react-hotkeys-hook'
 import useHistoric from '@/hooks/useHistoric.jsx'
 import useStore from '@/store/index.jsx'
 import useNewTransformControlsMode from '@/hooks/useTransformControlsHandler.jsx'
+import useDuplicate from '@/hooks/useDuplicate.jsx'
 
 export default function Shortcut() {
   const [isMenuOpen, setMenuState, removeFocusedObjectFromScene] = useStore(
@@ -13,6 +14,7 @@ export default function Shortcut() {
   )
   const setTransformControlsMode = useNewTransformControlsMode()
   const { undo, redo } = useHistoric()
+  const { duplicateFocusedObject } = useDuplicate()
 
   const openMenu = () => setMenuState(!isMenuOpen)
   const setTranslateMode = () => setTransformControlsMode('translate')
@@ -33,6 +35,10 @@ export default function Shortcut() {
   // undo, redo
   useHotkeys('ctrl+z', undo)
   useHotkeys('ctrl+shift+z', redo)
+
+  // Duplicate the focused object
+  useHotkeys('ctrl+c', duplicateFocusedObject)
+  useHotkeys('ctrl+d', duplicateFocusedObject)
 
   return <></>
 }
