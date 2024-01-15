@@ -4,7 +4,7 @@ import { forwardPropsToGLTFChildren } from '@/utils/forwardPropsToGLTFChildren.j
 
 export const TreeTrunk = forwardRef((props, ref) => {
   const { nodes, materials } = useGLTF(
-    '/xr-scene-generator/models/TreeTrunk.glb',
+    '/xr-scene-generator/models/Trees/TreeTrunk.glb',
   )
   forwardPropsToGLTFChildren(ref, props)
 
@@ -19,4 +19,4 @@ export const TreeTrunk = forwardRef((props, ref) => {
 })
 TreeTrunk.displayName = 'TreeTrunk'
 
-useGLTF.preload('/xr-scene-generator/models/TreeTrunk.glb')
+useGLTF.preload('/xr-scene-generator/models/Trees/TreeTrunk.glb')

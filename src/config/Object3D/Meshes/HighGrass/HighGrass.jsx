@@ -4,7 +4,7 @@ import { forwardPropsToGLTFChildren } from '@/utils/forwardPropsToGLTFChildren.j
 
 export const HighGrass = forwardRef((props, ref) => {
   const { nodes, materials } = useGLTF(
-    '/xr-scene-generator/models/HighGrass.glb',
+    '/xr-scene-generator/models/Vegetations/HighGrass.glb',
   )
   forwardPropsToGLTFChildren(ref, props)
 
@@ -19,4 +19,4 @@ export const HighGrass = forwardRef((props, ref) => {
 })
 HighGrass.displayName = 'HighGrass'
 
-useGLTF.preload('/xr-scene-generator/models/HighGrass.glb')
+useGLTF.preload('/xr-scene-generator/models/Vegetations/HighGrass.glb')

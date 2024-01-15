@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 
 export const SquareTree = forwardRef((props, ref) => {
   const { nodes, materials } = useGLTF(
-    '/xr-scene-generator/models/SquareTree.glb',
+    '/xr-scene-generator/models/Trees/SquareTree.glb',
   )
   return (
     <group ref={ref} {...props} dispose={null}>
@@ -16,4 +16,4 @@ export const SquareTree = forwardRef((props, ref) => {
 })
 SquareTree.displayName = 'SquareTree'
 
-useGLTF.preload('/xr-scene-generator/models/SquareTree.glb')
+useGLTF.preload('/xr-scene-generator/models/Trees/SquareTree.glb')

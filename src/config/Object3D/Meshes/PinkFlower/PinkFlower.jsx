@@ -4,7 +4,7 @@ import { forwardPropsToGLTFChildren } from '@/utils/forwardPropsToGLTFChildren.j
 
 export const PinkFlower = forwardRef((props, ref) => {
   const { nodes, materials } = useGLTF(
-    '/xr-scene-generator/models/PinkFlower.glb',
+    '/xr-scene-generator/models/Vegetations/PinkFlower.glb',
   )
   forwardPropsToGLTFChildren(ref, props)
 
@@ -19,4 +19,4 @@ export const PinkFlower = forwardRef((props, ref) => {
 })
 PinkFlower.displayName = 'PinkFlower'
 
-useGLTF.preload('/xr-scene-generator/models/PinkFlower.glb')
+useGLTF.preload('/xr-scene-generator/models/Vegetations/PinkFlower.glb')

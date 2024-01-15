@@ -4,7 +4,7 @@ import { forwardPropsToGLTFChildren } from '@/utils/forwardPropsToGLTFChildren.j
 
 export const ArcCircleTree = forwardRef((props, ref) => {
   const { nodes, materials } = useGLTF(
-    '/xr-scene-generator/models/ArcCircleTree.glb',
+    '/xr-scene-generator/models/Trees/ArcCircleTree.glb',
   )
   forwardPropsToGLTFChildren(ref, props)
 
@@ -19,4 +19,4 @@ export const ArcCircleTree = forwardRef((props, ref) => {
 })
 ArcCircleTree.displayName = 'ArcCircleTree'
 
-useGLTF.preload('/xr-scene-generator/models/ArcCircleTree.glb')
+useGLTF.preload('/xr-scene-generator/models/Trees/ArcCircleTree.glb')

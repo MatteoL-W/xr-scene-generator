@@ -2,10 +2,12 @@ import { forwardRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { forwardPropsToGLTFChildren } from '@/utils/forwardPropsToGLTFChildren.js'
 
-useGLTF.preload('/xr-scene-generator/models/tori.glb')
+useGLTF.preload('/xr-scene-generator/models/Decorations/Tori.glb')
 
 export const Tori = forwardRef((props, ref) => {
-  const { nodes, materials } = useGLTF('/xr-scene-generator/models/tori.glb')
+  const { nodes, materials } = useGLTF(
+    '/xr-scene-generator/models/Decorations/Tori.glb',
+  )
   forwardPropsToGLTFChildren(ref, props)
 
   return (

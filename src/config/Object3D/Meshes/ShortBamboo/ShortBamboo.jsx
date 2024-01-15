@@ -4,7 +4,7 @@ import { forwardPropsToGLTFChildren } from '@/utils/forwardPropsToGLTFChildren.j
 
 export const ShortBamboo = forwardRef((props, ref) => {
   const { nodes, materials } = useGLTF(
-    '/xr-scene-generator/models/ShortBamboo.glb',
+    '/xr-scene-generator/models/Vegetations/ShortBamboo.glb',
   )
   forwardPropsToGLTFChildren(ref, props)
 
@@ -19,4 +19,4 @@ export const ShortBamboo = forwardRef((props, ref) => {
 })
 ShortBamboo.displayName = 'ShortBamboo'
 
-useGLTF.preload('/xr-scene-generator/models/ShortBamboo.glb')
+useGLTF.preload('/xr-scene-generator/models/Vegetations/ShortBamboo.glb')

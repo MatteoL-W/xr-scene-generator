@@ -13,6 +13,7 @@ export const Vase = forwardRef((props, ref) => {
       <mesh
         geometry={nodes.Vase_1B.geometry}
         material={materials.MainMaterial}
+        scale={2}
       />
     </group>
   )

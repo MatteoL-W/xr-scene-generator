@@ -4,7 +4,7 @@ import { forwardPropsToGLTFChildren } from '@/utils/forwardPropsToGLTFChildren.j
 
 export const IrregularFirTree = forwardRef((props, ref) => {
   const { nodes, materials } = useGLTF(
-    '/xr-scene-generator/models/IrregularFirTree.glb',
+    '/xr-scene-generator/models/Trees/IrregularFirTree.glb',
   )
   forwardPropsToGLTFChildren(ref, props)
 
@@ -19,4 +19,4 @@ export const IrregularFirTree = forwardRef((props, ref) => {
 })
 IrregularFirTree.displayName = 'IrregularFirTree'
 
-useGLTF.preload('/xr-scene-generator/models/IrregularFirTree.glb')
+useGLTF.preload('/xr-scene-generator/models/Trees/IrregularFirTree.glb')
