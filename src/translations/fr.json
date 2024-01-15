@@ -50,7 +50,11 @@
       "WhiteLantern": "Lanterne Blanche",
       "TraditionalWall": "Mur de château traditionnel",
       "TraditionalWallCorner": "Coin de Château Traditionnel",
-      "TraditionalWallPortal": "Portail de Château Traditionnel"
+      "TraditionalWallPortal": "Portail de Château Traditionnel",
+      "SpherePhong" :  "Sphère",
+      "CylinderPhong" :  "Cylindre",
+      "Plane" :  "Plan",
+      "TorusPhong" :  "Torus"
     },
     "lights": {
       "AmbientLight": "Lumière Ambiante",

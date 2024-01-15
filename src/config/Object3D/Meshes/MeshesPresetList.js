@@ -33,6 +33,10 @@ import { WhiteLanternPreset } from './WhiteLantern/WhiteLanternPreset.jsx'
 import { TraditionalWallPreset } from './TraditionalWall/TraditionalWallPreset.jsx'
 import { TraditionalWallCornerPreset } from './TraditionalWallCorner/TraditionalWallCornerPreset.jsx'
 import { TraditionalWallPortalPreset } from './TraditionalWallPortal/TraditionalWallPortalPreset.jsx'
+import { SpherePhongPreset } from './SpherePhong/SpherePhongPreset.jsx'
+import { CylinderPhongPreset } from '@/config/Object3D/Meshes/CylinderPhong/CylinderPhongPreset.jsx'
+import { PlanePreset } from '@/config/Object3D/Meshes/Plane/PlanePreset.jsx'
+import { TorusPhongPreset } from '@/config/Object3D/Meshes/TorusPhong/TorusPhongPreset.jsx'
 
 const meshesPresetList = [
   BoxPhongPreset,
@@ -70,6 +74,10 @@ const meshesPresetList = [
   TraditionalWallPreset,
   TraditionalWallCornerPreset,
   TraditionalWallPortalPreset,
+  SpherePhongPreset,
+  CylinderPhongPreset,
+  PlanePreset,
+  TorusPhongPreset,
 ]
 
 export default meshesPresetList

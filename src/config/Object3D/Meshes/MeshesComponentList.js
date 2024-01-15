@@ -1,5 +1,5 @@
-import { BigTori } from './BigTori/BigTori.jsx'
 import { BoxPhong } from './BoxPhong/BoxPhong.jsx'
+import { BigTori } from './BigTori/BigTori.jsx'
 import { Tori } from './Tori/Tori.jsx'
 import { FruityTree } from './FruityTree/FruityTree.jsx'
 import { ArcCircleTree } from './ArcCircleTree/ArcCircleTree.jsx'
@@ -33,11 +33,15 @@ import { WhiteLantern } from './WhiteLantern/WhiteLantern.jsx'
 import { TraditionalWall } from './TraditionalWall/TraditionalWall.jsx'
 import { TraditionalWallCorner } from './TraditionalWallCorner/TraditionalWallCorner.jsx'
 import { TraditionalWallPortal } from './TraditionalWallPortal/TraditionalWallPortal.jsx'
+import { SpherePhong } from './SpherePhong/SpherePhong.jsx'
+import { CylinderPhong } from '@/config/Object3D/Meshes/CylinderPhong/CylinderPhong.jsx'
+import { Plane } from '@/config/Object3D/Meshes/Plane/Plane.jsx'
+import { TorusPhong } from '@/config/Object3D/Meshes/TorusPhong/TorusPhong.jsx'
 
 export const meshesComponentList = {
+  BoxPhong,
   BigTori,
   Tori,
-  BoxPhong,
   FruityTree,
   ArcCircleTree,
   BonsaiTree,
@@ -70,4 +74,8 @@ export const meshesComponentList = {
   TraditionalWall,
   TraditionalWallCorner,
   TraditionalWallPortal,
+  SpherePhong,
+  CylinderPhong,
+  Plane,
+  TorusPhong,
 }

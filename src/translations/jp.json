@@ -51,7 +51,11 @@
       "WhiteLantern": "白い提灯",
       "TraditionalWall": "伝統的な城壁",
       "TraditionalWallCorner": "伝統的な城壁の角",
-      "TraditionalWallPortal": "伝統的な城壁のポータル"
+      "TraditionalWallPortal": "伝統的な城壁のポータル",
+      "SpherePhong": "球",
+      "CylinderPhong": "円柱",
+      "Plane": "平面",
+      "TorusPhong": "トーラス"
     },
     "lights": {
       "AmbientLight": "環境光",

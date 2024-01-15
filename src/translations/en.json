@@ -51,7 +51,11 @@
       "WhiteLantern": "White Lantern",
       "TraditionalWall": "Traditional Castle Wall",
       "TraditionalWallCorner": "Traditional Castle Corner",
-      "TraditionalWallPortal": "Traditional Castle Portal"
+      "TraditionalWallPortal": "Traditional Castle Portal",
+      "SpherePhong" :  "Sphere",
+      "CylinderPhong" :  "Cylinder",
+      "Plane" :  "Plane",
+      "TorusPhong" :  "Torus"
     },
     "lights": {
       "AmbientLight": "Ambient Light",
