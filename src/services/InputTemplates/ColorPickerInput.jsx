@@ -5,7 +5,7 @@ import useOutsideClick from '@/hooks/useOutsideClick.jsx'
 import useDebounce from '@/hooks/useDebounce.jsx'
 import Colorful from '@uiw/react-color-colorful'
 import PropTypes from 'prop-types'
-import { hexColorValidator } from '@/utils/typesValidator.jsx'
+import { hexColorValidator } from '@/utils/validator/hexColor.jsx'
 
 ColorPickerInput.propTypes = {
   propertyLabel: PropTypes.string.isRequired,

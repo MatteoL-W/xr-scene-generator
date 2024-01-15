@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { isHexColor } from '@/utils/typesTest.jsx'
+import { isHexColor } from '@/utils/regex/hexColor.jsx'
 import { ColorPickerInput } from './InputTemplates/ColorPickerInput.jsx'
 import { DefaultInput } from './InputTemplates/DefaultInput.jsx'
 import { ArrayInputs } from './InputTemplates/ArrayInputs.jsx'

@@ -1,4 +1,4 @@
-import { isHexColor } from './typesTest.jsx'
+import { isHexColor } from '../regex/hexColor.jsx'
 
 export function hexColorValidator(propValue, propName, componentName) {
   if (!isHexColor(propValue.propertyValue)) {
