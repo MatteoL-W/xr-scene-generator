@@ -15,6 +15,24 @@ import { PinkFlower } from './PinkFlower/PinkFlower.jsx'
 import { RedFlowers } from './RedFlowers/RedFlowers.jsx'
 import { Rock } from './Rock/Rock.jsx'
 import { TreeTrunk } from './TreeTrunk/TreeTrunk.jsx'
+import { Bear } from './Bear/Bear.jsx'
+import { Chicken } from './Chicken/Chicken.jsx'
+import { Deer } from './Deer/Deer.jsx'
+import { Eagle } from './Eagle/Eagle.jsx'
+import { Fox } from './Fox/Fox.jsx'
+import { Frog } from './Frog/Frog.jsx'
+import { Shiba } from './Shiba/Shiba.jsx'
+import { BigLantern } from './BigLantern/BigLantern.jsx'
+import { MediumShrineStatue } from './MediumShrineStatue/MediumShrineStatue.jsx'
+import { ShortBamboo } from './ShortBamboo/ShortBamboo.jsx'
+import { ShortBambooCurved } from './ShortBambooCurved/ShortBambooCurved.jsx'
+import { ShrineStatue } from './ShrineStatue/ShrineStatue.jsx'
+import { SmallLantern } from './SmallLantern/SmallLantern.jsx'
+import { Vase } from './Vase/Vase.jsx'
+import { WhiteLantern } from './WhiteLantern/WhiteLantern.jsx'
+import { TraditionalWall } from './TraditionalWall/TraditionalWall.jsx'
+import { TraditionalWallCorner } from './TraditionalWallCorner/TraditionalWallCorner.jsx'
+import { TraditionalWallPortal } from './TraditionalWallPortal/TraditionalWallPortal.jsx'
 
 export const meshesComponentList = {
   BigTori,
@@ -34,4 +52,22 @@ export const meshesComponentList = {
   PinkFlower,
   Rock,
   TreeTrunk,
+  Bear,
+  Chicken,
+  Deer,
+  Eagle,
+  Fox,
+  Frog,
+  Shiba,
+  BigLantern,
+  MediumShrineStatue,
+  ShortBamboo,
+  ShortBambooCurved,
+  ShrineStatue,
+  SmallLantern,
+  Vase,
+  WhiteLantern,
+  TraditionalWall,
+  TraditionalWallCorner,
+  TraditionalWallPortal,
 }

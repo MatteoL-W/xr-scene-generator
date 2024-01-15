@@ -39,7 +39,7 @@ export default function MeshesList() {
         return (
           <ul
             key={folderName}
-            className='mx-2 mb-1'
+            className='mx-2 mb-1 cursor-pointer'
             onClick={() => handleFolderClick(folderName)}
           >
             <div className='flex items-center'>

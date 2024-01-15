@@ -12,7 +12,8 @@
       "utils": "Outils",
       "trees": "Arbres",
       "decorations": "Décorations",
-      "vegetation": "Végétation"
+      "vegetation": "Végétation",
+      "animals": "Animaux"
     },
     "meshes": {
       "BigTori": "Grand Portail Japonais",
@@ -31,7 +32,25 @@
       "RedFlowers": "Fleurs Rouges",
       "PinkFlower": "Fleur Rose",
       "Rock": "Rocher",
-      "TreeTrunk": "Tronc d'Arbre"
+      "TreeTrunk": "Tronc d'Arbre",
+      "Bear": "Ours",
+      "Chicken": "Poulet",
+      "Deer": "Cerf",
+      "Eagle": "Oiseau",
+      "Fox": "Renard",
+      "Frog": "Grenouille",
+      "Shiba": "Shiba",
+      "BigLantern": "Grande Lanterne Rouge",
+      "MediumShrineStatue": "Petit Toro Japonais",
+      "ShortBamboo": "Bambou Court",
+      "ShortBambooCurved": "Bambou Court Courbé",
+      "ShrineStatue": "Toro Japonais",
+      "SmallLantern": "Petite Lanterne Rouge",
+      "Vase": "Vase",
+      "WhiteLantern": "Lanterne Blanche",
+      "TraditionalWall": "Mur de château traditionnel",
+      "TraditionalWallCorner": "Coin de Château Traditionnel",
+      "TraditionalWallPortal": "Portail de Château Traditionnel"
     },
     "lights": {
       "AmbientLight": "Lumière Ambiante",

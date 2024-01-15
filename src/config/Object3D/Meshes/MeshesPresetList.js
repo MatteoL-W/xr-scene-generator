@@ -15,6 +15,24 @@ import { PinkFlowerPreset } from './PinkFlower/PinkFlowerPreset.jsx'
 import { RedFlowersPreset } from './RedFlowers/RedFlowersPreset.jsx'
 import { RockPreset } from './Rock/RockPreset.jsx'
 import { TreeTrunkPreset } from './TreeTrunk/TreeTrunkPreset.jsx'
+import { BearPreset } from './Bear/BearPreset.jsx'
+import { ChickenPreset } from './Chicken/ChickenPreset.jsx'
+import { DeerPreset } from './Deer/DeerPreset.jsx'
+import { EaglePreset } from './Eagle/EaglePreset.jsx'
+import { FoxPreset } from './Fox/FoxPreset.jsx'
+import { FrogPreset } from './Frog/FrogPreset.jsx'
+import { ShibaPreset } from './Shiba/ShibaPreset.jsx'
+import { BigLanternPreset } from './BigLantern/BigLanternPreset.jsx'
+import { MediumShrineStatuePreset } from './MediumShrineStatue/MediumShrineStatuePreset.jsx'
+import { ShortBambooPreset } from './ShortBamboo/ShortBambooPreset.jsx'
+import { ShortBambooCurvedPreset } from './ShortBambooCurved/ShortBambooCurvedPreset.jsx'
+import { ShrineStatuePreset } from './ShrineStatue/ShrineStatuePreset.jsx'
+import { SmallLanternPreset } from './SmallLantern/SmallLanternPreset.jsx'
+import { VasePreset } from './Vase/VasePreset.jsx'
+import { WhiteLanternPreset } from './WhiteLantern/WhiteLanternPreset.jsx'
+import { TraditionalWallPreset } from './TraditionalWall/TraditionalWallPreset.jsx'
+import { TraditionalWallCornerPreset } from './TraditionalWallCorner/TraditionalWallCornerPreset.jsx'
+import { TraditionalWallPortalPreset } from './TraditionalWallPortal/TraditionalWallPortalPreset.jsx'
 
 const meshesPresetList = [
   BoxPhongPreset,
@@ -34,6 +52,24 @@ const meshesPresetList = [
   RedFlowersPreset,
   RockPreset,
   TreeTrunkPreset,
+  BearPreset,
+  ChickenPreset,
+  DeerPreset,
+  EaglePreset,
+  FoxPreset,
+  FrogPreset,
+  ShibaPreset,
+  BigLanternPreset,
+  MediumShrineStatuePreset,
+  ShortBambooPreset,
+  ShortBambooCurvedPreset,
+  ShrineStatuePreset,
+  SmallLanternPreset,
+  VasePreset,
+  WhiteLanternPreset,
+  TraditionalWallPreset,
+  TraditionalWallCornerPreset,
+  TraditionalWallPortalPreset,
 ]
 
 export default meshesPresetList

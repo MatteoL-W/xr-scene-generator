@@ -12,7 +12,9 @@
       "utils": "Utils",
       "trees": "Trees",
       "decorations": "Decorations",
-      "vegetation": "Vegetation"
+      "vegetation": "Vegetation",
+      "animals": "Animals",
+      "constructions": "Constructions"
     },
     "meshes": {
       "BigTori": "Big Japanese Gate",
@@ -31,7 +33,25 @@
       "RedFlowers": "Red Flowers",
       "PinkFlower": "Pink Flower",
       "Rock": "Rock",
-      "TreeTrunk": "Tree Trunk"
+      "TreeTrunk": "Tree Trunk",
+      "Bear": "Bear",
+      "Chicken": "Chicken",
+      "Deer": "Deer",
+      "Eagle": "Bird",
+      "Fox": "Fox",
+      "Frog": "Frog",
+      "Shiba": "Shiba",
+      "BigLantern": "Big Red Lantern",
+      "MediumShrineStatue": "Japanese Small Toro",
+      "ShortBamboo": "Short Bamboo Stick",
+      "ShortBambooCurved": "Short Bamboo Curved Stick",
+      "ShrineStatue": "Japanese Toro",
+      "SmallLantern": "Small Red Lantern",
+      "Vase": "Vase",
+      "WhiteLantern": "White Lantern",
+      "TraditionalWall": "Traditional Castle Wall",
+      "TraditionalWallCorner": "Traditional Castle Corner",
+      "TraditionalWallPortal": "Traditional Castle Portal"
     },
     "lights": {
       "AmbientLight": "Ambient Light",

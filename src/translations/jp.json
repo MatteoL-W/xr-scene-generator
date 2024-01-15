@@ -12,7 +12,9 @@
       "utils": "ユーティリティ",
       "trees": "木々",
       "decorations": "装飾",
-      "vegetation": "植生"
+      "vegetation": "植生",
+      "animals": "動物",
+      "constructions": "建造物"
     },
     "meshes": {
       "BigTori": "大きな鳥居",
@@ -31,7 +33,25 @@
       "RedFlowers": "赤い花",
       "PinkFlower": "ピンクの花",
       "Rock": "岩",
-      "TreeTrunk": "木の幹"
+      "TreeTrunk": "木の幹",
+      "Bear": "クマ",
+      "Chicken": "チキン",
+      "Deer": "シカ",
+      "Eagle": "鳥",
+      "Fox": "キツネ",
+      "Frog": "カエル",
+      "Shiba": "柴犬",
+      "BigLantern": "大きな赤提灯",
+      "MediumShrineStatue": "小さな日本の鳥居",
+      "ShortBamboo": "短い竹の棒",
+      "ShortBambooCurved": "短い曲がった竹の棒",
+      "ShrineStatue": "日本の鳥居",
+      "SmallLantern": "小さな赤提灯",
+      "Vase": "花瓶",
+      "WhiteLantern": "白い提灯",
+      "TraditionalWall": "伝統的な城壁",
+      "TraditionalWallCorner": "伝統的な城壁の角",
+      "TraditionalWallPortal": "伝統的な城壁のポータル"
     },
     "lights": {
       "AmbientLight": "環境光",
