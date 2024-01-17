@@ -8,7 +8,7 @@ export const PointLightPreset = {
   parameters: {
     color: '#000000',
     intensity: 1,
-    distance: 1,
+    distance: 0,
     decay: 2,
   },
   args: {
