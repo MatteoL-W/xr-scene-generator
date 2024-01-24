@@ -31,3 +31,14 @@ To start the application, use the npm start command.
 ```bash
 npm run dev
 ```
+
+## Models used
+
+The models used for the project are the following:
+
+- [Japanese Gates "Torii" (Low Poly)](https://sketchfab.com/3d-models/japanese-gates-torii-low-poly-9d95c8e54c2b436f85a21b0f2288afe7) by Larolei Low Poly
+- [Low Poly Japan 1](https://sketchfab.com/3d-models/low-poly-japan-1-ca2c71b088144fa09901ab74a28b0ba7) by Marcel van Duijn
+- [Low Poly Nature Pack Free](https://sketchfab.com/3d-models/low-poly-nature-pack-free-80d37fc6bce84ae6884885fff0cbaba8) by _Alexandr
+- [25 Animals Pack](https://sketchfab.com/3d-models/25-animals-pack-51fbdc1e116f46b1b8c9dc0092d09c8f) by MadTrollStudio
+
+Thanks to the creators for these quality resources.
